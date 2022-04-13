@@ -1,0 +1,58 @@
+{
+  "name": "itx-marketing-pj",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.2.4",
+    "@mui/material": "^5.2.4",
+    "@storybook/react": "^5.2.6",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.25.0",
+    "browserslist": "^4.6.3",
+    "gsap": "^3.8.0",
+    "install": "^0.13.0",
+    "npm": "^8.3.0",
+    "npm-force-resolutions": "^0.0.10",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-error-overlay": "^6.0.10",
+    "react-pdf": "^5.7.2",
+    "react-responsive": "^9.0.0-beta.5",
+    "react-router": "^6.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "reset-css": "^5.0.1",
+    "scrollmagic": "^2.0.8",
+    "styled-components": "^5.3.3",
+    "swiper": "^6.8.4",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "start": "set PORT=9090 && react-scripts start",
+    "build": "CI= react-scripts build",
+    "dev": "react-scripts dev",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
