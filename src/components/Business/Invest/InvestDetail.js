@@ -14,32 +14,34 @@ function InvestDetail({data}) {
           </SectionTitle>
         </TitleWrap>
         <ContentsWrap>
-          <TopContents>
-            <h2>{data.title}</h2>
-            <p>{data.hash}</p>
-          </TopContents>
-            <div className='img-wrap'>
-              <img src={data.img} alt={data.title} />
-            </div>
-            <div className='text-wrap'>
-              <p>{data.contents}</p>
-              <p>{data.contents2}</p>
-            </div>
-            <KakaoUrlForm>
-              <input type='text' placeholder='광고성 배너'/>
-              <InputWrap>
-                <input type='text' placeholder='공유하기'/>
-                <input type='text' placeholder='목록'/>
-              </InputWrap>
-              <div className='keyword'>
-                <span>키워드</span>
-                <HashTag name={data.keyword1} />
-                <HashTag name={data.keyword2} />
-                <HashTag name={data.keyword3} />
+          <div>
+            <TopContents>
+              <h2>{data.title}</h2>
+              <p>{data.hash}</p>
+            </TopContents>
+              <div className='img-wrap'>
+                <img src={data.img} alt={data.title} />
               </div>
-            </KakaoUrlForm>
-          </ContentsWrap>
-        </>
+              <div className='text-wrap'>
+                <p>{data.contents}</p>
+                <p>{data.contents2}</p>
+              </div>
+              <KakaoUrlForm>
+                <input type='text' placeholder='광고성 배너'/>
+                <InputWrap>
+                  <input type='text' placeholder='공유하기'/>
+                  <input type='text' placeholder='목록'/>
+                </InputWrap>
+                <div className='keyword'>
+                  <span>키워드</span>
+                  <HashTag name={data.keyword1} />
+                  <HashTag name={data.keyword2} />
+                  <HashTag name={data.keyword3} />
+                </div>
+              </KakaoUrlForm>
+            </div>
+        </ContentsWrap>
+      </>
       ) : null}
     </>
   ); 
@@ -48,12 +50,8 @@ function InvestDetail({data}) {
 export default InvestDetail;
 
 const ContentsWrap = styled.div`
-  width: 45.10416666666667%;
-  transform: translateX(50%);
-  margin: 4.8% 6.9%;
-  padding: 0 6.4%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   /* height: 1307px; */
@@ -68,12 +66,21 @@ const ContentsWrap = styled.div`
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); 
   } */
 
+  > div {
+    width: 50%;
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   
   .img-wrap {
 
   }
   .text-wrap {
+    width: 600px;
     padding: 5% 14% 5% 0;
     > p {
       padding-bottom: 5%;
@@ -115,7 +122,7 @@ const TitleWrap = styled.div`
   }
 `;
 const KakaoUrlForm = styled.form`
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
 
