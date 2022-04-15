@@ -18,6 +18,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: 'none'
   },
   {
     id: '11',
@@ -34,6 +36,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '10',
@@ -50,6 +54,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '9',
@@ -66,6 +72,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '8',
@@ -82,6 +90,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '7',
@@ -98,6 +108,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '6',
@@ -114,6 +126,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '5',
@@ -130,6 +144,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '4',
@@ -146,6 +162,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '3',
@@ -162,6 +180,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '2',
@@ -178,6 +198,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: '',
+    next: ''
   },
   {
     id: '1',
@@ -194,6 +216,8 @@ export const Data = [
     keyword1: '보험플러스',
     keyword2: '대장내시경',
     keyword3: '건강검진',
+    prev: 'none',
+    next: ''
   },
 ];
 

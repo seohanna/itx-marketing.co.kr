@@ -144,7 +144,7 @@ const circle2 = [
   },
 ];
 
-const Contents = ({slogan, disc, intro, service}) => {
+const Contents = ({slogan, disc, intro, service, id}) => {
 
   useEffect(() => {
     const fadeEls = document.querySelectorAll('.fade-el');
@@ -208,7 +208,7 @@ const Contents = ({slogan, disc, intro, service}) => {
               </RightWrap>
             </BottomContents>
           </SectionWrap>
-          <SectionWrap intro>
+          <SectionWrap intro id={id}>
             <div>
               <TextWrap title>
                 <h1><strong>기업컨설팅 프로세스</strong></h1>

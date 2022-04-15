@@ -41,7 +41,6 @@ function Pagination({
 export default Pagination;
 
 const Nav = styled.div`
-  padding: 0% 0 3% 0;
   width: 100%;
 
   @media(max-width: 700px) {
@@ -72,6 +71,7 @@ const ButtonUl = styled.ul`
   display: flex;
   justify-content: center;
   flex-direction: row;
+  padding: 7% 0 3.76% 0;
 `;
 const ButtonLi = styled.li`
 

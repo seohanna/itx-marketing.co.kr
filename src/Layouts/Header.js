@@ -372,22 +372,19 @@ const Header = (props) => {
               >상속증여연구소
                 <ul className="sub-menu">
                   <li><a href='/inherit'>연구소 소개</a></li>
-                  <li><a href='/inherit/service'>서비스</a></li>
                   <li><a href='/inherit/expert'>전문가 그룹</a></li>
                   <li><a href='/inherit/apply'>상담신청</a></li>
                 </ul>
               </li>
               <li onClick={activeMethod}>
-                고객센터
+                <a href='/customer'>고객센터</a>
                 <ul
                   className="sub-menu">
                   <li><a href='/intro/summary'>로그인</a></li>
                   <li><a href='/intro/partners'>회원가입</a></li>
                   <li><a href='/intro/recruit'>FAQ</a></li>
                   <li><a href='/intro/contact'>1:1 문의</a></li>
-                  <li><a href='/intro/contact'>QnA</a></li>
-                  <li><a href='/intro/contact'>사이트맵</a></li>
-
+                  <li><a href='/intro/contact'>FAQ</a></li>
                 </ul>
               </li>
             </ul>

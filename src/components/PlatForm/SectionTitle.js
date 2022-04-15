@@ -8,7 +8,7 @@ const Title = styled.h2`
   color: #1A1A1A;
   padding: 8.07% 0 0.7% 0;
 
-  > strong {
+   strong {
       color: #C22229;
     }
   > span {

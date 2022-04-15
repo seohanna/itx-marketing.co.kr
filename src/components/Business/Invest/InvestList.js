@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import HashTag from './HashTag';
-
 import Pagination from './Pagination';
-// import { useLocation } from 'react-router-dom';
 import InvestTable from './InvestTable';
 import { Link } from 'react-router-dom';
 
@@ -28,10 +25,9 @@ function InvestList({data}) {
             <>{currentPosts.map((dt) => (
               <li key={dt.id}>
                 <RouteImage>
-                  <Link to={`/business/invest/${dt.id}`}>
-                    <div className='img-wrap'>
+                  <Link 
+                    to={`/business/invest/${dt.id}`}>
                       <img src={dt.img} alt='보험' />
-                    </div>
                   </Link>
                 </RouteImage>
                 <h2>{dt.title}</h2>
@@ -42,15 +38,6 @@ function InvestList({data}) {
             ))}</>) : ''
           }
         </DataList>
-        <HashWrap>
-          <StyledLink to='#'>
-            <HashTag name='프롬이 보험이야기' link/>
-          </StyledLink>
-          <HashTag name='보험칼럼' />
-          <HashTag name='병원라운지' />
-          <HashTag name='보험플러스' />
-          <HashTag name='재테크' />
-        </HashWrap>
         <Pagination 
           postPerPage={postsPerPage} 
           totalPosts={data.length} 
@@ -74,11 +61,10 @@ const DataList = styled.ul`
   justify-content: space-between;
 
   > li {
-    width: 30.8641975308642vw;
-    .img-wrap {
-      max-width: 100%;
-      height: 320px;
-    }
+    width: 30.8641975308642%;
+    display: flex;
+    flex-direction: column;
+    
     > h2 {
       font-size: 1.25rem;
       white-space: pre;
@@ -99,16 +85,11 @@ const DataList = styled.ul`
 `;
 
 const RouteImage = styled.div`
-   width: 400px;
+   display: flex;
+   align-items: flex-start;
+   height: 100%;
+   padding-bottom: 5%;
    cursor: pointer;
    
 `;
 
-const HashWrap = styled.div`
-  display: flex;
-  padding: 5% 0;
-`;
-
-const StyledLink = styled(Link)`
-  display: flex;
-`;

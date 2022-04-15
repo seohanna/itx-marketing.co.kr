@@ -12,7 +12,7 @@ const SubMenu = ({list4}) => {
           disc={'대기업의 경영전략실 그 이상의 전략과 솔루션\n성공하는 기업의 winning 파트너\n아이티엑스마케팅 기업컨설팅'}
           link1='/corporation/service'
           link2='/corporation/expert'
-          link3='/corporation/ddd'
+          coporation
         />
         <TitleBox title="기업컨설팅" left="0" list4={list4} />
       </BannerContain>

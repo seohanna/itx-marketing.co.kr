@@ -4,10 +4,13 @@ import Overay from './Overay';
 import mobileBanner from '../img/sub/coporExpertBannerMb.png'
 
 const CommonBanner = ({
-  apply, corpor, inherit, corporexpert, inherexpert, strong, title, subtxt, img
+  apply, corpor, inherit, corporexpert, 
+  inherexpert, strong, title, subtxt, img,
+  customer
 }) => {
   return (
-    <BannerContainer 
+    <BannerContainer
+      customer={customer}
       apply={apply} 
       corpor={corpor}
       corporexpert={corporexpert}
@@ -46,6 +49,10 @@ const BannerContainer = styled.section`
 
   ${props => props.inherit && css`
     background-position: 0 12%;
+  `}
+
+  ${props => props.customer && css`
+    background-position: 0 35%;
   `}
 
 

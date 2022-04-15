@@ -16,7 +16,7 @@ function EventSection({
       new ScrollMagic
         .Scene({
           triggerElement: fadeEl,
-          triggerHook: .5
+          triggerHook: 1
         })
         .setClassToggle(fadeEl, 'show')
         .addTo(new ScrollMagic.Controller());

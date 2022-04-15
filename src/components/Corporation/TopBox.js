@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import flatformLink from '../../img/sub/flatformLink.svg';
 import gear from '../../img/sub/gear.svg';
 
-const TopBox = ({link1, link2, link3, disc, inherit}) => {
+const TopBox = ({link1, link2, disc, inherit, coporation}) => {
   const activeStyle = { background: "#C22229" };
 
   return (
@@ -14,6 +14,7 @@ const TopBox = ({link1, link2, link3, disc, inherit}) => {
           <p>{disc}</p>
         </div>
         {inherit && (
+        <>
           <div className="gear-contaienr">
             <GearIcon className="first-gear">
               <span>{'불필요한\n분쟁예방'}</span>
@@ -25,37 +26,54 @@ const TopBox = ({link1, link2, link3, disc, inherit}) => {
               <span>{'상속세\n재원마련'}</span>
             </GearIcon>
           </div>
+          <ListBox>
+            <li>
+              <StyledLink
+                  to={link1}
+                  activeStyle={activeStyle}
+                >
+                  <h3>전문가 그룹</h3>
+                  <img src={flatformLink} alt="전문가 그룹" />
+                </StyledLink>
+            </li>
+            <li>
+              <a href='#process'>
+                <h3>프로세스</h3>
+                <img src={flatformLink} alt="프로세스" />
+              </a>
+            </li>
+          </ListBox>
+        </>
         )}
-        <ListBox>
+       {coporation && (
+          <ListBox>
           <li>
-            <StyledLink
-              exact
-              to={link1}
-              activeStyle={activeStyle}
-            >
-              <h3>서비스</h3>
-              <img src={flatformLink} alt="서비스" />
-            </StyledLink>
-          </li>
-          <li>
-            <StyledLink
-              to={link2}
-              activeStyle={activeStyle}
-            >
-              <h3>전문가 그룹</h3>
-              <img src={flatformLink} alt="전문가 그룹" />
-            </StyledLink>
-          </li>
-          <li>
-            <StyledLink
-              to={link3}
-              activeStyle={activeStyle}
-            >
-              <h3>프로세스</h3>
-              <img src={flatformLink} alt="프로세스" />
-            </StyledLink>
-          </li>
+              <StyledLink
+                exact
+                to={link1}
+                activeStyle={activeStyle}
+              >
+                <h3>서비스</h3>
+                <img src={flatformLink} alt="서비스" />
+              </StyledLink>
+            </li>
+            <li>
+              <StyledLink
+                to={link2}
+                activeStyle={activeStyle}
+              >
+                <h3>전문가 그룹</h3>
+                <img src={flatformLink} alt="전문가 그룹" />
+              </StyledLink>
+            </li>
+            <li>
+              <a href='#process'>
+                <h3>프로세스</h3>
+                <img src={flatformLink} alt="프로세스" />
+              </a>
+            </li>
         </ListBox>
+       )}
       </GrayBox>
     </Container>
   );
@@ -117,6 +135,21 @@ const ListBox = styled.ul`
     :last-child{
       margin-right: 0;
     }
+
+    > a {
+      background-color: #B8292D;
+      color: #FFFFFF;
+      height: 60px;
+      padding: 8.095238095238095%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      > h3 {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+    }
   }
   @media (max-width: 700px) {
     flex-direction: column;
@@ -126,6 +159,13 @@ const ListBox = styled.ul`
       width: 120px;
       margin-right: 0%;
       margin-bottom: 5.4%;
+
+      > a {
+        height: 30px;
+        > h3 {
+          font-size: 0.625rem;
+        }
+      }
     }
   }
 `;

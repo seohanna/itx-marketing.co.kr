@@ -7,7 +7,7 @@ import bigArrow from '../../img/sub/bigArrowIcon.png';
 
 
 
-const Contents = ({intro, service}) => {
+const Contents = ({intro, service, id}) => {
   return (
     <Container>
       {intro && (
@@ -120,7 +120,7 @@ const Contents = ({intro, service}) => {
               </Table>
             </div>
           </SectionContainer>
-          <SectionContainer>
+          <SectionContainer id={id}>
             <IconContainer>
               <img src={icon3} alt='서비스 프로세스' />
               <h2>서비스 프로세스</h2>

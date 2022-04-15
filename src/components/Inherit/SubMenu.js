@@ -4,16 +4,14 @@ import TopBox from "../Corporation/TopBox";
 import TitleBox from "../TitleBox";
 
 
-const SubMenu = ({list4, disc, inherit}) => {
+const SubMenu = ({ list4, disc }) => {
   return (
     <Container>
       <BannerContain>
         <TopBox 
           disc={disc}
-          link1='/inherit/service'
-          link2='/inherit/expert'
-          link3='/inherit/ddd'
-          inherit={inherit}
+          link1='/inherit/expert'
+          inherit
         />
         <TitleBox title={"건간항\n상속증여연구소"} left="0" list4={list4} inherit />
       </BannerContain>

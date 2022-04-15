@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import selectBoxIcon from '../../../img/sub/selectboxIcon.svg';
+import { Link } from 'react-router-dom';
 
 function InvestTable({data}) {
   const [selected, setSelected] = useState('total');
@@ -45,7 +46,7 @@ function InvestTable({data}) {
           <tr>
             <td className='index'>{dt.idx}</td>
             <td>{dt.type}</td>
-            <td className='title'>{dt.title}</td>
+            <td className='title'><Link to={`/business/invest/${dt.id}`}>{dt.title}</Link></td>
             <td>{dt.writer}</td>
             <td>{dt.date}</td>
             <td>{dt.hit}</td>

@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
 import theme from "./components/Theme";
 import GlobalStyle from './components/GlobalStyle'
-
+import Customer from './pages/Customer'
 import Home from './pages/Home';
 import Summary from './pages/Summary';
 import Recruit from './pages/Recruit';
@@ -31,17 +31,19 @@ function App() {
           <Route exact path="/business/platform" component={PlatForm} />
           <Route exact path="/business/platform/:pagename" component={PlatForm} />
           <Route exact path="/business/invest" component={Invest} />
+          <Route exact path="/business/invest/story/:id" component={Invest} />
           <Route exact path="/business/invest/:id" component={Invest} />
           <Route exact path="/business/apply" component={Apply} />
           <Route exact path="/business/apply?2" component={Apply} />
           <Route exact path="/business/apply?3" component={Apply} />
           <Route exact path="/corporation/apply" component={Apply} />
           <Route exact path="/inherit/apply" component={Apply} />
-
           <Route exact path="/corporation" component={Corporation} />
           <Route exact path="/corporation/:pagename" component={Corporation} />
           <Route exact path="/inherit" component={Inherit} />
           <Route exact path="/inherit/:pagename" component={Inherit} />
+          <Route exact path="/customer" component={Customer} />
+    
         </BrowserRouter>
     </ThemeProvider>
   );
