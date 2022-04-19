@@ -15,6 +15,7 @@ import Invest from "./pages/Invest";
 import Apply from "./pages/Apply";
 import Corporation from './pages/Corporation';
 import Inherit from './pages/Inherit';
+import Faq from "./pages/Faq";
 
 function App() {
   
@@ -43,7 +44,9 @@ function App() {
           <Route exact path="/inherit" component={Inherit} />
           <Route exact path="/inherit/:pagename" component={Inherit} />
           <Route exact path="/customer" component={Customer} />
-    
+          <Route exact path="/customer/:id" component={Customer} />
+          <Route exact path="/faq" component={Faq} />
+          <Route exact path="/faq?id" component={Faq} />
         </BrowserRouter>
     </ThemeProvider>
   );

@@ -14,8 +14,10 @@ import ApplyForm from '../components/Business/Apply/ApplyForm';
 const Apply = () => {
   const location = useLocation();
   return (
-    <Layout>
-      {location.pathname === '/business/apply' ? (
+    <>
+      {location.pathname === '/business/apply' && (
+        <>
+        <Layout>
         <CommonBanner
           apply
           img={bannerImg}
@@ -23,27 +25,6 @@ const Apply = () => {
           title='usiness 상담문의'
           subtxt='비지니스 플랫폼'
         />
-      ) : 
-      <>
-      {location.pathname === '/corporation/apply' ? (
-        <CommonBanner
-          apply
-          img={bannerImg}
-          title='상담신청'
-          subtxt='기업컨설팅 상담신청'
-        />
-      ) : (
-        <CommonBanner
-          apply
-          img={bannerImg}
-          title='상담신청'
-          subtxt='상속증여연구소 상담신청'
-        />)
-      }</>}
-
-
-      {location.pathname === '/business/apply' && (
-      <>
         <EventSection 
           thin='+ '
           title='상담문의'
@@ -77,10 +58,17 @@ const Apply = () => {
               <ApplyForm name='business-expert-join'/>
             )}
           </BottomWrap>
+          </Layout>
         </>
       )}
-      {location.pathname === '/corporation/apply' && (
+       {location.pathname === '/corporation/apply' && (
       <>
+        <CommonBanner
+          apply
+          img={bannerImg}
+          title='상담신청'
+          subtxt='기업컨설팅 상담신청'
+        />
         <EventSection 
           thin='+ '
           title='법인컨설팅 신청'
@@ -98,7 +86,13 @@ const Apply = () => {
         </>
       )}
       {location.pathname === '/inherit/apply' && (
-      <>
+        <>
+        <CommonBanner
+          apply
+          img={bannerImg}
+          title='상담신청'
+          subtxt='상속증여연구소 상담신청'
+        />
         <EventSection 
           thin='+ '
           title='건강한상속증여 상담신청'
@@ -115,7 +109,7 @@ const Apply = () => {
           </BottomWrap>
         </>
       )}
-    </Layout>
+    </>
   );
 };
 
@@ -144,8 +138,8 @@ const PartitionBox = styled.div`
       }
       p {
         font-size: 0.625rem;
-        line-height: 0.921875rem;
-        padding: 11.4% 0;
+        line-height: 1rem;
+        padding: 5% 0;
       }
     }
     > div:first-child {
@@ -173,19 +167,20 @@ const TextWrap = styled.div`
   }
 
   @media(max-width: 700px) {
-    padding: 10% 0 0 0;
-
+    padding: 0;
+    width: 100%;
     > h2 {
       font-size: 1rem;
+      padding: 9% 0;
       line-height: 1.3rem;
       .mobile {
         display: block;
       }
     }
     > p {
-      padding-top: 10%;
+      padding-top: 0;
       font-size: 0.625rem;
-      line-height: 0.9rem;
+      line-height: 1rem;
     }
   }
 `;

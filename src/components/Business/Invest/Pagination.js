@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import { ReactComponent as EndPageBtn } from "../../../img/sub/pagination.svg";
+
 function Pagination({ 
-  postPerPage, totalPosts, paginate }) {
+  postPerPage, totalPosts, paginate, pc, mobile}) {
   const [active, setActive] = useState(1);
   const pageNumbers = [];
+
   for (let i = 1; i <= Math.ceil(totalPosts / postPerPage); i++) {
     pageNumbers.push(i);
   }
-  
-  console.log(totalPosts)
+
   const activeStyle = (n) => {
     paginate(n);
     setActive(n);
@@ -35,16 +36,15 @@ function Pagination({
         </LastButton>
       </ButtonUl>
     </Nav>
-  )
-}
-
+  );
+};
 export default Pagination;
 
 const Nav = styled.div`
   width: 100%;
-
   @media(max-width: 700px) {
     padding: 11% 0;
+    display: none;
   }
 `;
 
@@ -74,10 +74,12 @@ const ButtonUl = styled.ul`
   padding: 7% 0 3.76% 0;
 `;
 const ButtonLi = styled.li`
-
+  display: flex;
 `;
 
 const LastButton = styled.button`
   width: 30px;
   height: 30px;
+
 `;
+

@@ -72,7 +72,7 @@ function ApplyForm({
         )}
 
         <CheckBoxContainer>
-          <CheckBox onClick={openModal}/>
+          <CheckBox onClick={openModal} apply />
         </CheckBoxContainer>
         <ButtonContainer>
           <Button size={'md2'}>상담하기 &#62;&#62;</Button>

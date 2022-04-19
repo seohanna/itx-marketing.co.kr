@@ -1,52 +1,47 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
 import CommonBanner from '../components/CommonBanner';
 import Layout from '../Layouts/Layout';
 import bannerImg from '../img/sub/customerBanner.png';
-// import { useLocation } from 'react-router-dom';
-// import { getPostByNo } from '../data/InvestData';
-import SectionTitle from '../components/PlatForm/SectionTitle';
+import customer from '../img/sub/customer.png';
+import BorderTitleSection from '../components/Customer/BorderTitleSection';
+import { useLocation } from 'react-router-dom';
+import Notice from '../components/Customer/Notice';
+import NoticeDetail from '../components/Customer/NoticeDetail';
+import { getPostByNo } from '../data/Notice';
 
-const Customer = ({ match }) => {
-  // const [ data, setData ] = useState({});
-  // const { id } = match.params;
-  // const location = useLocation();
+const Customer = ({match}) => {
+  const location = useLocation();
+  const [ data, setData ] = useState({});
+  const { id } = match.params;
 
+  console.log(id)
   useEffect(() => {
-    
-    // setData(getPostByNo(id));
-  }, []);
+    setData(getPostByNo(id));
+    window.scrollTo(0, 1000)
+  }, [id]);
   return (
     <Layout>
-      <CommonBanner
-        img={bannerImg}
-        title='ITX 공지사항'
-        customer
-        subtxt='다양한 소식을 알려드립니다.'
-      />
-       <TitleWrap>
-          <SectionTitle>
-            <span>+ </span>
-            공지사항
-          </SectionTitle>
-       </TitleWrap>
-       <TitleBanner>
-         <div className='img-wrap'>
-          
-         </div>
-       </TitleBanner>
-      </Layout>      
+        <>
+          <CommonBanner
+            img={bannerImg}
+            title='ITX 공지사항'
+            customer
+            subtxt='다양한 소식을 알려드립니다.'
+          />
+          <BorderTitleSection 
+            img={customer} 
+            disc={'아이티엑스마케팅의\n다양한 소식을 전해 드립니다.'}
+            title='공지사항'
+          />
+        </>
+      
+      {location.pathname === `/customer/${id}` ? (
+        <NoticeDetail data={data} />
+      ) : <Notice />}
+      
+    </Layout>
     );
   };
 
 export default Customer;
 
-const TitleWrap = styled.div`
-  padding-left: 11.25%;
-  width: 100%;
-`;
-
-
-const TitleBanner = styled.div`
-
-`;

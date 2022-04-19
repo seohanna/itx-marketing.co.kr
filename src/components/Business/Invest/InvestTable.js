@@ -34,22 +34,22 @@ function InvestTable({data}) {
         <thead>
           <tr>
             <th>번호</th>
-            <th>구분</th>
+            <th className='type'>구분</th>
             <th>제목</th>
-            <th>작성자</th>
+            <th className='writer'>작성자</th>
             <th>등록일</th>
-            <th>조회수</th>
+            <th className='hits'>조회수</th>
           </tr>
         </thead>
         {inquiries.map((dt) => (
         <tbody>
           <tr>
             <td className='index'>{dt.idx}</td>
-            <td>{dt.type}</td>
+            <td className='type'>{dt.type}</td>
             <td className='title'><Link to={`/business/invest/${dt.id}`}>{dt.title}</Link></td>
-            <td>{dt.writer}</td>
-            <td>{dt.date}</td>
-            <td>{dt.hit}</td>
+            <td className='writer'>{dt.writer}</td>
+            <td className='date'>{dt.date}</td>
+            <td className='hits'>{dt.hit}</td>
           </tr>
         </tbody>
         ))}
@@ -77,6 +77,10 @@ const Layout = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 700px) {
+    padding: 10% 0 25% 0;
+  }
 `;
 const Table = styled.table`
   width: 100%;
@@ -87,9 +91,18 @@ const Table = styled.table`
     height: 50px;
     background-color: #F5F5F5;
     color: #323232;
-
+   
     th {
       font-size: 0.6rem;
+    }
+    @media (max-width: 700px) {
+      th {
+        font-size: 0.625rem;
+        height: 40px;
+      }
+      .type, .writer, .hits {
+        display: none;
+      }
     }
   }
   tbody {
@@ -109,6 +122,28 @@ const Table = styled.table`
     }
     .index {
       width: 8.194444444444444%;
+    }
+
+    @media (max-width: 700px) {
+      .type, .writer, .hits {
+        display: none;
+      }
+      td {
+        font-size: 0.625rem;
+        height: 50px;
+      }
+      .index, .date {
+        width: 25%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .title {
+        width: 50%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
   }
 
@@ -141,5 +176,16 @@ const SearchBox = styled.div`
     height: 30px;
     font-size: 0.75rem;
     color: #444444;
+  }
+
+  @media (max-width: 700px) {
+    select {
+      width: 106px;
+      font-size: 0.8125rem;
+      background: url(${selectBoxIcon}) calc(100% - 8px) center no-repeat;
+    }
+    input {
+      width: 200px;
+    }
   }
 `;

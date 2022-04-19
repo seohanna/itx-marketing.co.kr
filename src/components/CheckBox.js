@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import checkIcon from "../img/common/checkIcon.svg";
 import checkedIcon from "../img/common/checkedIcon.svg";
 
@@ -9,7 +9,7 @@ function CheckBox({onClick, apply}) {
     <InputWrap apply={apply}>
       <input type="checkbox" id="agree" />
       <label for="agree">개인정보수집 및 이용동의서</label>
-      <Button onClick={onClick}>보기</Button>
+      <Button apply onClick={onClick}>보기</Button>
     </InputWrap>
   )
 }
@@ -31,6 +31,11 @@ const InputWrap = styled.div`
     @media(max-width: 700px) {
       font-size: 0.625rem;
       line-height: 1.25rem;
+
+      ${props => props.apply && css`
+        font-size: 0.8125rem;
+        line-height: 1.5rem;
+      `}
     }
   }
   input[type="checkbox"] + label::before{
@@ -46,6 +51,11 @@ const InputWrap = styled.div`
     @media(max-width: 700px) {
       width: 20px;
       height: 20px;
+
+      ${props => props.apply && css`
+        width: 22px;
+        height: 24px;
+      `}
     }
   }
   input[type="checkbox"]:checked + label::before{
@@ -70,5 +80,11 @@ const Button = styled.div`
     width: 40px;
     height: 20px;
     font-size: 0.625rem;
+
+    ${props => props.apply && css`
+      width: 51px;
+      height: 30px;
+      font-size: 0.8125rem;
+    `}
   }
 `;

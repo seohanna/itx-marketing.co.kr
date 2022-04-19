@@ -33,5 +33,10 @@ const HashBox = styled.div`
     background-color: #C22229;
     color: #FFFFFF;
   `}
-
+  @media (max-width: 700px) {
+    font-size: 0.625rem;
+    padding: 1.8% 4%;
+    margin-right: 15px;
+    height: 25px;    
+  }
 `;

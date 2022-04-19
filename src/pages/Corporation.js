@@ -12,8 +12,9 @@ import BorderTitleSection from '../components/Corporation/BorderTitleSection';
 const Corporation = () => {
   const location = useLocation();
   return (
-    <Layout>
-      {location.pathname === '/corporation' ? (
+    <>
+      <Layout>
+      {location.pathname === '/corporation' && (
         <>
           <CommonBanner
             img={corporation}
@@ -28,9 +29,9 @@ const Corporation = () => {
             id='process'
           />
         </>
-      ) : 
-      <>
-      {location.pathname === '/corporation/service' ? (
+      )} 
+   
+      {location.pathname === '/corporation/service' && (
         <>
           <CommonBanner
             consulting
@@ -45,20 +46,24 @@ const Corporation = () => {
             service
           />
         </>
-      ) : (
+      )}
+      {location.pathname === '/corporation/expert' && (
         <>
-           <CommonBanner
-              consulting
-              img={corporExpert}
-              title='전문가그룹'
-              subtxt='ITX 전문가그룹'
-              corporexpert
-            />
-            <BorderTitleSection disc={'아이티엑스마케팅에는\n'} span={'분야별 업계최고의 전문 컨설턴트로\n구성되어 있습니다.'}/>
-          </>
+          <CommonBanner
+            consulting
+            img={corporExpert}
+            title='전문가그룹'
+            subtxt='ITX 전문가그룹'
+            corporexpert
+          />  
+          <BorderTitleSection disc={'아이티엑스마케팅에는\n'} span={'분야별 업계최고의 전문 컨설턴트로\n구성되어 있습니다.'}/>
+        </>
         )}
-      </>}
-    </Layout>
+     </Layout>
+    </>
+      
+      
+    
   );
 };
 

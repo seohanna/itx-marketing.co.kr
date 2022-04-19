@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styled  from 'styled-components';
-// import { Link } from 'react-router-dom';
 import { useLocation } from "react-router-dom";
 import { ReactComponent as TopLogo } from "../img/common/Logo.svg";
 import { ReactComponent as MenuBtn } from "../img/common/MenuIcon.svg";
@@ -380,9 +379,9 @@ const Header = (props) => {
                 <a href='/customer'>고객센터</a>
                 <ul
                   className="sub-menu">
-                  <li><a href='/intro/summary'>로그인</a></li>
-                  <li><a href='/intro/partners'>회원가입</a></li>
-                  <li><a href='/intro/recruit'>FAQ</a></li>
+                  {/* <li>로그인</li>
+                  <li>회원가입</li> */}
+                  <li><a href='/faq'>FAQ</a></li>
                   <li><a href='/intro/contact'>1:1 문의</a></li>
                   <li><a href='/intro/contact'>FAQ</a></li>
                 </ul>
@@ -408,7 +407,6 @@ const Header = (props) => {
            </ToggleBtn>
       </Inner>
     </Headers>  
-  )
-}
-
+  );
+};
 export default Header;

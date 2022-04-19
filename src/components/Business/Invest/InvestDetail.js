@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import HashTag from './HashTag';
 import SectionTitle from '../../PlatForm/SectionTitle';
@@ -11,6 +11,9 @@ function InvestDetail({ data, data2, primary, webtoon }) {
   const goBack = () => {
     history.goBack();
   }
+  useEffect(() => {
+    window.scrollTo(0, 900)
+  }, []);
   return (
     <>
       {data && (
@@ -72,8 +75,10 @@ function InvestDetail({ data, data2, primary, webtoon }) {
                     <span>+ </span>
                     <strong>3분</strong> 재테크
                   </div>
-                  <HashTag name='프롬이 보험이야기' />
-                  <HashTag name={data2.title} />
+                  <div className='mobile'>
+                    <HashTag name='프롬이 보험이야기' />
+                    <HashTag name={data2.title} />
+                  </div>
                 </Wrap>
               </SectionTitle>
             </TitleWrap>
@@ -86,7 +91,7 @@ function InvestDetail({ data, data2, primary, webtoon }) {
                   <div className='img-wrap'>
                     <img src={data2.contents} alt={data2.title} />
                   </div>
-                  <KakaoUrlForm>
+                  <KakaoUrlForm webtoon>
                     <input type='text' placeholder='광고성 배너'/>
                     <InputWrap>
                       <input type='text' placeholder='공유하기'/>
@@ -102,10 +107,6 @@ function InvestDetail({ data, data2, primary, webtoon }) {
                     </div>
                     <p>금융상품판매업자 : 아이티엑스마케팅(주)  등록본호 : 제 20111201710호 </p>
                 </KakaoUrlForm>
-                {/* <Nav>
-                  <StyledLink prev className={data2.prev} to={`/business/invest/story/${parseInt(data2.id) - 1}`}><Pagination prev /></StyledLink>
-                  <StyledLink className={data2.next} to={`/business/invest/story/${parseInt(data2.id) + 1}`}><Pagination next /></StyledLink>
-                </Nav> */}
                 <ButtonWrap>
                   <BackButton onClick={goBack}>뒤로가기</BackButton>
                 </ButtonWrap>
@@ -118,6 +119,15 @@ function InvestDetail({ data, data2, primary, webtoon }) {
 }
 export default InvestDetail;
 
+const TitleWrap = styled.div`
+  padding-left: 11.25%;
+  width: 100%;
+  
+  @media (max-width: 700px) {
+    padding-left: 6%;
+    background-color: #f8f8f8;
+  }
+`;
 const ContentsWrap = styled.div`
   width: 100%;
   display: flex;
@@ -131,18 +141,14 @@ const ContentsWrap = styled.div`
     justify-content: center;
   }
   ${props => props.primary && css`
-    
     > div {
       width: 32%;
     }
-
   `}
-  
   .img-wrap {
     width: 100%;
     display: flex;
     justify-content: center;
-    
   }
   .text-wrap {
     padding: 5% 0;
@@ -179,8 +185,59 @@ const ContentsWrap = styled.div`
       width: 18.04123711340206%;
     }
   }
+  @media (max-width: 700px) {
+    > div {
+      padding: 12.9% 0%;
+    }
+    ${props => props.primary && css`
+      > div {
+        width: 89%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    `}
 
-  
+    ${props => props.webtoon && css`
+      .img-wrap {
+        > img {width:80%;}
+        display: flex;
+        justify-content: center;
+      }
+    `}
+    .text-wrap {
+      width: 100%;
+      padding: 8% 2%;
+      > p {
+        padding-bottom: 7%;
+        font-size: 0.625rem;  
+      }
+    }
+    .keyword {
+      padding: 0 4%;
+      margin-bottom: 4%;
+      > div {
+        width: 100%;
+        > div {
+          padding: 0 9%;
+          margin-bottom: 5%;
+          
+          :last-child {
+            margin: 0;
+          }
+          > p {
+            font-size: 0.625rem;
+          }
+        }
+      }
+      > span {
+        font-size: 0.8rem;
+        width: 50%;
+      }
+      
+    }
+  }
 `;
 
 const TopContents = styled.div`
@@ -188,6 +245,7 @@ const TopContents = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
+  
   > h2 {
     font-size: 2.5rem;
     white-space: pre-wrap;
@@ -196,16 +254,18 @@ const TopContents = styled.div`
     padding: 5.5% 0;
     margin: 1% 0;
   }
-`;
-const TitleWrap = styled.div`
-  padding-left: 11.25%;
-  width: 100%;
-  
+
   @media (max-width: 700px) {
-    padding-left: 6%;
-    background-color: #f8f8f8;
+    align-items: center;
+    > h2 {
+      font-size: 1rem;
+    }
+    > p {
+      font-size: 0.625rem;
+    }
   }
 `;
+
 const KakaoUrlForm = styled.form`
   width: 100%;
   padding: 15% 5%;
@@ -214,6 +274,11 @@ const KakaoUrlForm = styled.form`
   flex-direction: column;
   ${props => props.primary && css`
     padding: 0% 5% 5% 5%;
+
+  `}
+
+  ${props => props.webtoon && css`
+    padding: 0% 5% 0% 5%;
 
   `}
   input {
@@ -231,6 +296,19 @@ const KakaoUrlForm = styled.form`
 
   p {
     font-size: 0.75rem;
+  }
+
+  @media (max-width: 700px) {
+    ${props => props.primary && css`
+      padding: 0;
+    `}
+    > p {
+      display: none;
+    }
+    input {
+      font-size: 0.8125rem;
+      padding-left: 4%;
+    }
   }
 `;
 
@@ -264,6 +342,8 @@ const StyledLink = styled(Link)`
     pointer-events: none;
     cursor: default;
   }
+
+  
 `;
 
 
@@ -272,8 +352,12 @@ const Pagination = styled(EndPageBtn)`
   height: 30px;
   ${props => props.prev && css`
     transform: rotate(180deg);
-    
-`}
+  `}
+
+  @media (max-width: 700px) {
+    width: 9px;
+    height: 20px;
+  }
 `;
 const Wrap = styled.div`
   display: flex;
@@ -282,12 +366,40 @@ const Wrap = styled.div`
   .title {
     margin-right: 3.5%;
   }
+  .mobile {
+    display: flex;
+    width: 70%;
+  }
+  @media (max-width: 700px) {
+  
+    .title {
+      margin-right: 0;
+      width: 40%
+    }
+    .mobile {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      > div {
+        margin: 0;
+        height: 25px;
+        padding: 0%;
+        width: 114px;   
+        :first-child {
+          margin-bottom: 5px;
+        }
+      }
+    } 
+  }
 `;
 
 const ButtonWrap = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  @media (max-width: 700px) {
+    width: 95%;
+  }
 `;
 const BackButton = styled.button`
   background: #B8292D;
@@ -295,5 +407,11 @@ const BackButton = styled.button`
   height: 30px;
   color: #FFFFFF;
   font-size: 0.8rem;
+
+  @media (max-width: 700px) {
+    width: 50px;
+    height: 20px;
+    font-size: 0.625rem;
+  }
 `;
 

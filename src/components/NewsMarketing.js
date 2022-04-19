@@ -180,12 +180,12 @@ const StyleSwiper = styled(Swiper)`
   }
     .swiper-button-next:after,
     .swiper-container-rtl .swiper-button-next:after{
-    content: "" !important;
-    background-image: url(${nextbtn});
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 100%;
-    height: 100%;
+      content: "" !important;
+      background-image: url(${nextbtn});
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 100%;
+      height: 100%;
     }
 
   .swiper-slide {

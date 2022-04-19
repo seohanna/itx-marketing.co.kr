@@ -11,7 +11,6 @@ function ApplyTab() {
     
   }
   return (
-
       <ApplyMenu>
         <ul>
           <li>
@@ -44,8 +43,6 @@ function ApplyTab() {
           </li>
         </ul>
       </ApplyMenu>
-      
-
   );
 }
 

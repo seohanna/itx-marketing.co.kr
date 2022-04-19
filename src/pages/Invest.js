@@ -9,11 +9,12 @@ import HashTag from '../components/Business/Invest/HashTag';
 import ScrollMagic from "scrollmagic";
 import { useLocation } from 'react-router-dom';
 import InvestDetail from '../components/Business/Invest/InvestDetail';
-import { getPostByNo } from '../data/InvestData';
+import { getPostByNo, Data } from '../data/InvestData';
 import { getPostByNo2 } from '../data/InvestStory';
 import StoryList from '../components/Business/Invest/story/StoryList';
 import SectionTitle from '../components/PlatForm/SectionTitle';
 import { Link } from 'react-router-dom';
+import InvestList from '../components/Business/Invest/InvestList';
 
 const Invest = ({match, history}) => {
   const [ data, setData ] = useState({});
@@ -70,6 +71,9 @@ const Invest = ({match, history}) => {
               <HashTag name='기타'/>
             </HashWrap>
           </EventSection>
+          <SubContents>
+            <InvestList data={Data} />
+          </SubContents>
          </>
        )}
        {location.pathname === `/business/invest/${id}` && (
@@ -105,8 +109,6 @@ export default Invest;
 
 const HashWrap = styled.div`
   width: 80%;
-  
-  
   &.fade-el {
     div {
       opacity: 0;
@@ -148,15 +150,22 @@ const HashWrap = styled.div`
 
   > div {
     margin-top: 5%;
+    @media (max-width: 700px) {
+      margin-top: 0;
+      margin-bottom: 14px;
+    }
   }
  
   ${props => props.title && css`
-  display: flex;
-  align-items: flex-end;
-  margin-left: 3%;
-  width: auto;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 3%;
+    width: auto;
     div {
-      margin-top: 0;
+      margin: 0;
+      :last-child {
+        margin-top: 10px;
+      }
       > p {
         width: 165px;
         display: flex;
@@ -167,7 +176,27 @@ const HashWrap = styled.div`
     }
   `}  
 
-  
+  @media (max-width: 700px) {
+    width: 100%;
+    ${props => props.title && css`
+      display: flex;
+      flex-direction: column;
+      margin-left: 3%;
+      width: auto;
+    div {
+      margin-top: 0;
+      width: 114px;
+      
+      > p {
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+    }
+  `}
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -177,7 +206,10 @@ const StyledLink = styled(Link)`
 const TitleWrap = styled.div`
   padding-left: 11.25%;
   width: 100%;
-
+  @media (max-width: 700px) {
+    padding-left: 7.466666666666667%;
+  }
+  
 
 `;
 
@@ -186,3 +218,7 @@ const Wrap = styled.div`
   align-items: flex-end;
 `;
 
+
+const SubContents = styled.div`
+  width: 100%;
+`;

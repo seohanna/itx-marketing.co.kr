@@ -2,8 +2,6 @@ import React, { useEffect } from 'react'
 import styled, { css } from "styled-components"
 import SectionTitle from '../PlatForm/SectionTitle';
 import ScrollMagic from "scrollmagic";
-import InvestList from './Invest/InvestList';
-import { Data } from '../../data/InvestData';
 
 function EventSection({
   thin, strong, title,
@@ -39,9 +37,6 @@ function EventSection({
           </TextWrap>
         </Content>
       </Wrap>
-      <SubContents>
-        <InvestList data={Data} />
-      </SubContents>
     </>
   ) 
 }
@@ -76,7 +71,6 @@ const ImgWrap = styled.div`
     overflow: hidden;
     > img {
         transform: scale(1.6);
-        /* transition: all 3s ease; */
         transition-delay: 1s;
         transition-duration: 3s;
       }
@@ -111,14 +105,6 @@ const TextWrap = styled.div`
     opacity: 1;
     transform: translateX(0);
   }
-  ${props => props.apply && css`
-    padding: 0 12.3% 0 0;
-    width: 65%;
-
-    @media (max-width: 700px) {
-      width: 100%;
-    }
-  `}
   h2 {
     font-size: 1.5rem;
     color: #1A1A1A; 
@@ -127,14 +113,20 @@ const TextWrap = styled.div`
     line-height: 2rem;
     padding-top: 4%;
     color: #444444;
-  }  
-
-  @media (max-width: 700px) {
-    padding-left: 0;
-    width: 100%;
   }
-`;
 
-const SubContents = styled.div`
-  width: 100%;
+  ${props => props.apply && css`
+    padding: 0 12.3% 0 0;
+    width: 65%;
+
+    @media (max-width: 700px) {
+      width: 100%;
+    }
+  `}
+  
+    @media (max-width: 700px) {
+      > div {
+        padding: 0;
+      }
+    }
 `;
