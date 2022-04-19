@@ -376,14 +376,14 @@ const Header = (props) => {
                 </ul>
               </li>
               <li onClick={activeMethod}>
-                <a href='/customer'>고객센터</a>
+                고객센터
                 <ul
                   className="sub-menu">
                   {/* <li>로그인</li>
                   <li>회원가입</li> */}
+                  <li><a href='/customer'>공지사항</a></li>
                   <li><a href='/faq'>FAQ</a></li>
-                  <li><a href='/intro/contact'>1:1 문의</a></li>
-                  <li><a href='/intro/contact'>FAQ</a></li>
+                  <li><a href='/faq'>1:1 문의</a></li>
                 </ul>
               </li>
             </ul>

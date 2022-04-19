@@ -34,7 +34,6 @@ const Customer = ({match}) => {
             title='공지사항'
           />
         </>
-      
       {location.pathname === `/customer/${id}` ? (
         <NoticeDetail data={data} />
       ) : <Notice />}

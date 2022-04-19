@@ -37,7 +37,6 @@ function FaqList() {
               <p>{dt.contents}</p>
             </div>
           </li>
-
         ))}
       </DataList>
     </ContentsInner>
@@ -103,7 +102,39 @@ const DataList = styled.ul`
       }
     }
   }
-  
+  @media (max-width: 700px) {
+    padding: 15% 0 20% 0;
+    > li {
+    
+      &.active .contents {
+        height: 12vh;
+      }
+      > .title {
+          height: 60px;
+        div {
+        > h4 {
+          font-size: 0.8125rem;
+        }
+        > p {
+          padding-left: 4.4%;
+          font-size: 0.8125rem;
+        }
+      }
+      ::after {
+        font-size: 1.25rem;
+        display: flex;
+        justify-content: center;
+      }
+    }
+    
+    .contents {
+      padding-left: 6.4%;
+      > p {
+        font-size: 0.625rem;
+      }
+    }
+  }
+  }
 `;
 
 

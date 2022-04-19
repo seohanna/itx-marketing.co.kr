@@ -24,7 +24,6 @@ function BorderTitleSection({
     </Wrap>
   );
 };
-
 export default BorderTitleSection;
 
 const Wrap = styled.div`
@@ -33,7 +32,6 @@ const Wrap = styled.div`
   
   @media (max-width: 700px) {
     padding-left: 6%;
-    background-color: #f8f8f8;
   }
 `;
 const Content = styled.div`
@@ -41,16 +39,21 @@ const Content = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 3.8% 0 4.07% 0;
+
   @media (max-width: 700px) {
-    
+    flex-direction: column;
+    padding: 12.5% 8.2% 12.3% 2.2%;
   }
 `;
 
 const ImgWrap = styled.div`
   width: 35.54502369668246%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  > img {
-    
+
+
+  @media (max-width: 700px) {
+    width: 100%;
+    box-shadow: none;
   }
 `;
 
@@ -67,5 +70,14 @@ const TextWrap = styled.div`
   > p {
     padding-top: 3.2%;
   }
-
+  @media (max-width: 700px) {
+    width: 100%;
+    padding: 7.5% 0;
+    h3 {
+      font-size: 1rem;
+    }
+    > p {
+      font-size: 0.625rem;
+    }
+  }
 `;
