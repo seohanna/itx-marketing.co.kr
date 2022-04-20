@@ -11,22 +11,22 @@ const Card = [
   {
     id: 0,
     title: '개인영업(FP)',
-    url: '/recruit'
+    url: '/intro/recruit'
   },
   {
     id: 1,
     title: '법인컨설턴트',
-    url: '/recruit'
+    url: '/intro/recruit'
   },
   {
     id: 2,
     title: '전문가그룹',
-    url: '/recruit'
+    url: '/intro/recruit'
   },
   {
     id: 3,
     title: '정규직',
-    url: '/recruit'
+    url: '/intro/recruit'
   }
 ]
 const SectionContainer = styled.div`

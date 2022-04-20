@@ -165,18 +165,21 @@ const ListBox = styled.div`
         .back {
             width: 61.53846153846154%;
             height: auto;
+            > img {
+              max-height: 20px;
+            }
           }  
       }
-      :hover .front {
+      /* :hover .front {
         transform: rotateY(-180deg);
       }
 
       :hover .back {
         transform: rotateY(0deg);
-      }
+      } */
       > div {
         position: absolute;
-        backface-visibility: hidden;
+        /* backface-visibility: hidden; */
         background-color: #FFFFFF;
         width: 100%;
         height: 100%;
@@ -194,12 +197,12 @@ const ListBox = styled.div`
         
         }
       }
-      .front {
+      /* .front {
         transform: rotateY(0deg);
       }
       .back {
         transform: rotateY(-180deg);
-      }
+      } */
       
     }
   }
@@ -475,7 +478,7 @@ const PartnerCompany = (props) => {
             <ul>
             {Financial.map((fd) => (
               <li key={fd.id}>
-                <div className='front'>{fd.company}</div>
+                {/* <div className='front'>{fd.company}</div> */}
                 <div className='back'><img src={fd.ci} alt={fd.company} /></div>
               </li>
             ))}
@@ -483,7 +486,7 @@ const PartnerCompany = (props) => {
           <ul className='financial-list'>
           {Financial_2.map((fd2) => (
             <li key={fd2.id}>
-              <div className='front'>{fd2.company}</div>
+              {/* <div className='front'>{fd2.company}</div> */}
               <div className='back'><img src={fd2.ci} alt={fd2.company} /></div>
             </li>
           ))}
@@ -496,8 +499,7 @@ const PartnerCompany = (props) => {
           <ul className='life-list'>
           {Life.map((ld) => (
             <li key={ld.id}>
-              <div className='front'>{ld.company}
-              </div>
+              {/* <div className='front'>{ld.company}</div> */}
               <div className='back'><img src={ld.ci} alt={ld.company} /></div>
             </li>
           ))}
@@ -508,7 +510,7 @@ const PartnerCompany = (props) => {
           <ul className='divide-list'>
           {Divide.map((dd) => (
             <li key={dd.id}>
-              <div className='front'>{dd.company}</div>
+              {/* <div className='front'>{dd.company}</div> */}
               <div className='back'><img src={dd.ci} alt={dd.company} /></div>
             </li>
           ))}

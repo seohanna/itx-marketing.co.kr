@@ -18,18 +18,21 @@ const card = [
     title: '보험플러스',
     description: '병원, 마트 등 고객친화형 플랫폼\n보장분석 등 total 보험서비스 제공',
     icon: icon1,
+    url: '/business/platform/insuplus'
   },
   {
     id: 1,
     title: '법인컨설팅',
     description: '중소기업과 개인사업자의\n안정적인 기업경영을 위한 컨설팅',
     icon: icon2,
+    url: ''
   },
   {
     id: 2,
     title: '상속증여연구소',
     description: '상속 및 증여에 대한\n절세 방법 제시',
     icon: icon3,
+    url: '/inherit'
   }
 ]
 const SectionContainer = styled.div`
@@ -252,7 +255,7 @@ const Business = () => {
             </li>
             <li className="card-title">{dt.title}</li>
             <li className="card-desc">{dt.description}</li>
-            <li className="more-btn"><Link to="#">자세히 보기</Link></li>
+            <li className="more-btn"><Link to={dt.url}>자세히 보기</Link></li>
           </CardBox>  
         </SwiperSlide>
         ))} 
