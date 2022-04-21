@@ -15,17 +15,22 @@ import icon2_3 from '../../img/sub/corporIntroIcon2-3.png';
 import icon2_4 from '../../img/sub/corporIntroIcon2-4.png';
 import icon2_5 from '../../img/sub/corporIntroIcon2-5.png';
 import icon2_6 from '../../img/sub/corporIntroIcon2-6.png';
+
+import section1 from '../../img/sub/corporService1.png';
+import sectionMb1 from '../../img/sub/corporServiceMb1.png';
+import section2 from '../../img/sub/corporService2.png';
+import section3 from '../../img/sub/corporService3.png';
+import sectionMb3 from '../../img/sub/corporServiceMb3.png';
+import section4 from '../../img/sub/corporService4.png';
+import sectionMb4 from '../../img/sub/corporServiceMb4.png';
+
 import security from '../../img/sub/security.png';
 import news from '../../img/sub/corporNews.png';
 import support from '../../img/sub/employment_support.png';
 import policy from '../../img/sub/policy_fund.png';
-import arrow from '../../img/sub/arrowIcon.png';
-import arrow3 from '../../img/sub/arrowThree.png';
 import loan from '../../img/sub/corporate_loan.png';
 import tax from '../../img/sub/labor_tax.png';
 import certification from '../../img/sub/corporate_certification.png';
-import loanArrow from '../../img/sub/corporate_loan_arrow.png';
-import loanArrowDashed from '../../img/sub/corporate_loan_arrowDashed.png';
 
 const icon = [
   {
@@ -99,52 +104,8 @@ const icon_2 = [
   },
 ];
 
-const circle = [
-  {
-    id: 0,
-    title: '취업 희망\n인재 채용',
-    support: '사업주',
-    class: 'first'
-  },
-  {
-    id: 1,
-    title: '3개월 이상\n고용유지',
-    support: '사업주',
-    class: 'two'
-  },
-  {
-    id: 2,
-    title: '고용촉진지원금\n신청',
-    support: '사업주',
-    class: 'three'
-  },
-  {
-    id: 3,
-    title: '사실관계 확인\n후 지급',
-    support: '고용센터',
-    class: 'four'
-  }
-];
 
-const circle2 = [
-  {
-    id: 0,
-    title: '총액\n한도대출',
-    class: 'first'
-  },
-  {
-    id: 1,
-    title: '중소기업\n(개인/법인)',
-    class: 'two'
-  },
-  {
-    id: 2,
-    title: '물가상승 無\n재정부담 ↓',
-    class: 'three'
-  },
-];
-
-const Contents = ({slogan, disc, intro, service, id}) => {
+const Contents = ({slogan, disc, disc2, intro, service, id}) => {
 
   useEffect(() => {
     const fadeEls = document.querySelectorAll('.fade-el');
@@ -161,9 +122,9 @@ const Contents = ({slogan, disc, intro, service, id}) => {
 
   return (
     <ContentsInner>
-      <TextWrap className='fade-el'>
+      <TextWrap slogan className='fade-el'>
         <h1>{slogan}</h1>
-        <p>{disc}</p>
+        <p>{disc}<span>{disc2}</span></p>
       </TextWrap>
       {intro && (
         <>
@@ -296,8 +257,8 @@ const Contents = ({slogan, disc, intro, service, id}) => {
       )}
       {service && (
         <>
-          <SectionWrap service>
-            <IconWrap>
+          <SectionWrap>
+            <IconWrap service >
               {icon.map((ic) => (
                 <IconList key={ic.id} className='fade-el'>
                   <div className={ic.class}><img src={ic.icons} alt={ic.title} /></div>
@@ -306,10 +267,9 @@ const Contents = ({slogan, disc, intro, service, id}) => {
               ))}
             </IconWrap>
           </SectionWrap>
-          <SectionWrap service>
+          <SectionWrap service className="flex-style">
             <div className="img-wrap">
               <img src={support} alt='고용지원' />
-              <h4>고용지원</h4>
             </div>
             <div className="text-wrap">
               <TextWrap title>
@@ -323,51 +283,35 @@ const Contents = ({slogan, disc, intro, service, id}) => {
                 </p>
               </TextWrap>
               <CircleList>
-                {circle.map((it) => (
-                  <li key={it.id}>
-                    <div className={it.class}>
-                      <h3>{it.title}</h3>
-                      <p>{it.support}</p>
-                    </div>
-                  </li>
-                ))}
+                <li>
+                  <img src={section1} alt='' className="pc"/>
+                  <img src={sectionMb1} alt='' className="mobile" />
+                </li>
               </CircleList>
             </div>
           </SectionWrap>
           <SectionWrap service>
-            <div className="text-wrap small-busi">
-              <TextWrap title className="small-busi">
+            <div className="text-wrap small-busi large">
+              <TextWrap title className="small-busi" >
                 <h1>정부가 지원하는&nbsp;
                   <span>중소기업 정책자금!!</span>
                 </h1>
-                <ul>
+                <ul className="list-style">
                   <li>정책자금 지원범위 : <br className="mobile"/>중소기업의 운영자금, 시설자금, 설립자금</li>
                   <li>정책자금 지원효과 : <br className="mobile"/>고용중대효과, 경영난 해소, 창업 초기기업의 <br className="mobile"/>집중 육성 등</li>
                 </ul>
-                <FolowMap className="small-busi">
-                  <div className="circle">
-                    <h3>중소기업<br />(개인/법인)</h3>
-                  </div>
-                  <div className="center-box first">
-                    <img src={loanArrow} alt='운영, 시설, 설립자금 신청'/>
-                    <h2>정책자금</h2>
-                    <img src={loanArrowDashed} alt='운영, 시설, 설립자금 신청'/>
-                  </div>
-                  <div className="circle black">
-                    <h3>정부</h3>
-                  </div>
-                </FolowMap>
+                <div className="circle-table">
+                  <img src={section2} alt='' />
+                </div>
               </TextWrap>
             </div>
             <div className="img-wrap center">
               <img src={policy} alt='정책자금' />
-              <h4>정책자금</h4>
             </div>
           </SectionWrap>
-          <SectionWrap service>
+          <SectionWrap service className="flex-style">
             <div className="img-wrap">
               <img src={loan} alt='기업대출' />
-              <h4>기업대출</h4>
             </div>
             <div className="text-wrap">
               <TextWrap title>
@@ -379,14 +323,11 @@ const Contents = ({slogan, disc, intro, service, id}) => {
                   한국은행이 시중은행을 통해 최저 0.5%의 이율로 <br className="mobile"/>12조원 규모 대출을 제공하는 제도
                 </p>
               </TextWrap>
-              <CircleList className="three">
-                {circle2.map((it) => (
-                  <li key={it.id}>
-                    <div className={it.class}>
-                      <h3>{it.title}</h3>
-                    </div>
-                  </li>
-                ))}
+              <CircleList>
+                <li>
+                  <img src={section3} alt='' className="pc"/>
+                  <img src={sectionMb3} alt='' className="mobile"/>
+                </li>
               </CircleList>
             </div>
           </SectionWrap>
@@ -396,49 +337,31 @@ const Contents = ({slogan, disc, intro, service, id}) => {
                 <h1>기업의 미래가치를 만들어 가는&nbsp;<br className="mobile"/>
                   <span>”기업인증제도”</span>
                 </h1>
-                <ul>
+                <ul className="list-style">
                   <li>혁신형 기업인증 : 기업부설연구소, 벤쳐기업, 이<br className="mobile"/>노비즈, 메인비즈, 우수그린비즈</li>
                   <li>기업인증 : 부품소재전문기업, 뿌리기술전문기업, <br className="mobile"/>녹생인증, ISO인증, NEP인증</li>
                 </ul>
+                <div className="circle-table">
+                  <img src={section4} alt='' className="pc" />
+                  <img src={sectionMb4} alt='' className="mobile" />
+                </div>
               </TextWrap>
-              <FolowMap className="center small-busi">
-                <div className="circle small">
-                  <h3>우수<br />기업인증</h3>
-                </div>
-                <div className="center-box none two">
-                  <div className="xsmall">세제혜택</div>
-                  <span className="arrow"></span>
-                  <div className="xsmall">금리혜택</div>
-                </div>
-                <div className="circle small none">
-                  <h3>기업육성</h3>
-                </div>
-                <div className="center-box none two">
-                  <div className="xsmall">정책자금</div>
-                  <span className="arrow"></span>
-                  <div className="xsmall">우대지원</div>
-                </div>
-                <div className="circle small right">
-                  <h3>기업경쟁력<br />강화</h3>
-                </div>
-              </FolowMap>
+              
             </div>
             <div className="img-wrap center">
               <img src={certification} alt='기업인증' />
-              <h4>기업인증</h4>
             </div>
           </SectionWrap>
           <SectionWrap service>
             <div className="img-wrap">
               <img src={tax} alt='노무/세무' />
-              <h4>노무/세무</h4>
             </div>
             <div className="text-wrap last">
               <TextWrap title>
                 <h1>인사관리의 법적 실무적 적절성을 판단&nbsp;<br className="mobile"/>
                   <span>”위반사항요소”</span>제거
                 </h1>
-                <ul>
+                <ul className="list-style">
                   <li>취업규칙, 근로계약서, 포괄임금제(연봉제)합법적 개선</li>
                   <li>급여, 복리후생 등 인건비관련 효율적 적법처리방안</li>
                   <li>각종 인사조치에 대한 적법 행사방법</li>
@@ -457,48 +380,159 @@ const Contents = ({slogan, disc, intro, service, id}) => {
 
 export default Contents;
 
+
+const SectionWrap = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+ 
+  &.flex-style {
+    justify-content: flex-start;
+  }
+  ${props => props.intro && css`
+    padding: 7.8% 0;
+
+    > div:first-child {
+      width: 69.1358024691358%;
+    }
+  `}
+
+  ${props => props.service && css`
+    padding: 5% 0;
+    :nth-child(3),:nth-child(5) {
+      border-bottom: 1px solid #444444;
+    }
+    > ul:first-child {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .img-wrap {
+      align-self: flex-start;
+      margin-right: 6%;
+    }
+    
+    .img-wrap.center {
+      display: flex;
+      align-self: center;
+      margin-right: 3%;
+    }
+    .text-wrap.small-busi.large {
+      width: 70%
+    }
+    .text-wrap {
+      align-self: flex-start;
+      padding-left: 2%;
+      
+
+      &.text-wrap.last {
+        > div {
+          padding: 3% 0 20% 0;
+        }
+      }
+    }
+    .mobile {
+      display: none;
+    }
+  `}
+
+  @media(max-width: 700px) {
+
+    ${props => props.intro && css`
+      > div:first-child {
+          width: 100%;
+      }
+    `}
+    ${props => props.service && css`
+      padding: 10% 0;
+      .img-wrap { 
+        > img {
+          width: 200px;
+          height: 300px;
+        }
+      }
+      .text-wrap {
+        width: 100%;
+        align-self: flex-start;
+        padding: 10% 0 0 0;
+      }
+      .text-wrap.small-busi.large {
+        width: 100%
+      }
+      .text-wrap.small-busi {
+        order: 2;
+      }
+      .img-wrap.center {
+        order: 1;
+        align-self: flex-end;
+        margin: 10% 0 0 0;
+      }
+    `}
+  }
+`;
+
 const TextWrap = styled.div`
   color: #444444;
   text-align: center;
-  padding: 10% 0;
+  width: 100%;
+
+  h1 {
+    font-size: 2.5rem;
+    font-family: 'GoyangIlsan';
+    font-weight: 400;
+    color: #1A1A1A;
+  }
+
+  p {
+    font-size: 1.25rem;
+    line-height: 1.8rem;
+  }
+
+  .list-style {
+    > li {
+      ::before {
+        content: '';
+        display: flex;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: #444444;
+        margin: 0 2%;
+      }
+    }
+  }
+  .circle-table {
+    padding: 9% 0 0 0;
+  }
   &.fade-el {
     h1 {
       opacity: 0;
       transition-delay: 0.5s;
       transition: 1s;
+      padding: 7% 0 4.9% 0;
+    
+      > strong {
+        font-family: 'GoyangDeogyang';
+        color: #1a1a1a;
+      }
     }
     > p {
       opacity: 0;
       transition-delay: 1.5s;
       transition: 2s;
+      white-space: pre;
+      padding-bottom: 7.5%;
     }
   }
+
   &.fade-el.show {
     > p, h1 {
       opacity: 1;
     }
   }
-  &.small-busi {
-    padding: 0;
-  }
   .mobile {
     display: none;
-  }
-  > h1 {
-    font-family: 'GoyangIlsan';
-    font-weight: 400;
-    font-size: 2.5rem;
-    padding-bottom: 4.7%;
-
-    > strong {
-      font-family: 'GoyangDeogyang';
-      color: #1a1a1a;
-    }
-  }
-  > p {
-    font-size: 1.25rem;
-    white-space: pre;
-    line-height: 1.8rem;
   }
 
   ${props => props.title && css`
@@ -506,49 +540,46 @@ const TextWrap = styled.div`
     text-align: start;
 
     > h1 {
-      padding-bottom: 3%;
-      color: #1A1A1A;
+      padding-bottom: 3.2%;
+      
+      > strong {
+        font-family: 'GoyangDeogyang';
+      }
+      span {
+        position: relative;
+        font-family: 'GoyangDeogyang';
+        ::after {
+          content: '';
+          display: inline-block;
+          width: 100%;
+          height: 3px;
+          background-color: #1A1A1A;
+          position: absolute;
+          bottom: 15%;
+          left: 0%;
+          z-index: -1;
+        }
+      }
     }
     > p {
       display: flex;
       flex-flow: column;
     }
-    span {
-      position: relative;
-      font-family: 'GoyangDeogyang';
-      ::after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-        height: 3px;
-        background-color: #1A1A1A;
-        position: absolute;
-        bottom: 15%;
-        left: 0%;
-        z-index: -1;
-      }
-    }
+    
     ul {
       > li {
         display: flex;
         align-items: center;
         font-size: 1.25rem;
         padding-bottom: 1%;
-        ::before {
-          content: '';
-          display: flex;
-          width: 6px;
-          height: 6px;
-          background-color: #444444;
-          border-radius: 50%;
-          margin-right: 20px;
-        }
       }
     }
   `}
 
   @media(max-width: 700px) {
-    padding: 17% 0 17.5% 0;
+    ${props => props.slogan && css`
+      padding: 15% 0;
+    `}
     .mobile {
       display: block;
     }
@@ -557,22 +588,30 @@ const TextWrap = styled.div`
     }
     > h1 {
       font-size: 1.25rem;
-      padding-bottom: 5%;
+      line-height: 1.5rem;
       white-space: pre;
-      line-height: 2rem;
+      span {
+        ::after {
+          height: 1px;
+        }
+      }
     }
     > p {
       font-size: 0.8125rem;
       line-height: 1.2rem;
-      white-space: pre;
-    }
-    span {
-      display: inline-block;
-      ::after {
-        height: 1px;
-        bottom: 28%;
+      > span {
+        display: block;
       }
     }
+    &.fade-el {
+      h1 {
+        padding: 0;
+      }
+      > p {
+        padding-bottom: 0;
+      }
+    }
+
     ul {
       > li {
         display: flex;
@@ -580,6 +619,7 @@ const TextWrap = styled.div`
         font-size: 1.25rem;
         padding-bottom: 5px;
         line-height: 1.3rem;
+        
         ::before {
           width: 3px;
           height: 3px;
@@ -588,9 +628,18 @@ const TextWrap = styled.div`
       }
     }
 
+    
+
   ${props => props.title && css`
+    padding: 0;
+    
     > h1 {
-      padding: 10% 0 8% 0;
+      line-height: 1.5rem;
+      padding: 0 0 5% 0;
+      
+      > strong {
+        white-space: pre;
+      }
     }
     > p {
       display: flex;
@@ -601,120 +650,44 @@ const TextWrap = styled.div`
         font-size: 0.8125rem;
       }
     }
-  `}
-  }
-`;
-const SectionWrap = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-  
-  ${props => props.intro && css`
-    > div:first-child {
-      width: 69.1358024691358%;
-    }
-
-    @media(max-width: 700px) {
-      > div:first-child {
-        width: 100%;
+    .list-style {
+    > li {
+      ::before {
+        width: 3px;
+        height: 3px;
+        margin: 2.3% 2% 0 2%;
       }
     }
-  `}
-
-  ${props => props.service && css`
-    justify-content: flex-start;
-    padding: 5% 0;
-
-    :nth-child(3),:nth-child(5) {
-      border-bottom: 1px solid #444444;
-    }
-    > ul:first-child {
+  }
+  .circle-table {
+      padding: 9% 0 0 0;
       width: 100%;
       display: flex;
       justify-content: center;
-      
     }
-    .img-wrap {
-      width: 15%;
-      background-color: #F8F8F8;
-      margin-right: 4%;
-      padding: 7% 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      align-self: flex-start;
-      > h4 {
-        color: #1A1A1A;
-        padding-top: 18%;
-      }
-    }
-    .text-wrap {
-      align-self: flex-start;
-      width: 70%;
-
-    &.text-wrap.last {
-      > div {
-        padding: 3% 0 20% 0;
-      }
-    }
-  }
-
-    .img-wrap.center {
-      align-self: center;
-    }
-
-    @media(max-width: 700px) {
-      width: 100%;
-      > ul:first-child {
-        justify-content: flex-start;
-      }
-
-      .img-wrap {
-        width: 64%;
-        margin-right: 0%;
-        padding: 17% 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-self: flex-start;
-        > img {
-          width: 110px;
-        }
-        > h4 {
-          font-size: 1.25rem;
-        }
-      }
-      .text-wrap {
-        width: 100%;
-      }
-      .text-wrap.small-busi {
-        order: 2;
-      }
-      .img-wrap.center {
-        order: 1;
-        align-self: flex-end;
-        margin: 10% 0 0 0;
-      }
-    }
-`}
-
-  @media(max-width: 700px) {
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
+  `}
   }
 `;
+
 const IconWrap = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  padding-top: 10%;
+  padding-top: 4%;
   align-self: flex-end;
 
-  @media(max-width: 700px) {
+  ${props => props.service && css`
+    width: 100%;
+    justify-content: center;
+    padding: 3% 0 5% 0;
+  `}
 
+  @media(max-width: 700px) {
+    padding: 13% 0;
+
+    ${props => props.service && css`
+      padding: 0;
+      justify-content: flex-start;
+    `}
   }
 `;
 
@@ -1086,326 +1059,29 @@ const CircleList = styled.ul`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding-top: 10%;
-  width: 90%;
+  padding-top: 5%;
+  
   > li {
     display: flex;
-    > div {
-        position: relative;
-        width: 200px;
-        height: 200px;
-        white-space: pre;
-        border: 2px solid #BEBEBE;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        flex-flow: column wrap;
-        ::after {
-          content: '';
-          display: flex;
-          width: 10%;
-          height: 50px;
-          background-image: url(${arrow});
-          background-repeat: no-repeat;
-          background-size: contain;
-          align-items: center;
-          position: absolute;
-          right: -50%;
-          transform: translateX(-230%);
-        }
-        h3 {
-          color: #1a1a1a;
-        }
-        p {
-          padding-top: 16%;
-        }
-      }
-    :last-child div::after {
-      content: none;
+    .mobile {
+      display: none;
     }
   }
-
-  &.three {
-    width: 70%;
-
-    @media(max-width: 700px) {
-      width: 100%;
-      > li:last-child {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-      }
-    }
-  }
-
-
   @media(max-width: 700px) {
     width: 100%;
-    justify-content: space-between;
+    padding-top: 7%;
     > li {
-      
-      > div {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 50%;
-        &.two::after {
-          top: 100%;
-          right: 40%;
-          transform: rotate(90deg) translateX(50%);
-        }
-        &.three, &.four {
-          margin-bottom: 25%;
-        }
-    
-        &.three::after {
-          transform: rotate(180deg) translateX(50%);
-          
-        }
-        ::after {
-          width: 20px;
-          right: -50%;
-          transform: translateX(-50%);
-        }
-        
+      .pc {
+        display: none;
+      }
+      .mobile {
+        display: block;
       }
     }
-   
-    h3 {
-      font-size: 0.8125rem;
-        }
-        p {
-          font-size: 0.8125rem;
-        }
-      }
-    &.three {
-      padding: 0;
-      .three {
-        margin-bottom: 5%;
-      }
-    }
-`;
-
-const FolowMap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-content: space-between;
-  padding: 8% 0;
-  width: 70%;
-
-  @media (max-width: 700px) {
-    &.small-busi {
-      order: 2;
+    > li:last-child {
       width: 100%;
-      padding: 20% 0;
-    }
-    
-  }
-  &.center {
-    width: 772px;
-    margin-left: 5%;
-    justify-content: space-around;
-    > div {
-      align-self: center;
-      margin-left: 5%;
-    }
-    @media (max-width: 700px) {
-      width: 100%;
-      flex-direction: column;
-      justify-content: center;
-      margin-left: 0;
-      > div {
-        margin-left: 0;
-      } 
-    }
-
-  }
-  > div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-     
-  }
-  .circle {
-    background-color: #F0F0F0;
-    width: 168px;
-    height: 168px;
-    border-radius: 50%;
-    position: relative;
-    
-    > h3 {
-      color: #1a1a1a;
-      font-size: 1rem;
-    }
-    ::after {
-      content: '';
-      display: block;
-      position: absolute;
-      width: 185px;
-      height: 185px;
-      background-color: #FFFFFF;
-      border: 2px solid #B9CDE5;
-      border-radius: 50%;
-      z-index: -1;
-    }
-
-    @media (max-width: 700px) {
-      width: 84px;
-      height: 84px;
-      
-      > h3 {
-        font-size: 0.8125rem;
-      }
-      ::after {
-        width: 90px;
-        height: 90px;
-      }
-    }
-  }
-  .circle.small {
-    width: 130px;
-    height: 130px;
-    ::after {
-      width: 150px;
-      height: 150px;
-    }
-    ::before {
-      content: '';
-      display: block;
-      width: 295px;
-      height: 163px;
-      border: 2px solid #B9CDE5;
-      position: absolute;
-      left: 50%;
-      z-index: -1;
-    }
-    @media (max-width: 700px) {
-      width: 84px;
-      height: 84px;
-      ::after {
-        width: 90px;
-        height: 90px;
-      }
-      ::before {
-        width: 199px;
-        height: 190px;
-        left: -70%;
-        top: 50%;
-      }
-    }
-  }
-  .circle.small.right {
-    ::before {
-      left: -190%;
-      border-left-width: 0;
-    }
-    @media (max-width: 700px) {
-      ::before {
-          top: -190%;
-          left: -70%;
-          border-left-width: 2px;
-          border-top-width: 0;
-          height: 200px;
-      }
-    }
-  }
-  .circle.small.none {
-   
-    ::after, ::before {
-      content: none;
-    }
-  }
-  .center-box {
-    flex-flow: column;
-    align-content: space-between;
-    justify-content: space-between;
-    position: relative;
-
-    @media(max-width: 700px) {
-      &.center-box.two {
-        flex-direction: row;
-        width: 100%;
-        padding: 0 10%;
-      }
-      > img {
-        width: 110px;
-      }
-    }
-    > h2 {
-      font-size: 2.5rem;
-      padding: 10% 0;
-      @media(max-width: 700px) {
-        font-size: 1.25rem;
-        padding: 5% 0;  
-      } 
-    }
-    
-    ::before {
-      content: '운영, 시설, 설립자금 신청';
-      position: absolute;
-      font-size: 0.8rem;
-      top: -20px;
-
-      @media(max-width: 700px) {
-        font-size: 0.625rem;
-        top: -12px;
-      }
-    }
-    ::after {
-      content: '운영, 시설, 설립자금 신청';
-      position: absolute;
-      font-size: 0.8rem;
-      bottom: -20px;
-      @media(max-width: 700px) {
-        font-size: 0.625rem;
-        bottom: -12px;
-      }
-    }
-    .xsmall {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background-color: #444444;
-      color: #FFFFFF;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      @media(max-width: 700px) {
-        width: 60px;
-        height: 60px;
-        font-size: 0.8125rem;
-      }
+      justify-content: flex-end;
     }
-    .arrow {
-      background-image: url(${arrow3});
-      width: 63px;
-      height: 77px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-      @media(max-width: 700px) {
-        width: 44px;
-        height: 107px;
-        transform: rotate(90deg);
-      }
-    }
-  }
-  .center-box.none {
-    ::after, ::before {
-      content: none;
-    }
-  }
-  .circle.black {
-    background-color: #444444;
-    > h3 {
-      color: #FFFFFF;
-    }
-    ::after {
-      border-color: #444444;
-    }
-  }
+ }
 `;

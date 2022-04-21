@@ -71,7 +71,9 @@ const Contents = ({intro, service, id}) => {
               <h2>종합재무설계</h2>
             </IconContainer>
             <div>
-              <Discription className="section2"><span>재무설계란?</span><br />단기간의 수익이 아닌 장기플랜을 통해 인생에서 목돈이 필요한 시기에 부족하지 않도록 일련의 과정</Discription>
+              <Discription className="section2"><span>재무설계란?</span>
+                <br />단기간의 수익이 아닌 장기플랜을 통해 인생에서 목돈이 필요한 시기에 부족하지 않도록 일련의 과정
+              </Discription>
               <Table className="section2">
                 <tr>
                   <th>구분</th>
@@ -251,14 +253,17 @@ const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 3%;
+  th, td {
+    height: 70px;
+  }
+
+
   &.section2 {
     margin-bottom: 10%;
     td .mobile {
       display: none;
     }
-    th, td {
-      height: 110px;
-    }
+   
     td > ul > li {
       display: flex;
       align-items: center;
@@ -276,9 +281,7 @@ const Table = styled.table`
   tr {
     border-bottom: 1px solid #C4C4C4;
   }
-  th, td {
-    height: 70px;
-  }
+  
   td:first-child {
     text-align: center;
     padding: 0;
@@ -293,9 +296,11 @@ const Table = styled.table`
     color: #1A1A1A;
     font-size: 1.25rem;
     text-align: center;
+
   }
   td {
     padding-left: 2%;
+    height: 110px;
   }
 
   @media(max-width: 700px) {
@@ -316,8 +321,7 @@ const Table = styled.table`
     th:nth-child(3) {
       width: 37.8125%;
     }
-  }
-  &.section2 {
+    &.section2 {
     margin-bottom: 0%;
     
     th {
@@ -343,6 +347,8 @@ const Table = styled.table`
       }
     }
   }
+  }
+  
 `;
 
 const InheritList = styled.ul`
