@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 import Title from '../Summary/Title';
+import saleschart from '../../img/sub/sales_organization_chart.png';
+import saleschartMb from '../../img/sub/sales_organization_chartMb.png';
 
 
 const Container = styled.section`
@@ -11,9 +13,22 @@ const Container = styled.section`
   }
 `;
 const ChartWrap = styled.div`
-  position: relative;
+  .mobile {
+    display: none;
+  }
+  @media(max-width: 700px) {
+    .pc {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
+`;
+
+  /* position: relative; */
  
-  > div {
+  /* > div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -99,111 +114,111 @@ const ChartWrap = styled.div`
           bottom: -40px;
         }
       }
-    }
-  }
-`;
-const ChannelWrap = styled.ul`
-  position: relative;
-  padding-top: 3.1%;
-  width: 18.78%;
+    } */
 
-  @media(max-width: 700px) {
-    width: 24.5%;
-  }
-  > li {
-    color: #1A1A1A;
+// `;
+// const ChannelWrap = styled.ul`
+//   position: relative;
+//   padding-top: 3.1%;
+//   width: 18.78%;
+
+//   @media(max-width: 700px) {
+//     width: 24.5%;
+//   }
+//   > li {
+//     color: #1A1A1A;
     
-  }
-  > li > div {
-    width: 100%;
-    height: 80px;
-    border: 4px solid #F0F0F0;
-    background-color: #FFFFFF;
-    border-radius: 108px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    margin-top: 10%;
-    @media(max-width: 700px) {
-      /* width: 80px; */
-      height: 30px;
-      font-size: 0.625rem;
-      border: 2px solid #F0F0F0;
-    }
-  }
- .title-box {
-    background-color: #B8292D;
-    width: 100%;
-    height: 80px;
-    border-radius: 108px;
-    color: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 11.4%;
-    border: 0;
-    z-index: 3;
-    @media(max-width: 700px) {
-      /* width: 80px; */
-      height: 30px;
-      font-size: 0.625rem;
-    }
-    ::before{
-    content: '';
-    display: block;
-    width: 120%;
-    height: 157px;
-    border-left: 3px solid #F0F0F0;
-    border-top: 3px solid #F0F0F0;
-    position: absolute;
-    left: 50%;
-    z-index: -1;
-    @media(max-width: 700px) {
-      height: 64px;
-      border-left: 1.5px solid #F0F0F0;
-      border-top: 0;
-    }
-    }
-  }
-  .title-box.channel1::before {
-    border-top: 3px solid #F0F0F0;
-    width: 250%;
-    @media(max-width: 700px) {
-      border-top: 1.5px solid #F0F0F0;
-    }
-  }
-  .title-box.channel3::before {
-    width: 100%;
-    border-top: 3px solid #F0F0F0;
-    border-left: 0;
-    border-right: 3px solid #F0F0F0;
-    left: -50%;
-    @media(max-width: 700px) {
-      border-top: 1.5px solid #F0F0F0;
-      border-right: 1.5px solid #F0F0F0;
-    }
-  }
-`;
-const BusiTeamList = styled.ul`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 8% 0 0;
-    list-style: disc;
-  > li {
-    line-height: 1.86rem;
+//   }
+//   > li > div {
+//     width: 100%;
+//     height: 80px;
+//     border: 4px solid #F0F0F0;
+//     background-color: #FFFFFF;
+//     border-radius: 108px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     z-index: 3;
+//     margin-top: 10%;
+//     @media(max-width: 700px) {
+//       /* width: 80px; */
+//       height: 30px;
+//       font-size: 0.625rem;
+//       border: 2px solid #F0F0F0;
+//     }
+//   }
+//  .title-box {
+//     background-color: #B8292D;
+//     width: 100%;
+//     height: 80px;
+//     border-radius: 108px;
+//     color: #FFFFFF;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     margin-bottom: 11.4%;
+//     border: 0;
+//     z-index: 3;
+//     @media(max-width: 700px) {
+//       /* width: 80px; */
+//       height: 30px;
+//       font-size: 0.625rem;
+//     }
+//     ::before{
+//     content: '';
+//     display: block;
+//     width: 120%;
+//     height: 157px;
+//     border-left: 3px solid #F0F0F0;
+//     border-top: 3px solid #F0F0F0;
+//     position: absolute;
+//     left: 50%;
+//     z-index: -1;
+//     @media(max-width: 700px) {
+//       height: 64px;
+//       border-left: 1.5px solid #F0F0F0;
+//       border-top: 0;
+//     }
+//     }
+//   }
+//   .title-box.channel1::before {
+//     border-top: 3px solid #F0F0F0;
+//     width: 250%;
+//     @media(max-width: 700px) {
+//       border-top: 1.5px solid #F0F0F0;
+//     }
+//   }
+//   .title-box.channel3::before {
+//     width: 100%;
+//     border-top: 3px solid #F0F0F0;
+//     border-left: 0;
+//     border-right: 3px solid #F0F0F0;
+//     left: -50%;
+//     @media(max-width: 700px) {
+//       border-top: 1.5px solid #F0F0F0;
+//       border-right: 1.5px solid #F0F0F0;
+//     }
+//   }
+// `;
+// const BusiTeamList = styled.ul`
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     padding: 8% 0 0;
+//     list-style: disc;
+//   > li {
+//     line-height: 1.86rem;
 
 
-    @media(max-width: 700px) {
-      font-size: 0.625rem;
-      line-height: 1.0375rem;
-      align-self: flex-start;
-    }
-  }
+//     @media(max-width: 700px) {
+//       font-size: 0.625rem;
+//       line-height: 1.0375rem;
+//       align-self: flex-start;
+//     }
+//   }
 
-`;
+// `;
 
 const SalesChart = () => {
 
@@ -211,7 +226,9 @@ const SalesChart = () => {
     <Container>
       <Title en="Sales organization chart" ko="영업 조직도"/>
       <ChartWrap>
-        <div>
+        <img src={saleschart} alt='영업 조직도' className='pc'/>
+        <img src={saleschartMb} alt='영업 조직도' className='mobile'/>
+        {/* <div>
           <div className='ceo-wrap'>
             <p>대표이사</p>
           </div>
@@ -303,7 +320,7 @@ const SalesChart = () => {
               <div className='item delay-23'>중부본부</div>
             </li>
           </ChannelWrap>
-        </div>
+        </div> */}
       </ChartWrap>
     </Container>
   )

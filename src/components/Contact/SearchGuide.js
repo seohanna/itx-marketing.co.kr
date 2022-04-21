@@ -135,9 +135,6 @@ const Target = styled.div`
     }
   }
 }
-  
-  
-
 `;
   
 const SearchGuide = () => {
