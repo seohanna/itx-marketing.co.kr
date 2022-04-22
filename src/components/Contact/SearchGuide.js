@@ -1,5 +1,102 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
+import areaData from '../../data/searchMork.json';
+
+const SearchGuide = () => {
+  const Data = areaData.item; 
+  const [selected, setSelected] = useState('경기');
+
+  const handleClick = (e) => {
+    setSelected(e.target.value);
+    console.log(selected)
+  }
+
+  let business = Data.filter((data => {
+    if (selected === data.area1 && data.team === '사업단') {
+      return data;
+    }
+    if (selected === data.area2 && data.team === '사업단') {
+      return data;
+    }
+  }));
+
+  let insuPlus = Data.filter((data => {
+    if (selected === data.area1 && data.team === '보험플러스') {
+      return data;
+    }
+    if (selected === data.area2 && data.team === '보험플러스') {
+      return data;
+    }
+  }));
+  
+  return (
+    <Container>
+      <h2>사업단 검색</h2>
+        <div>
+          <Area>
+            <h3>지역구분</h3>
+            <table>
+              <tbody>
+              <tr>
+                <th><input readOnly onClick={(e) => handleClick(e)} value='서울'/></th>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='강남구'/></td>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='영등포구'/></td>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='강서구'/></td>
+              </tr>
+              <tr>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='은평구'/></td>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='동대문구'/></td>
+                <th><input readOnly onClick={(e) => handleClick(e)} value='경기'/></th>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='고양'/></td>
+              </tr>
+              <tr>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='부천'/></td>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='남양주'/></td>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='용인'/></td>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='김포'/></td>
+              </tr>
+              <tr>
+                <th><input readOnly onClick={(e) => handleClick(e)} value='인천'/></th>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='부평시'/></td>
+                <th><input readOnly onClick={(e) => handleClick(e)} value='제주'/></th>
+                <td><input readOnly onClick={(e) => handleClick(e)} value='제주시'/></td>
+              </tr>
+              </tbody>
+            </table>
+          </Area>
+          <Target>
+            <h3>검색대상</h3>
+            <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>사업단</th>
+                  <th>보험플러스</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    {business.map(dt => (
+                      <p>{dt.name}</p>
+                    ))}
+                  </td>
+                  <td>
+                    {insuPlus.map(dt => (
+                      <p>{dt.name}</p>
+                    ))}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </Target>
+        </div>
+    </Container>
+  )
+}
+
+export default SearchGuide;
 
 const Container = styled.section`
   padding: 10% 0;
@@ -59,22 +156,29 @@ const Area = styled.div`
     border-spacing: 2px;
     margin: 5% 9%;
     td {
-      background-color: #F0F0F0;
-      width: 140px;
-      height: 40px;
-      text-align: center;
-      font-size: 0.8rem;
-      transition: background 0.3s ease-in-out;
-      :hover{
-        background-color: #FCFCFC;
-        
+      input {
+        background-color: #F0F0F0;
+        width: 140px;
+        height: 40px;
+        text-align: center;
+        font-size: 0.8rem;
+        transition: background 0.3s ease-in-out;
+        :hover{
+          background-color: #FCFCFC;
+        }
       }
     }
+    
     th {
-      background-color: #B8292D;
-      color: #FFFFFF;
-      font-weight: 400;
-      font-size: 0.8rem;
+      > input {
+        width: 140px;
+        height: 40px;
+        text-align: center;
+        background-color: #B8292D;
+        color: #FFFFFF;
+        font-weight: 400;
+        font-size: 0.8rem;
+      }
     }
   }
   @media(max-width:700px) {
@@ -113,6 +217,7 @@ const Target = styled.div`
       line-height: 1.65rem;
     }
   }
+  
 }
 @media(max-width: 700px) {
   width: 100%;
@@ -136,71 +241,3 @@ const Target = styled.div`
   }
 }
 `;
-  
-const SearchGuide = () => {
-  return (
-    <Container>
-      <h2>사업단 검색</h2>
-        <div>
-          <Area>
-            <h3>지역구분</h3>
-            <table>
-              <thead></thead>
-              <tbody>
-              <tr>
-                <th>서울</th>
-                <td>강남구</td>
-                <td>영등포구</td>
-                <td>강서구</td>
-              </tr>
-              <tr>
-                <td>은평구</td>
-                <td>동대문구</td>
-                <th>경기</th>
-                <td>고양</td>
-              </tr>
-              <tr>
-                <td>부천</td>
-                <td>남양주</td>
-                <td>용인</td>
-                <td>김포</td>
-              </tr>
-              <tr>
-                <th>인천</th>
-                <td>부평시</td>
-                <th>제주</th>
-                <td>제주시</td>
-              </tr>
-              </tbody>
-            </table>
-          </Area>
-          <Target>
-            <h3>검색대상</h3>
-            <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>사업단</th>
-                  <th>보험플러스</th>
-                </tr>
-              </thead>
-              <tbody>
-                <td>
-                  <p>서울본부</p>
-                  <p>자산관리본부</p>
-                  <p>JJ파트너스</p>
-                  <p>유니온지사</p>
-                </td>
-                <td>
-                  <p>강남 세브란스병원</p>
-                </td>
-              </tbody>
-            </table>
-            </div>
-          </Target>
-        </div>
-    </Container>
-  )
-}
-
-export default SearchGuide;

@@ -1,4 +1,4 @@
-/* global kakao */
+
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
@@ -29,9 +29,8 @@ const Map = (props) => {
     // 지도 생성
     var map = new kakao.maps.Map(mapContainer, mapOptions);
     var geocoder = new kakao.maps.services.Geocoder();
-
+  
     geocoder.addressSearch(props.address, function(result, status) {
-
     // 정상적으로 검색이 완료됐으면 
       if (status === kakao.maps.services.Status.OK) {
       var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -52,6 +51,8 @@ const Map = (props) => {
       }
       console.log(props)
     });
+
+    
   });
   
   return (
