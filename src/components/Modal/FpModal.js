@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from './Modal';
-import selectIcon from '../../img/common/selectBoxIcon.svg';
-import CheckBox from '../CheckBox';
-
+import { EmailSendForm } from '../../email/EmailSendForm';
 function FpModal({onClick}) {
   
   const [checkModal, setCheckModal] = useState(false);
@@ -16,8 +14,9 @@ function FpModal({onClick}) {
       <ModalHead>
         <h2>FP 입사 지원하기</h2>
       </ModalHead>
-      <Form>
-        <select name="branch">
+      <EmailSendForm fpjoin onClick={checkOpen}/>
+      {/* <Form>
+        <select name="type">
           <option value="0">분야</option>
           <option value="corporate">법인컨설팅</option>
           <option value="db">DB영업</option>
@@ -49,12 +48,13 @@ function FpModal({onClick}) {
         <SubmitBox>
           <button type="submit">지원하기</button>
         </SubmitBox>
-      </Form>
+      </Form> */}
+      
       {checkModal && (
-        <>
+        <Private>
           <div>개인정보수집이용동의</div>
           <button onClick={checkOpen}>X</button>
-        </>
+        </Private>
       )}
     </Modal>
   );
@@ -86,94 +86,11 @@ const ModalHead = styled.div`
   }
 `;
 
-const Form = styled.form`
-  
-
-  select {
-    width: 100%;
-    height: 50px;
-    border-radius: 8px;
-    border: 1px solid #BEBEBE;
-    font-size: 1rem;
-    color: #C4C4C4;
-    -o-appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: url(${selectIcon}) calc(100% - 15px) center no-repeat;
-    padding-left: 15px;
-  }
-
-  @media(max-width: 700px) {
-    width: 100%;
-    height: 100%;
-    padding: 0%;
-    border: 0;
-  }
+const Private = styled.div`
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  right: 10%;
+  background-color: aliceblue;
 `;
-const InputBox = styled.div`
-  > h3 {
-    line-height: 2.6rem;
-    color: #1A1A1A;
-    @media(max-width: 700px){
-      font-size: 1rem;
-      line-height: 2.25rem;
-    }
-  }
-  input {
-    border: 1px solid #BEBEBE;
-    border-radius: 8px;
-    height: 50px;
-    width: 100%;
-    padding: 0 20px;
-    @media(max-width: 700px){
-      border-radius: 5px;
-    }
-  }
-  input::placeholder,
-  textarea::placeholder {
-    color: #C4C4C4;
-    font-size: 0.8rem;
-    font-family: 'GoyangIlsan';
-    @media(max-width: 700px){
-      font-size: 0.8125rem;
-    }
-  }
-  textarea {
-    height: 194px;
-    width: 100%;
-    border: 1px solid #BEBEBE;
-    border-radius: 8px;
-    padding: 24px 0 0 19px;
-    outline: none;
-    @media(max-width: 700px) {
-      padding: 16px 0 0 16px;
-      height: 169px;
-    }
-  }
-`;
-
-const CheckBoxWrapper = styled.div`
-  padding: 2% 0;
-`;
-const SubmitBox = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  button {
-    width: 250px;
-    height: 50px;
-    color: #FFFFFF;
-    background-color: #B8292D;
-    border-radius: 95px;
-    font-size: 0.8125rem;
-    cursor: pointer;
-  }
-  @media(max-width: 700px) {
-    button {
-      width: 100% ;
-      border-radius: 3px;
-      height: 30px;
-    }
-  }
-`;
-

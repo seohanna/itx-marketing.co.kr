@@ -43,7 +43,7 @@ const SearchMap = () => {
         <Button onClick={handleClick} />
    
       </Search>
-      <SearchGuide />
+      <SearchGuide  />
       <SearchResult>
         <table>
           <thead>

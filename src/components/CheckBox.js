@@ -3,13 +3,13 @@ import styled, { css } from 'styled-components';
 import checkIcon from "../img/common/checkIcon.svg";
 import checkedIcon from "../img/common/checkedIcon.svg";
 
-function CheckBox({onClick, apply}) {
+function CheckBox({onClick, apply, fpadvice, name }) {
   
   return (
     <InputWrap apply={apply}>
-      <input type="checkbox" id="agree" />
+      <input type="checkbox" id="agree" name={name} />
       <label for="agree">개인정보수집 및 이용동의서</label>
-      <Button apply onClick={onClick}>보기</Button>
+      <Button apply fpadvice={fpadvice} onClick={onClick}>보기</Button>
     </InputWrap>
   )
 }
@@ -76,6 +76,10 @@ const Button = styled.div`
   font-size: 0.8rem;
   cursor: pointer;
 
+  ${props => props.fpadvice && css`
+    display: none;
+  `}
+  
   @media(max-width: 700px) {
     width: 40px;
     height: 20px;
@@ -86,5 +90,7 @@ const Button = styled.div`
       height: 30px;
       font-size: 0.8125rem;
     `}
+
+    
   }
 `;

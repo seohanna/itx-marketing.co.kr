@@ -75,7 +75,7 @@ const VARIANTS = {
     --hover-bg-color: #C22229;
   `
 }
-const Button = ({children, size, variant, onClick}) => {
+const Button = ({children, size, variant, onClick, type, value}) => {
   const sizeStyle = SIZES[size];
   const variantStyle = VARIANTS[variant];
 
@@ -84,6 +84,8 @@ const Button = ({children, size, variant, onClick}) => {
       onClick={onClick}
       sizeStyle={sizeStyle}
       variantStyle={variantStyle}
+      type={type}
+      value={value}
     >
       {children}
     </StyledButton>

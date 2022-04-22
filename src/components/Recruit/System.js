@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components';
 import Title from '../Summary/Title';
 import ScrollMagic from "scrollmagic";
-import arrow from '../../img/sub/arrowIcon.png';
 import career from '../../img/sub/career.svg';
 import market from '../../img/sub/market.svg';
 import salary from '../../img/sub/salary.svg';
@@ -11,7 +10,8 @@ import duty from '../../img/sub/duty.svg';
 import sales from '../../img/sub/sales.svg';
 import support from '../../img/sub/support.svg';
 import newBsiness from '../../img/sub/newBsiness.svg';
-
+import recruitment from '../../img/sub/recruitment_procedure.png';
+import recruitmentMb from '../../img/sub/recruitment_procedureMb.png';
 const ProgramData = [
   {
     id: 0,
@@ -74,6 +74,79 @@ const InsentiveData = [
   }
 ]
 
+
+
+
+const System = () => {
+  const intRef = useRef(null);
+  const progRef = useRef(null);
+
+  useEffect(() => {
+    const controller = new ScrollMagic.Controller();
+    new ScrollMagic
+        .Scene({
+          triggerElement: progRef.current,
+          triggerHook: .5
+        })
+        .setClassToggle(progRef.current, 'show')
+        .addTo(controller);
+      new ScrollMagic
+      .Scene({
+        triggerElement: intRef.current,
+        triggerHook: .8
+      })
+      .setClassToggle(intRef.current, 'show')
+      .addTo(controller);      
+  }, []);
+  
+  return (
+    <Container>
+      <CircleWrap>
+        <Title en={'Recruitment procedure'} ko={'채용절차'} />
+        <div>
+          <img src={recruitment} alt='' className='pc'/>
+          <img src={recruitmentMb} alt='' className='mobile'/>
+        </div>
+      </CircleWrap>
+      <Program ref={progRef}>
+        <Title en={'A nurturing program'} ko={'육성프로그램'} />
+        <ul>
+          {ProgramData.map((pd) => (
+            <Items key={pd.id} className={pd.classname}>
+              <div className='text-wrap'>
+                <h3>{pd.title}</h3>
+                <p>{pd.desc}</p>
+              </div>
+              <div className='img-wrap'>
+                <img src={pd.icon} alt={pd.title} />
+              </div>
+            </Items>
+          ))}
+        </ul>
+      </Program>
+      <Incentive ref={intRef}>
+        <Title en={'Incentive'} ko={'인센티브 제도'} />
+        <ul>
+          {InsentiveData.map((nd) => (
+            <li key={nd.id} className={nd.classname}>
+              <div className='img-wrap'>
+                <img src={nd.icon} alt={nd.title} />
+              </div>
+              <div className='text-wrap'>
+                <h3>{nd.title}</h3>
+                <p>{nd.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Incentive>
+    </Container>
+  )
+}
+
+export default System;
+
+
 const Container = styled.section`
 
 
@@ -81,121 +154,29 @@ const Container = styled.section`
    
   }
 `;
-
 const CircleWrap = styled.div`
   padding: 7.05% 8.73% 0%;
- 
-  > ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 8.19% 0% 9.1%;
 
-    > li {
-      width: 25%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      &::after {
-        content: '';
-        display: block;
-        width: 20px;
-        height: 50px;
-        background-image: url(${arrow});
-        background-repeat: no-repeat;
-        background-size: contain;
-        z-index: 3;
-        position: absolute;
-        right: -10px;
-      }
-      :last-child::after {
-        content: none;
-      }
-    > div {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      border: 6px solid transparent;
-      font-size: 1.4rem;
-      font-family: 'GoyangDeogyang';
-      color: #000000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+  > div {
+    padding: 8% 0;
+    .mobile {
+      display: none;
     }
-      :first-child > div {
-        background: linear-gradient(#fff, #fff),linear-gradient(60deg, #9D9D9D 70%, #F9BDBD 30%);
-        background-origin: border-box;
-        background-clip: content-box, border-box;
+  }
+ 
+  @media (max-width: 700px) {
+    padding: 0 5.333333333333333%;
+
+    > div {
+      padding: 0 0 15% 0;
+      .pc {
+        display: none;
       }
-      :nth-child(2) > div {
-        background: linear-gradient(#fff, #fff),linear-gradient(90deg, #9D9D9D 50%, #F9BDBD 50%);
-        background-origin: border-box;
-        background-clip: content-box, border-box;
-      }
-      :nth-child(3) > div {
-        background: linear-gradient(#fff, #fff),linear-gradient(-60deg, #F9BDBD 70%, #9D9D9D 30%);
-        background-origin: border-box;
-        background-clip: content-box, border-box;
-      }
-      :last-child > div {
-        background: linear-gradient(#fff, #fff),linear-gradient(#F9BDBD 100%, #F9BDBD 100%);
-        background-origin: border-box;
-        background-clip: content-box, border-box;      
+      .mobile {
+        display: block;
       }
     }
   }
-  @media (max-width: 700px) {
-    padding: 8% 5.333333333333333% 0%;
-
-    > ul {
-      flex-flow: row wrap;
-      padding: 7.3% 0 8%;
-      > li {
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 8% 0;
-        :nth-child(3),:nth-child(4) {
-          margin: 0;
-        }
-        :nth-child(2)::after{
-          transform: rotate(90deg);
-          bottom: -9.5px;
-          left: 47%;
-        }
-        &:nth-child(3)::after{
-          transform: rotate(180deg);
-          left: -3.5px;
-
-        }
-        :nth-child(4) {
-          order: 3;
-        }
-        :nth-child(3) {
-          order: 4;
-        }
-        &::after {
-        width: 7px;
-        height: 19px;
-        background-image: url(${arrow});
-        background-repeat: no-repeat;
-        background-size: contain;
-        z-index: 3;
-        position: absolute;
-        right: -3.5px;
-        }
-      }
-      > li > div {
-        width: 120px;
-        height: 120px;
-        border-width: 3px;
-        font-size: 0.625rem;
-        }
-      }
-    }
 `;
 
 const Program = styled.div`
@@ -404,82 +385,3 @@ const Incentive = styled.div`
    }
   }
 `;
-
-const System = () => {
-  const intRef = useRef(null);
-  const progRef = useRef(null);
-
-  useEffect(() => {
-    const controller = new ScrollMagic.Controller();
-    new ScrollMagic
-        .Scene({
-          triggerElement: progRef.current,
-          triggerHook: .5
-        })
-        .setClassToggle(progRef.current, 'show')
-        .addTo(controller);
-      new ScrollMagic
-      .Scene({
-        triggerElement: intRef.current,
-        triggerHook: .8
-      })
-      .setClassToggle(intRef.current, 'show')
-      .addTo(controller);      
-  }, []);
-  
-  return (
-    <Container>
-      <CircleWrap>
-        <Title en={'Recruitment procedure'} ko={'채용절차'} />
-        <ul>
-          <li>
-            <div>서류전형</div>
-          </li>
-          <li>
-            <div>실무면접</div>
-          </li>
-          <li>
-            <div>임원면접</div>
-          </li>
-          <li>
-            <div>최종합격</div>
-          </li>
-        </ul>
-      </CircleWrap>
-      <Program ref={progRef}>
-        <Title en={'A nurturing program'} ko={'육성프로그램'} />
-        <ul>
-          {ProgramData.map((pd) => (
-            <Items key={pd.id} className={pd.classname}>
-              <div className='text-wrap'>
-                <h3>{pd.title}</h3>
-                <p>{pd.desc}</p>
-              </div>
-              <div className='img-wrap'>
-                <img src={pd.icon} alt={pd.title} />
-              </div>
-            </Items>
-          ))}
-        </ul>
-      </Program>
-      <Incentive ref={intRef}>
-        <Title en={'Incentive'} ko={'인센티브 제도'} />
-        <ul>
-          {InsentiveData.map((nd) => (
-            <li key={nd.id} className={nd.classname}>
-              <div className='img-wrap'>
-                <img src={nd.icon} alt={nd.title} />
-              </div>
-              <div className='text-wrap'>
-                <h3>{nd.title}</h3>
-                <p>{nd.desc}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </Incentive>
-    </Container>
-  )
-}
-
-export default System;

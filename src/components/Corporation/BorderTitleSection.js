@@ -1,15 +1,34 @@
-import React from 'react';
-import styled from "styled-components";
+import React, { useState } from 'react';
+import styled, { css } from "styled-components";
 import SectionTitle from '../PlatForm/SectionTitle';
 import TitleBox from '../TitleBox';
 import ContentsInner from '../ContentsInner';
 import { useLocation } from 'react-router-dom';
 import { profile, profile2 } from '../../data/ProfileList';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import "swiper/swiper.min.css";
+import "swiper/components/navigation/navigation.min.css";
 
 function BorderTitleSection({
   disc, span
 }) {
   const location = useLocation();
+  const [swiper, setSwiper] = useState(null);
+  const [isToggleOn, setToggleOn] = useState(false);
+
+  const handleClick = () => {
+    setToggleOn(!isToggleOn);
+    console.log(swiper)
+  }
+
+  const swiperParams = {
+    onSwiper: setSwiper,
+    loop: true,
+    slidesPerView: 1.24,
+    centeredSlides: true,
+    spaceBetween: 25,
+  }
   return (
     <>
       <TitleWrap>
@@ -27,11 +46,11 @@ function BorderTitleSection({
           </div>
         </GrayBox> 
       </Content>
-      <ContentsInner>
+      <ContentsInner none>
         {location.pathname === '/corporation/expert' ? (
           <>
-            <ProfileList>
-            {profile.map((data) => (
+            <ProfileList corporation>
+              {profile.map((data) => (
               <li key={data.id}>
                 <div className='header'>
                   <h2>{data.job}</h2>
@@ -61,11 +80,84 @@ function BorderTitleSection({
                 </div>
               </li>
             ))}
-          </ProfileList>
-          <ButtonWrap>
-            <MoreButton>더보기 +</MoreButton>
-          </ButtonWrap>
-        </>
+            </ProfileList>
+
+            {!isToggleOn && (
+              <StyleSwiper  {...swiperParams} ref={setSwiper}>
+              {profile.map((data) => (
+              <SwiperSlide key={data.id}>
+                <div className='header'>
+                  <h2>{data.job}</h2>
+                  <p>전문가 프로필</p>
+                </div>
+                <div className='top'>
+                  <img src={data.img} alt={data.name} />
+                  <div>
+                    <h2>{data.job}&nbsp;{data.name}</h2>
+                    <p>연령 : {data.age}</p>
+                    <p>연락처 : {data.tel}</p>
+                  </div>
+                </div>
+                <div className='bottom'>
+                  <div>
+                    <p><span>학력</span></p>
+                    <p>{data.education}</p>
+                  </div>
+                  <div>
+                    <p><span>주요 경력</span></p>
+                    <p>{data.career}</p>
+                  </div>
+                  <div>
+                    <p><span>주요 업무</span></p>
+                    <p>{data.task}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+              </StyleSwiper>
+            )}
+            {isToggleOn && (
+             <ProfileList>
+               {profile.map((data) => (
+              <li key={data.id}>
+                <div className='header'>
+                  <h2>{data.job}</h2>
+                  <p>전문가 프로필</p>
+                </div>
+                <div className='top'>
+                  <img src={data.img} alt={data.name} />
+                  <div>
+                    <h2>{data.job}&nbsp;{data.name}</h2>
+                    <p>연령 : {data.age}</p>
+                    <p>연락처 : {data.tel}</p>
+                  </div>
+                </div>
+                <div className='bottom'>
+                  <div>
+                    <p><span>학력</span></p>
+                    <p>{data.education}</p>
+                  </div>
+                  <div>
+                    <p><span>주요 경력</span></p>
+                    <p>{data.career}</p>
+                  </div>
+                  <div>
+                    <p><span>주요 업무</span></p>
+                    <p>{data.task}</p>
+                  </div>
+                </div>
+              </li>
+            ))}
+             </ProfileList>
+              
+            )}
+            <ButtonWrap>
+              <MoreButton onClick={handleClick}>
+                {!isToggleOn && (<span>더 보기 +</span>)}
+                {isToggleOn && (<span>접기 -</span>)}
+              </MoreButton>
+            </ButtonWrap>
+          </>
         ) : (
           <>
             <ProfileList className='column'>
@@ -81,7 +173,6 @@ function BorderTitleSection({
               </li>
             ))}
             </ProfileList>
-            
           </>
         )}
       </ContentsInner> 
@@ -229,77 +320,70 @@ const ProfileList = styled.ul`
   }
 
   @media (max-width: 700px) {
-    width: 290%;
-    padding: 20% 0 20% 0;
-    &.column {
-      flex-direction: column;
-      width: 100%;
-      > li {
-        width: 100%;
-      }
-    }
+    ${props => props.corporation && css`
+      display: none;
+    `}
+    
+    width: 100%;
+    padding: 20% 7%;
     > li {
-      width: 30.8641975308642%;
-      border: 2px solid #B8292D;
-      margin-right: 3.6%;
-      margin-bottom: 10%;
-
-      :nth-child(3n) {
-      margin-right: 0;
-    }
+      width: 100%;
+      margin: 0 0 10% 0;
       div {
-        padding: 5% 10%;
-      }
-      h2 {
-        font-size: 1.25rem;
-      }
+      padding: 5% 7%;
+    }
     .header {
       height: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      h2 {
+        font-size: 1rem;
+      }
       p {
         font-size: 0.8125rem;
-        transform: translate(0, 50%);
+        display: flex;
+        justify-content: flex-end;
       }
     }
     .top {
       display: flex;
+      > img {
+        width: 90px;
+        height: 120px;
+        background-color: #EDEDED;
+      }
       div {
         padding: 0 0 0 7% ;
       }
-      img {
-        height: 160px;
-        width: 125px;
-        background-color: #BEBEBE;
-      }
+      
       h2 {
-        border-bottom: 1px solid #BEBEBE;
         color: #1a1a1a;
-        line-height: 2.3rem;
+        font-size: 0.8125rem;
+        border-bottom: 1px solid #BEBEBE;
+        line-height: 2rem;
       }
       p {
-        padding-top: 7%;
-      }
-
-    }
-    .top.center{
-      justify-content: center;
-      align-items: center;
-      height: 170px;
-      img {
-        align-self: center;
-        width: 200px;
-        height: auto;
-        background-color: transparent;
+        font-size: 0.8125rem;
+        padding-top: 10%;
       }
     }
     .bottom {
+      padding: 0;
+      p {
+        font-size: 0.8125rem;
+        white-space: pre;
+      }
       span {
         color: #B8292D;
         display: block;
         padding-bottom: 1%;
       }
     }
+    }
+    
   }
-  }
+  
 `;
 const ButtonWrap = styled.div`
   display: none;
@@ -311,7 +395,6 @@ const ButtonWrap = styled.div`
 `;
 const MoreButton = styled.button`
   
-
   @media (max-width: 700px) {
     display: flex;
     width: 200px;
@@ -324,6 +407,74 @@ const MoreButton = styled.button`
     font-size: 1rem;
     font-family: 'GoyangIlsan';
   }
-
-
 `;
+
+const StyleSwiper = styled(Swiper)`
+  display: none;
+  
+  @media (max-width: 700px) {
+    padding: 20% 0;
+    display: block;
+
+   .swiper-slide {
+      border: 2px solid #B8292D;
+      :nth-child(3n) {
+        margin-right: 0;
+      }
+    div {
+      padding: 5% 7%;
+    }
+    .header {
+      height: 80px;
+      background-color: #B8292D;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      h2 {
+        font-size: 1rem;
+      }
+      p {
+        font-size: 0.8125rem;
+        display: flex;
+        justify-content: flex-end;
+        
+      }
+    }
+    .top {
+      display: flex;
+      div {
+        padding: 0 0 0 7% ;
+      }
+      img {
+        height: 120px;
+        width: 90px;
+        background-color: #EDEDED;
+      }
+      h2 {
+        color: #1a1a1a;
+        font-size: 0.8125rem;
+        border-bottom: 1px solid #BEBEBE;
+        line-height: 2rem;
+      }
+      p {
+        font-size: 0.8125rem;
+        padding-top: 10%;
+      }
+    }
+    .bottom {
+      padding: 0;
+      p {
+        font-size: 0.8125rem;
+        white-space: pre;
+      }
+      span {
+        color: #B8292D;
+        display: block;
+        padding-bottom: 1%;
+      }
+    }
+  }
+}
+`;
+

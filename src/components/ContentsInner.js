@@ -1,12 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled,{ css } from 'styled-components'
+
 
 function ContentInner({
-  children,
+  children, none
 }) {
   
   return (
-    <Inner>
+    <Inner none={none}>
       {children}
     </Inner>
   );
@@ -20,6 +21,10 @@ const Inner = styled.div`
 
   @media (max-width: 700px) {
     padding: 0 5.6%;
+
+    ${props => props.none && css`
+      padding: 0;
+    `}
   }
 
   

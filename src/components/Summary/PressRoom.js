@@ -231,7 +231,7 @@ const PressRoom = () => {
     centeredSlides: false,
     slidesPerView: 'auto',
     loopedSlides: 4,
-    slidesBetween:0,
+    slidesBetween: 0,
     // slidesBetween: 23,
     speed: 1000,
     autoplay : {

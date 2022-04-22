@@ -273,7 +273,7 @@ const Contents = ({slogan, disc, disc2, intro, service, id}) => {
             </div>
             <div className="text-wrap">
               <TextWrap title>
-                <h1>사업주가 인건비를 아낄 수 있는&nbsp;<br className="mobile"/>
+                <h1>사업주가 인건비를 아낄 수 있는 <br className="tab"/>
                   <span>고용촉진 지원금제도</span>
                 </h1>
                 <p>
@@ -334,14 +334,14 @@ const Contents = ({slogan, disc, disc2, intro, service, id}) => {
           <SectionWrap service>
             <div className="text-wrap small-busi">
               <TextWrap title className="small-busi">
-                <h1>기업의 미래가치를 만들어 가는&nbsp;<br className="mobile"/>
+                <h1>기업의 미래가치를 만들어 가는 <br className="tab"/>
                   <span>”기업인증제도”</span>
                 </h1>
                 <ul className="list-style">
                   <li>혁신형 기업인증 : 기업부설연구소, 벤쳐기업, 이<br className="mobile"/>노비즈, 메인비즈, 우수그린비즈</li>
                   <li>기업인증 : 부품소재전문기업, 뿌리기술전문기업, <br className="mobile"/>녹생인증, ISO인증, NEP인증</li>
                 </ul>
-                <div className="circle-table">
+                <div className="circle-table col">
                   <img src={section4} alt='' className="pc" />
                   <img src={sectionMb4} alt='' className="mobile" />
                 </div>
@@ -358,8 +358,8 @@ const Contents = ({slogan, disc, disc2, intro, service, id}) => {
             </div>
             <div className="text-wrap last">
               <TextWrap title>
-                <h1>인사관리의 법적 실무적 적절성을 판단&nbsp;<br className="mobile"/>
-                  <span>”위반사항요소”</span>제거
+                <h1>인사관리의 법적 실무적 적절성을 판단&nbsp;<br className="tab"/>
+                  <span>”위반사항요소”</span>&nbsp;제거
                 </h1>
                 <ul className="list-style">
                   <li>취업규칙, 근로계약서, 포괄임금제(연봉제)합법적 개선</li>
@@ -410,21 +410,22 @@ const SectionWrap = styled.div`
     }
     .img-wrap {
       align-self: flex-start;
-      margin-right: 6%;
+      width: 20%;
+      padding-right
     }
     
     .img-wrap.center {
       display: flex;
       align-self: center;
-      margin-right: 3%;
+      /* margin-right: 3%; */
     }
     .text-wrap.small-busi.large {
-      width: 70%
+      
     }
     .text-wrap {
       align-self: flex-start;
       padding-left: 2%;
-      
+      width: 80%;
 
       &.text-wrap.last {
         > div {
@@ -447,10 +448,7 @@ const SectionWrap = styled.div`
     ${props => props.service && css`
       padding: 10% 0;
       .img-wrap { 
-        > img {
-          width: 200px;
-          height: 300px;
-        }
+        width: 62.5%;
       }
       .text-wrap {
         width: 100%;
@@ -574,18 +572,21 @@ const TextWrap = styled.div`
         padding-bottom: 1%;
       }
     }
+    .tab {
+       display: none;
+    }
+   @media(max-width: 1660px) {
+     .tab {
+       display: block;
+     }
+   }
   `}
 
   @media(max-width: 700px) {
     ${props => props.slogan && css`
       padding: 15% 0;
     `}
-    .mobile {
-      display: block;
-    }
-    .pc {
-      display: none;
-    }
+    
     > h1 {
       font-size: 1.25rem;
       line-height: 1.5rem;
@@ -659,11 +660,19 @@ const TextWrap = styled.div`
       }
     }
   }
-  .circle-table {
+    .circle-table {
       padding: 9% 0 0 0;
       width: 100%;
       display: flex;
       justify-content: center;
+    }
+    .circle-table.col {
+      .mobile {
+        display: block;
+      }
+      .pc {
+        display: none;
+      }
     }
   `}
   }
