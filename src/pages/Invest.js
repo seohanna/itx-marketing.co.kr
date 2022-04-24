@@ -60,7 +60,7 @@ const Invest = ({match, history}) => {
             </div>
             <HashWrap className='fade-el'>
               <StyledLink to='/business/invest/story'>
-                <HashTag name='프롬이 보험이야기' />
+                <HashTag name='프롬이 보험이야기'  />
               </StyledLink>
               <HashTag name='보험플러스'/>
               <HashTag name='재테크'/>
@@ -107,8 +107,12 @@ const Invest = ({match, history}) => {
 
 export default Invest;
 
+
+
 const HashWrap = styled.div`
   width: 80%;
+  padding-right: 5%;
+
   &.fade-el {
     div {
       opacity: 0;
@@ -150,6 +154,7 @@ const HashWrap = styled.div`
 
   > div {
     margin-top: 5%;
+
     @media (max-width: 700px) {
       margin-top: 0;
       margin-bottom: 14px;
@@ -159,10 +164,10 @@ const HashWrap = styled.div`
   ${props => props.title && css`
     display: flex;
     align-items: flex-end;
-    margin-left: 3%;
+    margin-left: 1%;
     width: auto;
     div {
-      margin: 0;
+      margin: 0 10% 0 0;
       :last-child {
         margin-top: 10px;
       }
@@ -178,6 +183,7 @@ const HashWrap = styled.div`
 
   @media (max-width: 700px) {
     width: 100%;
+    padding-right: 0%;
     ${props => props.title && css`
       display: flex;
       flex-direction: column;
@@ -188,7 +194,6 @@ const HashWrap = styled.div`
       width: 114px;
       
       > p {
-    
         display: flex;
         align-items: center;
         justify-content: center;

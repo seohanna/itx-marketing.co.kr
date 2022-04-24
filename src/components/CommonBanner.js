@@ -6,7 +6,7 @@ import mobileBanner from '../img/sub/coporExpertBannerMb.png'
 const CommonBanner = ({
   apply, corpor, inherit, corporexpert, 
   inherexpert, strong, title, subtxt, img,
-  customer, faq
+  customer, faq, helpdesk
 }) => {
   return (
     <BannerContainer
@@ -16,7 +16,8 @@ const CommonBanner = ({
       corporexpert={corporexpert}
       inherexpert={inherexpert}
       inherit={inherit}
-      faq={faq} 
+      faq={faq}
+      helpdesk={helpdesk}
       style={{backgroundImage: `url(${img})`}}
     >
       <div className='text-wrap'>
@@ -56,6 +57,11 @@ const BannerContainer = styled.section`
     background-position: 0 35%;
   `}
 
+  ${props => props.helpdesk && css`
+    background-size: 137%;
+    background-position: 100% 100%;
+  `}
+
 
   @media (max-width: 700px) {
     padding-top: 162%;
@@ -90,6 +96,12 @@ const BannerContainer = styled.section`
       background-position: 54% 0%;
       background-size: 245%;
     `}
+    
+    ${props => props.helpdesk && css`
+      background-size: 320%;
+      background-position: 49% 100%;
+    `}
+
   }
 > .text-wrap {
     position: absolute;

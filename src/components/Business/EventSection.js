@@ -32,7 +32,7 @@ function EventSection({
           <ImgWrap apply={apply} className='fade-el'>
             <img src={img} alt={title}  />
           </ImgWrap>
-          <TextWrap apply={apply} className='fade-el'>
+          <TextWrap apply={apply} invest={invest} className='fade-el'>
             {children}
           </TextWrap>
         </Content>
@@ -121,6 +121,22 @@ const TextWrap = styled.div`
 
     @media (max-width: 700px) {
       width: 100%;
+    }
+  `}
+
+  ${props => props.invest && css`
+
+    @media (max-width: 700px) {
+      width: 100%;
+      h2 {
+        font-size: 1rem;
+        padding-top: 12%;
+      }
+      p {
+        font-size: 0.625rem;
+        line-height: 1rem;
+        padding: 10% 0;
+      }
     }
   `}
   

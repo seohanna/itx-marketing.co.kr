@@ -10,8 +10,6 @@ function InvestView({history, data}) {
 
     <Layout>
       {data.title}
-       
-      
       <button onClick={handleClick}>뒤로</button>
     </Layout>
   )

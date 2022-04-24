@@ -383,7 +383,7 @@ const Header = (props) => {
                   <li>회원가입</li> */}
                   <li><a href='/customer'>공지사항</a></li>
                   <li><a href='/faq'>FAQ</a></li>
-                  <li><a href='/faq'>1:1 문의</a></li>
+                  <li><a href='/helpdesk'>1:1 문의</a></li>
                 </ul>
               </li>
             </ul>

@@ -16,6 +16,7 @@ import Apply from "./pages/Apply";
 import Corporation from './pages/Corporation';
 import Inherit from './pages/Inherit';
 import Faq from "./pages/Faq";
+import HelpDesk from "./pages/HelpDesk";
 
 function App() {
   
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/customer/:id" component={Customer} />
           <Route exact path="/faq" component={Faq} />
           <Route exact path="/faq?id" component={Faq} />
+          <Route exact path="/helpdesk" component={HelpDesk} />
         </BrowserRouter>
     </ThemeProvider>
   );
