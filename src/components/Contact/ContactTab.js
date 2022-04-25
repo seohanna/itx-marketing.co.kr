@@ -12,8 +12,6 @@ import TopBox from './TopBox';
 import TitleBox from '../TitleBox';
 import SearchMap from './SearchMap';
 
-
-
 const BannerContain = styled.div`
   position: relative;
 `;

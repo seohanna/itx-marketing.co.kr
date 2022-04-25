@@ -88,7 +88,8 @@ const Search = styled.div`
   align-items: center;
   
 @media(max-width: 700px) {
-  margin: 0 2%;
+  margin: 0;
+  padding: 0 0 0 5%;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -126,6 +127,7 @@ const Button = styled.button`
 `;
 const SearchResult = styled.div`
   margin: 0 6.3% 3%;
+  
   table {
     width: 100%;
     border-collapse: collapse;
@@ -152,7 +154,7 @@ const SearchResult = styled.div`
     }
   }
   @media(max-width: 700px) {
-    margin: 0 2% 2.23%;
+    margin: 0;
 
     table {
       font-size: 0.625rem;

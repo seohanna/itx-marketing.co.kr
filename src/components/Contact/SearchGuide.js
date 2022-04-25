@@ -37,30 +37,30 @@ const SearchGuide = () => {
             <h3>지역구분</h3>
             <table>
               <tbody>
-              <tr>
-                <th><input readOnly onClick={(e) => handleClick(e)} value='서울'/></th>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='강남구'/></td>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='영등포구'/></td>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='강서구'/></td>
-              </tr>
-              <tr>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='은평구'/></td>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='동대문구'/></td>
-                <th><input readOnly onClick={(e) => handleClick(e)} value='경기'/></th>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='고양'/></td>
-              </tr>
-              <tr>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='부천'/></td>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='남양주'/></td>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='용인'/></td>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='김포'/></td>
-              </tr>
-              <tr>
-                <th><input readOnly onClick={(e) => handleClick(e)} value='인천'/></th>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='부평시'/></td>
-                <th><input readOnly onClick={(e) => handleClick(e)} value='제주'/></th>
-                <td><input readOnly onClick={(e) => handleClick(e)} value='제주시'/></td>
-              </tr>
+                <tr>
+                  <th><input readOnly onClick={(e) => handleClick(e)} value='서울'/></th>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='강남구'/></td>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='영등포구'/></td>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='강서구'/></td>
+                </tr>
+                <tr>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='은평구'/></td>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='동대문구'/></td>
+                  <th><input readOnly onClick={(e) => handleClick(e)} value='경기'/></th>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='고양'/></td>
+                </tr>
+                <tr>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='부천'/></td>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='남양주'/></td>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='용인'/></td>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='김포'/></td>
+                </tr>
+                <tr>
+                  <th><input readOnly onClick={(e) => handleClick(e)} value='인천'/></th>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='부평시'/></td>
+                  <th><input readOnly onClick={(e) => handleClick(e)} value='제주'/></th>
+                  <td><input readOnly onClick={(e) => handleClick(e)} value='제주시'/></td>
+                </tr>
               </tbody>
             </table>
           </Area>
@@ -107,7 +107,7 @@ const Container = styled.section`
   > h2 {
     font-size: 2.5rem;
     color: #1A1A1A;
-    padding-bottom: 8%;
+    
     @media(max-width:700px){
       font-size: 1rem;
       padding-bottom: 13.8%;
@@ -115,7 +115,7 @@ const Container = styled.section`
   }
   > div {
     display: flex;
-    padding: 5% 0;
+    padding: 5% 0 0 0;
     @media(max-width:700px){
       flex-direction: column;
       padding: 0;
@@ -152,13 +152,15 @@ const Container = styled.section`
 
 const Area = styled.div`
   width: 50%;
+  margin-right: 10%;
   table {
     border-spacing: 2px;
     margin: 5% 9%;
-    td {
+    td,th {
+      width: 25%;
       input {
         background-color: #F0F0F0;
-        width: 140px;
+        width: 100%;
         height: 40px;
         text-align: center;
         font-size: 0.8rem;
@@ -171,8 +173,6 @@ const Area = styled.div`
     
     th {
       > input {
-        width: 140px;
-        height: 40px;
         text-align: center;
         background-color: #B8292D;
         color: #FFFFFF;
@@ -183,18 +183,24 @@ const Area = styled.div`
   }
   @media(max-width:700px) {
     width: 100%;
-    padding: 0 2% 16.6%;
+    padding: 0;
+    margin: 0 0 15% 0;
     table{
+      width: 100%;
       margin: 0;
       td,th {
-        font-size: 0.625rem;
+        width: 25%;
+        > input {
+          width: 100%;
+          font-size: 0.625rem;
+        }
       }
     }
   }
 `;
 const Target = styled.div`
  width: 50%;
->div{
+> div{
   padding: 5% 9%;
 > table {
     border-collapse: collapse;
@@ -226,6 +232,7 @@ const Target = styled.div`
   > div{
     padding: 0;
     > table {
+      margin-bottom: 15%;
       td,th {
         font-size: 0.625rem;
       }

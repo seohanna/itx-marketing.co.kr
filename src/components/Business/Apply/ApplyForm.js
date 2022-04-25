@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import styled from 'styled-components';
 import CheckBox from '../../CheckBox';
 import selectBoxIcon from '../../../img/sub/selectboxIcon.svg';
@@ -6,90 +7,209 @@ import Button from '../../Button';
 import ApplyModal from '../../Modal/ApplyModal';
 
 function ApplyForm({
-  name, corporate, inherit 
+  name, corporate,corporation, inherit, individual, business
 }) {
   const [modalVisible, setModalVisible] = useState(false);
-
+  const form = useRef();
   const openModal = () => { 
     setModalVisible(true);
   }
   const closeModal = () => {
     setModalVisible(false);
   }
+  const sendEmail = (e) => {
+    e.preventDefault();
 
+    emailjs.sendForm('service_fkovx9j', form.current.name , form.current, 'eUYGVLXHP_B036Uyh')
+      .then((result) => {
+          console.log(result.text);
+          alert('신청이 완료됬습니다.')
+         	window.location.reload();
+      }, (error) => {
+          console.log(error.text);
+          alert('정상적인 제출이 이루어지지 않았습니다. 다시 신청해주세요.');
+          window.location.reload();
+      });
+  };
 
   return (
-      <Layout name={name}>
-        <InputWrap>
-          <InputBox>
-            <p>{corporate ? '회사명' : '성명 '}</p>
-            <input type='text' placeholder={corporate ? '회사명을 입력하세요' : '이름을 입력하세요'} />
-          </InputBox>
-          <InputBox>
-            <p>{corporate ? '담당자' : '생년월일'}</p>
-            <input type='number' placeholder={corporate ? '담당자 성함을 입력하세요' : '생년월일을 입력하세요 (ex: 770322)'}/>
-          </InputBox>
-        </InputWrap>
-        <InputWrap>
-          <InputBox>
-            <p>지역</p>
-            <input type='text' placeholder='시도 단위로 입력하세요'/>
-          </InputBox>
-          <InputBox>
-            <p>연락처</p>
-            <input type='number' placeholder='‘-’없이 번호만 입력해 주세요'/>
-          </InputBox>
-        </InputWrap>
+      <Form onSubmit={sendEmail} ref={form} name='template_evvw7vb'>
+        {/* {business && (
+          <>
+            <InputWrap>
+              <InputBox>
+                <p>성명</p>
+                <input type='text' placeholder={'이름을 입력하세요'} name={individual? 'individual_name' : 'expert_name'} />
+              </InputBox>
+              <InputBox>
+                <p>지역</p>
+                <input type='text' placeholder='시도 단위로 입력하세요' name={individual? 'individual_area' : 'expert_area'} />
+              </InputBox>
+            </InputWrap>
+            <InputWrap>
+              <InputBox>
+                <p>생년월일</p>
+                <input type='text' placeholder={'생년월일을 입력하세요 (ex: 770322)'} name={individual? 'individual_birth' : 'expert_birth'} />
+              </InputBox>
+              <InputBox>
+                <p>연락처</p>
+                <input type='text' placeholder='‘-’없이 번호만 입력해 주세요' name={individual? 'individual_tel' : 'expert_tel'}/>
+              </InputBox>
+            </InputWrap>
+            <CheckBoxContainer>
+              <CheckBox 
+                onClick={openModal} 
+                apply
+                name={individual? 'individual_private': 'expert_private'}
+              />
+            </CheckBoxContainer>
+          </>
+        )} */}
         {corporate && (
-        <InputWrap>
-          <p>상담분야</p>
-          <select>
-            <option>원하는 컨설팅 분야를 선택해 주세요.</option>
-            <option>고용지원</option>
-            <option>정책자금</option>
-            <option>기업대출</option>
-            <option>노무/세무</option>
-            <option>기타문제</option>
-          </select>
-        </InputWrap>)}
-        {inherit && (
-        <>
+         <>
+          <InputWrap>
+            <InputBox>
+              <p>회사명</p>
+              <input type='text' placeholder={'회사명을 입력하세요'} name={'corporate_name'} />
+            </InputBox>
+            <InputBox>
+              <p>지역</p>
+              <input type='text' placeholder='시도 단위로 입력하세요' name={'corporate_area'}/>
+            </InputBox>
+          </InputWrap>
+          <InputWrap>
+            <InputBox>
+              <p>담당자</p>
+              <input type='text' placeholder={'담당자 성함을 입력하세요'} name={'corporate_manager'} />
+            </InputBox>
+            <InputBox>
+              <p>연락처</p>
+              <input type='text' placeholder='‘-’없이 번호만 입력해 주세요' name={'corporate_tel'}/>
+            </InputBox>
+          </InputWrap>
           <InputWrap>
             <p>상담분야</p>
-            <select>
+            <select name='corporate_consulting_type'>
               <option>원하는 컨설팅 분야를 선택해 주세요.</option>
-              <option>상속문제</option>
-              <option>증여문제</option>
-              <option>재무설계</option>
-              <option>기타문제</option>
+              <option value={'고용지원'}>고용지원</option>
+              <option value={'정책자금'}>정책자금</option>
+              <option value={'기업대출'}>기업대출</option>
+              <option value={'노무/세무'}>노무/세무</option>
+              <option value={'기타문제'}>기타문제</option>
+            </select>
+          </InputWrap>
+          <CheckBoxContainer>
+            <CheckBox 
+              onClick={openModal} 
+              apply
+              name={'corporate_private'}
+            />
+          </CheckBoxContainer>
+        </>
+        )}
+        {/* {corporation && (
+          <>
+            <InputWrap>
+              <InputBox>
+                <p>성명</p>
+                <input type='text' placeholder={'이름을 입력하세요'} name='corporation_name' />
+              </InputBox>
+              <InputBox>
+                <p>지역</p>
+                <input type='text' placeholder='시도 단위로 입력하세요' name='corporation_area' />
+              </InputBox>
+            </InputWrap>
+            <InputWrap>
+              <InputBox>
+                <p>담당자</p>
+                <input type='text' placeholder='담당자 성함을 입력하세요' name='corporation_manager' />
+              </InputBox>
+              <InputBox>
+                <p>연락처</p>
+                <input type='text' placeholder='‘-’없이 번호만 입력해 주세요' name='corporation_tel' />
+              </InputBox>
+            </InputWrap>
+            <InputWrap>
+              <p>상담분야</p>
+              <select name='corporation_consulting_type'>
+                <option>원하는 컨설팅 분야를 선택해 주세요.</option>
+                <option value={'고용지원'}>고용지원</option>
+                <option value={'정책자금'}>정책자금</option>
+                <option value={'기업대출'}>기업대출</option>
+                <option value={'노무/세무'}>노무/세무</option>
+                <option value={'기타문제'}>기타문제</option>
+              </select>
+            </InputWrap>
+            <CheckBoxContainer>
+              <CheckBox 
+                onClick={openModal} 
+                apply
+                name={'corporation_private'}
+              />
+            </CheckBoxContainer>
+          </>
+        )} */}
+        {/* {inherit && (
+          <>
+            <InputWrap>
+              <InputBox>
+                <p>성명</p>
+                <input type='text' placeholder={'이름을 입력하세요'} name='inherit_name' />
+              </InputBox>
+              <InputBox>
+                <p>지역</p>
+                <input type='text' placeholder='시도 단위로 입력하세요' name={'inherit_area'} />
+              </InputBox>
+            </InputWrap>
+            <InputWrap>
+              <InputBox>
+                <p>생년월일</p>
+                <input type='text' placeholder={'생년월일을 입력하세요 (ex: 770322)'} name={'inherit_birth'} />
+              </InputBox>
+              <InputBox>
+                <p>연락처</p>
+                <input type='text' placeholder='‘-’없이 번호만 입력해 주세요' name={'interit_tel'} />
+              </InputBox>
+            </InputWrap>
+          <InputWrap>
+            <p>상담분야</p>
+            <select name='inherit_consulting_type'>
+              <option>원하는 컨설팅 분야를 선택해 주세요.</option>
+              <option value={'상속문제'}>상속문제</option>
+              <option value={'증여문제'}>증여문제</option>
+              <option value={'재무설계'}>재무설계</option>
+              <option value={'기타문제'}>기타문제</option>
             </select>
           </InputWrap>
           <InputWrap>
             <p>기타사항</p>
-            <textarea className='textarea' type='text' placeholder={'상담가능일자, 가족관계 등 상담에 필요한 내용을 적어 주세요'}/>
+            <textarea className='textarea' type='text' placeholder={'상담가능일자, 가족관계 등 상담에 필요한 내용을 적어 주세요'} name={'interit_etc'}/>
           </InputWrap>
+          <CheckBoxContainer>
+            <CheckBox 
+              onClick={openModal} 
+              apply
+              name={'inherit_private'}
+            />
+          </CheckBoxContainer>
         </>
-        )}
-
-        <CheckBoxContainer>
-          <CheckBox onClick={openModal} apply />
-        </CheckBoxContainer>
+        )} */}
         <ButtonContainer>
-          <Button size={'md2'}>상담하기 &#62;&#62;</Button>
+          <Button type="submit" value="Send" size={'md2'}>상담하기 &#62;&#62;</Button>
         </ButtonContainer>
         {
            modalVisible && (
              <ApplyModal onClick={closeModal} />
            )
         }  
-    </Layout>
+      </Form>
   );
 };
 
 export default ApplyForm;
 
 
-const Layout = styled.form`
+const Form = styled.form`
   padding: 7.1% 9.62962962962963% 0;
   border: 2px solid #B8292D;
 

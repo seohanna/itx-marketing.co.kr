@@ -9,7 +9,7 @@ import EventSection from '../components/Business/EventSection';
 import applyBusiness from '../img/sub/applyBusiness.png';
 import { useLocation } from 'react-router-dom';
 import ApplyTab from '../components/Business/Apply/ApplyTab';
-import ApplyForm from '../components/Business/Apply/ApplyForm';
+import { EmailSendForm } from '../email/EmailSendForm';
 
 const Apply = () => {
   const location = useLocation();
@@ -18,44 +18,41 @@ const Apply = () => {
       {location.pathname === '/business/apply' && (
         <>
         <Layout>
-        <CommonBanner
-          apply
-          img={bannerImg}
-          strong='B'
-          title='usiness 상담문의'
-          subtxt='비지니스 플랫폼'
-        />
-        <EventSection 
-          thin='+ '
-          title='상담문의'
-          img={applyBusiness}
-          apply
-        >
-          <PartitionBox>
-            <div>
-              <h2>전문가의 조언이 필요한 분</h2>
-              <p>법인컨설팅<br />개인컨설팅이 필요하시면<br />검증된 전문가가 직접<br />궁금증을 해결해드립니다.</p>
-            </div>
-            <div>
-              <h2>전문가로 활동하고 싶으신 분</h2>
-              <p>다양한 영업채널<br />투명한 급여체계에서<br />일하길 원하는 분이면 누구나<br />환영합니다.
-              </p>
-            </div>
-          </PartitionBox>
-        </EventSection>
+          <CommonBanner
+            apply
+            img={bannerImg}
+            strong='B'  
+            title='usiness 상담문의'
+            subtxt='비지니스 플랫폼'
+          />
+          <EventSection 
+            thin='+ '
+            title='상담문의'
+            img={applyBusiness}
+            apply
+          >
+            <PartitionBox>
+              <div>
+                <h2>전문가의 조언이 필요한 분</h2>
+                <p>법인컨설팅<br />개인컨설팅이 필요하시면<br />검증된 전문가가 직접<br />궁금증을 해결해드립니다.</p>
+              </div>
+              <div>
+                <h2>전문가로 활동하고 싶으신 분</h2>
+                <p>다양한 영업채널<br />투명한 급여체계에서<br />일하길 원하는 분이면 누구나<br />환영합니다.
+                </p>
+              </div>
+            </PartitionBox>
+          </EventSection>
           <BottomWrap>
             <ApplyTab />
             {location.search === '' && (
-              <ApplyForm
-                corporate
-                name='business-corporate'
-              />
+              <EmailSendForm apply corporate />
             )}
             {location.search === '?2' && (
-              <ApplyForm name='business-personal'/>
+              <EmailSendForm apply business individual />
             )}
             {location.search === '?3' && (
-              <ApplyForm name='business-expert-join'/>
+              <EmailSendForm apply business />
             )}
           </BottomWrap>
           </Layout>
@@ -81,7 +78,7 @@ const Apply = () => {
           </TextWrap>
         </EventSection>
           <BottomWrap>
-            <ApplyForm name='corporate' corporate />
+            <EmailSendForm apply corporation />
           </BottomWrap>
         </>
       )}
@@ -105,7 +102,7 @@ const Apply = () => {
           </TextWrap>
         </EventSection>
           <BottomWrap>
-            <ApplyForm name='inherit' inherit />
+            <EmailSendForm apply inherit />
           </BottomWrap>
         </>
       )}
