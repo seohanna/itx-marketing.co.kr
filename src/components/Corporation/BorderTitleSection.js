@@ -168,7 +168,9 @@ function BorderTitleSection({
                   <p>전문가 프로필</p>
                 </div>
                 <div className='top center'>
-                  <img src={data.img} alt={data.part} />
+                  <button onClick={() => window.open(data.url, '_blank')}>
+                    <img src={data.img} alt={data.part} />
+                  </button>
                 </div>
               </li>
             ))}

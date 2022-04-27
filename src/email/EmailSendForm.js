@@ -336,7 +336,8 @@ const Form = styled.form`
     padding: 7% 0 5.55% 0;
     @media(max-width: 700px){
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      padding: 7% 0 5.55% 0;
     }
   `}
 

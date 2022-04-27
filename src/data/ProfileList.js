@@ -65,15 +65,18 @@ export const profile2 = [
     id: 1,
     part: '법률',
     img: company1,
+    url: 'http://www.keumseong.com/'
   },
   {
     id: 2,
     part: '세무',
     img: company2,
+    url: 'http://www.joytax.net/'
   },
   {
     id: 3,
     part: '기부',
     img: company3,
+    url: 'http://www.thehopeplus.com/'
   },
 ];

@@ -8,11 +8,16 @@ import guaranteed from "../../img/sub/guaranteed.svg";
 import wise from "../../img/sub/wise.png";
 import reasonable from "../../img/sub/reasonable.png";
 import curriculum from "../../img/sub/curriculum.png";
+import icon1 from '../../img/sub/platform_serviceIcon1.png';
+import icon2 from '../../img/sub/platform_serviceIcon2.png';
+import icon3 from '../../img/sub/platform_serviceIcon3.png';
+import icon4 from '../../img/sub/platform_serviceIcon4.png';
 
 import Section2 from './Section2';
 import Section3 from './Section3';
 import Consulting from './Consulting';
 import Advice from './Advice';
+import Service from './Service';
 
 const Data = [
   {
@@ -66,6 +71,34 @@ const Data2 = [
   }
 ];
 
+const Data3 = [
+  {
+    id: 1,
+    title: '보장분석',
+    content: '가입한 보험의 “종합분석”을 통해 필요한 보장으로 두상되었는지, 중복보장은 없는지,\n보장기간은 충분한지, 보험료 지출은 적당한지 등을 진단해 드립니다.',
+    img: icon1,
+  },
+  {
+    id: 2,
+    title: '보험비교',
+    content: "40여개 보험회사의 다양한 상품을 꼼꼼하게 비교 분삭하여 고객에게 최적을 상품을\n추천해 드립니다.",
+    img: icon2,
+  },
+  {
+    id: 3,
+    title: '보험금청구',
+    content: "보험사고 발생시 의료비 또는 진단자금 청구에 필요한 구비서류 안내부터 청구대행까지\n보험금 청구와 관련된 모든 업무를 제공해드립니다.",
+    img: icon3,
+  },
+  {
+    id: 4,
+    title: '보험 리모델링',
+    content: "현재의 보험 포트폴리오의 문제점 파악하고 리모델링을 통해 새로운 보험 포트폴리오를\n구성해 드립니다.",
+    img: icon4,
+  },
+
+];
+
 const Personal = () => {
   return (
     <>
@@ -90,6 +123,11 @@ const Personal = () => {
         title1="보험서비스의 실현"
         data={Data2}
         bottom="9.1%"
+      />
+      <Service
+        thin="개인영업 "
+        strong1='서비스'
+        data={Data3}
       />
       <Consulting
         thin="쉽고 빠르고 간편한"
