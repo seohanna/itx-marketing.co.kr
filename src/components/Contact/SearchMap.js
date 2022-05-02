@@ -20,7 +20,6 @@ const SearchMap = () => {
 
   let insuPlus = searchMork.item.filter((data => {
     if (selected === data.area1 && data.team === '보험플러스') {
-      setData()
       return data;
     }
     if (selected === data.area2 && data.team === '보험플러스') {
@@ -34,7 +33,8 @@ const SearchMap = () => {
 
   const handleListClick = (e) => {
     setSelected(e.target.value);
-
+    
+    console.log(selected);
   }
 
   
@@ -57,7 +57,7 @@ const SearchMap = () => {
       }
       
       // if (search !== searchMork.item[i].name) {
-      //   alert('일치하는 사업단이 없습니다.');
+      //   alert('일치하는 사업단이 없습니다. 띄어쓰기 포함해서 입력해주세요! 수정예정입니다');
       //   return false;
       // }
     }
@@ -385,7 +385,7 @@ const Target = styled.div`
       line-height: 1.65rem;
       cursor: pointer;
       > input {
-        font-family: 'GoyangIlsan';
+       
       }
     }
   }
