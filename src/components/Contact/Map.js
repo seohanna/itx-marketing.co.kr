@@ -1,22 +1,10 @@
-
 import React, { useEffect } from "react";
 import styled from "styled-components";
 
+
 const { kakao } = window;
 
-const MapContainer = styled.div`
-  margin: 0 6.3% 2.8%;
-  .map-wrap {
-      margin: 0;
-      height: 500px;
-    }
-  @media(max-width:700px){
-    margin: 0 2% 10%;
-    .map-wrap {
-      height: 250px;
-    }
-  }
-`;
+
 
 const Map = (props) => {
 
@@ -69,5 +57,19 @@ const Map = (props) => {
       </div>
     </MapContainer>
   );
-}
+};
 export default Map;
+
+const MapContainer = styled.div`
+  margin: 0 6.3% 2.8%;
+  .map-wrap {
+      margin: 0;
+      height: 500px;
+    }
+  @media(max-width:700px){
+    margin: 0 2% 10%;
+    .map-wrap {
+      height: 250px;
+    }
+  }
+`;
