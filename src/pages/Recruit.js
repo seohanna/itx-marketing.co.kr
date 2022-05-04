@@ -7,7 +7,7 @@ import RecruitTab from '../components/Recruit/RecruitTab';
 const Recruit = () => {
 
   return (
-    <Layout>
+    <Layout primary>
       <RecruitBanner />
       <RecruitTab />
     </Layout>

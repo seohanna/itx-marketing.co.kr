@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Fp from './Fp';
 import Permanent from './Permanent';
 import RightPeople from './RightPeople';
 import System from './System';
+import { useLocation } from 'react-router-dom';
 
 const NavContainer = styled.div`
   display: flex;
@@ -55,83 +57,62 @@ const NavContainer = styled.div`
     }
   }
 `;
-const TabContent = styled.div`
+const TabContent = styled.div``;
 
-  .block{
-    display: block;
-  }
-  .hidden{
-    display: none;
-  }
+const StyledLink = styled(Link)`
 `;
 
 const RecruitTab = () => {
-
-  const [openTab, setOpenTab] = useState(1);
+  const location = useLocation();
 
   return (
     <>
     <NavContainer>
       <ul>
-        <li className={openTab === 1 ? 'active' : '' }>
-          <a
-            onClick={(e) => {
-            e.preventDefault();
-              setOpenTab(1);
+        <li className={location.search === '' && 'active'}>
+          <StyledLink
+            isActive={(match, location) => {
+              return match !== null && location.search;
             }}
-            data-toggle="tab"
-            href="#cont1"
-            role="tablist"
-          >인재상</a>
+            to="/intro/recruit"
+          >인재상</StyledLink>
         </li>
-        <li className={openTab === 2 ? 'active' : '' }>
-          <a
-           onClick={(e) => {
-            e.preventDefault();
-              setOpenTab(2)}}
-            data-toggle="tab"
-            href="#cont2"
-            role="tablist"
-          >인사제도</a>
+        <li className={location.search === '?system' && 'active'}>
+          <StyledLink
+           isActive={(match, location) => {
+            return match !== null && location.search;
+          }}
+            to="/intro/recruit?system"
+          >인사제도</StyledLink>
         </li>
-        <li className={openTab === 3 ? 'active' : '' }>
-          <a
-            onClick={(e) => {
-            e.preventDefault();
-              setOpenTab(3)}}
-            data-toggle="tab"
-            href="#cont3"
-            role="tablist"
-          >FP채용</a>
+        <li className={location.search === '?fp' && 'active'}>
+          <StyledLink
+            isActive={(match, location) => {
+              return match !== null && location.search;
+            }}
+            to="/intro/recruit?fp"
+          >FP채용</StyledLink>
         </li>
-        <li className={openTab === 4 ? 'active' : '' }>
-          <a
-            onClick={(e) => {
-            e.preventDefault();
-              setOpenTab(4)}}
-            data-toggle="tab"
-            href="#cont4"
-            role="tablist"
-          >정규직<sapn>채용</sapn></a>
+        <li className={location.search === '?perment' && 'active'}>
+          <StyledLink
+            isActive={(match, location) => {
+              return match !== null && location.search;
+            }}
+            to="/intro/recruit?perment"
+          >정규직<sapn>채용</sapn></StyledLink>
         </li>
       </ul>
     </NavContainer>
     <TabContent>
-      <div className={openTab === 1 ? 'block' : 'hidden'} id="#cont1">
-        <RightPeople />
-      </div>
-      <div className={openTab === 2 ? 'block' : 'hidden'} id="#cont2">
-        <System />
-      </div>
-      <div className={openTab === 3 ? 'block' : 'hidden'} id="#cont3">
-        <Fp />
-      </div>
-      <div className={openTab === 4 ? 'block' : 'hidden'} id="#cont4">
-        <Permanent />
-      </div>
+      {location.search === '' && (<div><RightPeople /></div>)}
+      {location.search === '?system' && (<div><System /></div>)}
+      {location.search === '?fp' && (<div><Fp /></div>)}
+      {location.search === '?perment' && (<div><Permanent /></div>)}
     </TabContent>
   </>
   )
 }
 
 export default RecruitTab;
+
+

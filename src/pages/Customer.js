@@ -20,7 +20,7 @@ const Customer = ({match}) => {
     window.scrollTo(0, 1000)
   }, [id]);
   return (
-    <Layout>
+      <Layout primary>
         <>
           <CommonBanner
             img={bannerImg}

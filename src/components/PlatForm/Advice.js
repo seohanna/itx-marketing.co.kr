@@ -25,6 +25,7 @@ const Wrap = styled.div`
     padding: 14.9% 6.5% 15.2% 6.5%;
   }
 `;
+
 const Title = styled.div`
   & > h2 {
     color: #1a1a1a;

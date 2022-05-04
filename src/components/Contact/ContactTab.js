@@ -127,7 +127,7 @@ const ContactTab = () => {
   const [openTab, setOpenTab] = useState(1);
 
   return (
-    <Layout>
+    <Layout primary>
       {openTab === 1 && (
         <ContactBanner style={{
           backgroundImage: `url(${banner1})`

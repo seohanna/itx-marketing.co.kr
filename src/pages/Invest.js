@@ -37,7 +37,7 @@ const Invest = ({match, history}) => {
     setData2(getPostByNo2(id));
   }, [id]);
   return (
-    <Layout>
+    <Layout primary>
       <CommonBanner
         img={bannerImg}
         strong='3분 '

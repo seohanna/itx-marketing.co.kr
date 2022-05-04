@@ -21,16 +21,16 @@ const Map = (props) => {
     geocoder.addressSearch(props.address, function(result, status) {
     // 정상적으로 검색이 완료됐으면 
       if (status === kakao.maps.services.Status.OK) {
-      var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-    // 결과값으로 받은 위치를 마커로 표시합니다
-      var marker = new kakao.maps.Marker({
-            map: map,
-            position: coords
-      });
+        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new kakao.maps.Marker({
+          map: map,
+          position: coords
+        });
 
       // 인포윈도우로 장소에 대한 설명을 표시합니다
       var infowindow = new kakao.maps.InfoWindow({
-            content: `<div style="width:150px;text-align:center;padding:6px 0;">${props.name}</div>`
+            content: `<div style="width:170px;text-align:center;padding:6px;">${props.name}</div>`
       });
       infowindow.open(map, marker);
 

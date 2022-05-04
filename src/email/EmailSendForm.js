@@ -67,7 +67,7 @@ export const EmailSendForm = ({
             />  
           </InputBox>
           <CheckBoxWrapper>
-            <CheckBox onClick={onClick}  name={'private'} />
+            <CheckBox onClick={onClick} name={'private'} />
           </CheckBoxWrapper>
           <SubmitBox fpjoin>
             <button type="submit" value="Send">지원하기</button>
@@ -118,8 +118,8 @@ export const EmailSendForm = ({
                 <li>동의를 거부할 권리 불이익</li>
                 <ul>
                   <li>
-                    귀하는 개인정보 수집, 이용에 대한 동의를 거부할 권리가 있습니다.<br />
-                    동의 거부 시 입사지원 상담이 제한 될 수 있습니다.
+                    귀하는 개인정보 수집, 이용에<br />대한 동의를 거부할 권리가<br />있습니다.
+                    동의 거부 시 입사지원<br />상담이 제한 될 수 있습니다.
                   </li>
                 </ul>
               </Info>
@@ -553,7 +553,7 @@ const Info = styled.ol`
   }
   
   li {
-    font-size: 1rem;
+    font-size: 0.75rem;
     margin-left: 6%;
     color: #1A1A1A;
   }
@@ -562,8 +562,8 @@ const Info = styled.ol`
     padding-left: 2%;
     > li {
       color: #767676;
-      font-size: 0.9rem;
-      line-height: 1.5rem;
+      font-size: 0.65rem;
+      line-height: 1.25rem;
     }
   }
 @media (max-width: 700px) {
@@ -698,46 +698,3 @@ const InputWrap = styled.div`
     }
   }
 `;
-
-// const CheckBox = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   padding-top: 2.5%;
-//   @media (max-width: 700px) {
-//     padding: 2.6% 0 9% 0;
-//   }
-//   input[type="checkbox"] + label {
-//     display: flex;
-//     align-items: center;
-//     font-size: 0.8rem;
-//     color: #1a1a1a;
-//     width: 70%;
-//     @media (max-width: 700px) {
-//       font-size: 0.625rem;
-//       height: 30px;
-//     }
-//   }
-//   input[type="checkbox"] + label::before {
-//     content: "";
-//     display: block;
-//     width: 24px;
-//     height: 24px;
-//     border-radius: 50%;
-//     background-image: url(${checkIcon});
-//     background-repeat: no-repeat;
-//     background-size: contain;
-//     margin-right: 5%;
-//     @media (max-width: 700px) {
-//       width: 24px;
-//       height: 24px;
-//       margin-right: 12.5%;
-//     }
-//   }
-//   input[type="checkbox"]:checked + label::before {
-//     background-image: url(${checkedIcon});
-//   }
-
-// `;
-
-

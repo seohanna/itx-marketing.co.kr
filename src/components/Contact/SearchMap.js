@@ -20,7 +20,9 @@ const SearchMap = () => {
 
   let insuPlus = searchMork.item.filter((data => {
     if (selected === data.area1 && data.team === '보험플러스') {
+      console.log(selected);
       return data;
+      
     }
     if (selected === data.area2 && data.team === '보험플러스') {
       return data;
@@ -33,8 +35,7 @@ const SearchMap = () => {
 
   const handleListClick = (e) => {
     setSelected(e.target.value);
-    
-    console.log(selected);
+    console.log(e.target.value)
   }
 
   
@@ -46,14 +47,16 @@ const SearchMap = () => {
           ...prevState,
           hits: searchMork.item[i]
         }));
-        window.scrollTo(0, 2500);
         
+        window.scrollTo(0, 2500);
       }  
       if (e.target.value === searchMork.item[i].name) {
         setData((prevState) => ({
           ...prevState,
           hits: searchMork.item[i]
         }));
+
+        window.scrollTo(0, 2500);
       }
       
       // if (search !== searchMork.item[i].name) {
@@ -77,7 +80,7 @@ const SearchMap = () => {
    
       </Search>
       <SearchGuide>
-      <h2>사업단 검색</h2>
+        <h2>사업단 검색</h2>
         <div>
           <Area>
             <h3>지역구분</h3>
@@ -169,7 +172,7 @@ const SearchMap = () => {
 export default SearchMap;
 
 const Container = styled.section`
-  padding: 3% 8.333333333333333% 10%;
+  padding: 4.5% 8.333333333333333% 10%;
   
   @media(max-width: 700px) {
     padding: 8.5% 6.2% 10%;
@@ -220,52 +223,10 @@ const Button = styled.button`
   height: 18px;
 }
 `;
-const SearchResult = styled.div`
-  margin: 0 6.3% 3%;
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  
-    th {
-      background-color: #F5F5F5;
-      line-height: 50px;
-      font-size: 0.8rem;
-      color: #323232;
-      border-top: 3px solid #323232;
-      font-family: 'GoyangDeogyang';
-    }
-    th:first-child,th:last-child{
-      width: 18.21428571428571%;
-    }
-    th:nth-child(2),td:nth-child(2) {
-      border-left: 1px solid #F0F0F0;
-      border-right: 1px solid #F0F0F0;
-    }
-    td {
-      height: 70px;
-      text-align: center;
-      color: #323232;
-    }
-  }
-  @media(max-width: 700px) {
-    margin: 0;
-
-    table {
-      font-size: 0.625rem;
-      th {
-        font-size: 0.625rem;
-      }
-      th:nth-child(2),td:nth-child(2) {
-        border-left: 0;
-        border-right: 0;
-        width: 22.8125%;
-      }
-    }
-  }
-`;
 
 const SearchGuide = styled.div`
+  padding: 8.7% 0 5% 0;
+
   > h2 {
     font-size: 2.5rem;
     color: #1A1A1A;
@@ -312,9 +273,10 @@ const SearchGuide = styled.div`
     }
   }
 `;
+
 const Area = styled.div`
   width: 50%;
-  margin-right: 10%;
+  margin-right: 13%;
   table {
     border-spacing: 2px;
     margin: 5% 9%;
@@ -360,10 +322,11 @@ const Area = styled.div`
     }
   }
 `;
+
 const Target = styled.div`
  width: 50%;
 > div{
-  padding: 5% 9%;
+  padding: 10% 9%;
 > table {
     border-collapse: collapse;
     width: 100%;
@@ -414,3 +377,48 @@ const Target = styled.div`
   }
 }
 `;
+const SearchResult = styled.div`
+  margin: 0 6.3% 3%;
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  
+    th {
+      background-color: #F5F5F5;
+      line-height: 50px;
+      font-size: 0.8rem;
+      color: #323232;
+      border-top: 3px solid #323232;
+      font-family: 'GoyangDeogyang';
+    }
+    th:first-child,th:last-child{
+      width: 18.21428571428571%;
+    }
+    th:nth-child(2),td:nth-child(2) {
+      border-left: 1px solid #F0F0F0;
+      border-right: 1px solid #F0F0F0;
+    }
+    td {
+      height: 70px;
+      text-align: center;
+      color: #323232;
+    }
+  }
+  @media(max-width: 700px) {
+    margin: 0;
+
+    table {
+      font-size: 0.625rem;
+      th {
+        font-size: 0.625rem;
+      }
+      th:nth-child(2),td:nth-child(2) {
+        border-left: 0;
+        border-right: 0;
+        width: 22.8125%;
+      }
+    }
+  }
+`;
+

@@ -17,7 +17,7 @@ const Apply = () => {
     <>
       {location.pathname === '/business/apply' && (
         <>
-        <Layout>
+        <Layout primary>
           <CommonBanner
             apply
             img={bannerImg}

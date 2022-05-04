@@ -6,9 +6,9 @@ import CircleFrame from '../../img/sub/circleFrame.svg';
 import CircleFrameMb from '../../img/sub/circleFrameMb.svg';
 import FpCircle from '../../img/sub/fpCircle.svg';
 import InsuranceCircle from '../../img/sub/insuranceCircle.svg';
-import LabCircle from '../../img/sub/labCircle.svg';
-import CeoCircle from '../../img/sub/ceoCircle.svg';
-import MarketCircle from '../../img/sub/marketCircle.svg';
+import inheritCircle from '../../img/sub/inheritCircle.png';
+import corporationCircle from '../../img/sub/corporationCircle.png';
+import personalCircle from '../../img/sub/personalCircle.png';
 
 const VisualContainer = styled.section`
   width: 100%;
@@ -163,10 +163,10 @@ useEffect(() => {
         </TextWrap>
         <CircleWrap>
           <img src={FpCircle} className='fp-circle' alt="FP" />
-          <img src={MarketCircle} ref={floating1} className='floating1'alt="Market" />
+          <img src={personalCircle} ref={floating1} className='floating1'alt="개인영업" />
           <img src={InsuranceCircle} ref={floating2} className='floating2' alt="보험 플러스" />
-          <img src={CeoCircle} ref={floating3} className='floating3' alt="CEO" />
-          <img src={LabCircle} ref={floating4} className='floating4'alt="Lab 연구소" />
+          <img src={corporationCircle} ref={floating3} className='floating3' alt="기업법인 컨설팅" />
+          <img src={inheritCircle} ref={floating4} className='floating4' alt="상속증여 솔루션" />
         </CircleWrap>
       </ContentWrap>
     </VisualContainer>

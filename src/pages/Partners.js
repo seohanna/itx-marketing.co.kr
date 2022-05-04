@@ -6,7 +6,7 @@ import PartnerType from '../components/Partners/PartnerType';
 
 const Partners = () => {
   return (
-    <Layout>
+    <Layout black>
       <PartnerBanner />
       <PartnerType />
       <PartnerCompany />

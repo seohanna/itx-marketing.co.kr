@@ -9,9 +9,9 @@ import hospital from '../../img/sub/hospital.svg';
 import mart from '../../img/sub/mart.svg';
 import cart from '../../img/sub/cart.svg';
 import carrier from '../../img/sub/carrier.svg';
-import hospitalLounge from '../../img/sub/hospitalLounge.svg';
-import martLounge from '../../img/sub/martLounge.svg';
-import roadShop from '../../img/sub/roadShop.svg';
+import hospitalLounge from '../../img/sub/hospitalLounge.png';
+import martLounge from '../../img/sub/martLounge.png';
+import roadShop from '../../img/sub/roadShop.png';
 
 const Data = [
   {

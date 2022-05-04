@@ -33,8 +33,17 @@ function FaqList() {
                 <p>{dt.title}</p>
               </div>
             </div>
-            <div className='contents'>
-              <p>{dt.contents}</p>
+            <div className='answer'>
+              <p>{dt.answer}</p>
+              <div className='sub-answer'>
+                {dt.a1 && (<span>{dt.a1}</span>)}
+                {dt.a2 && (<span>{dt.a2}</span>)}
+                {dt.a3 && (<span>{dt.a3}</span>)}
+                {dt.a4 && (<span>{dt.a4}</span>)}
+                {dt.a5 && (<span>{dt.a5}</span>)}
+                {dt.a6 && (<span>{dt.a6}</span>)}
+                {dt.coment && (<span className='coment'>{dt.coment}</span>)}
+              </div>
             </div>
           </li>
         ))}
@@ -51,12 +60,13 @@ const DataList = styled.ul`
     display: flex;
     flex-direction: column;
     
-    &.active .contents {
-      height: 10vh;
+    &.active .answer {
+      height: 50vh;
       transition: all 0.2s;
     }
     &.active .title::after {
       content: '-';
+      color: #444444;
     }
     :last-child > div {
       border-bottom: 1px solid #C4C4C4;
@@ -88,25 +98,44 @@ const DataList = styled.ul`
       }
     }
     
-    .contents {
+    .answer {
       background-color: #F3F7F9;
       width: 100%;
       height: 0;
       overflow: hidden;
       transition: height 0.2s ease-in-out;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
       padding-left: 3%;
       > p {
-        
+        font-weight: 500;
+        white-space: pre;
+        line-height: 1.5rem;
       }
     }
+    .sub-answer {
+      display: flex;
+      flex-direction: column;
+      padding-top: 1%;
+        > span {
+          display: flex;
+          font-size: 0.9rem;
+          line-height: 1.4rem;
+          
+          &.coment {
+            padding-top: 1%;
+            white-space: pre;
+          }
+        }
+      }
   }
   @media (max-width: 700px) {
     padding: 15% 0 20% 0;
     > li {
     
-      &.active .contents {
+      &.active .answer {
         height: 12vh;
       }
       > .title {
@@ -127,7 +156,7 @@ const DataList = styled.ul`
       }
     }
     
-    .contents {
+    .answer {
       padding-left: 6.4%;
       > p {
         font-size: 0.625rem;

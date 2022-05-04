@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import styled from "styled-components";
-import { ReactComponent as EndPageBtn } from "../../../img/sub/pagination.svg";
+import styled, { css } from "styled-components";
+import { ReactComponent as EndPageBtn } from "../img/sub/pagination.svg";
 
 function Pagination({ 
-  postPerPage, totalPosts, paginate, pc, mobile}) {
+  postPerPage, totalPosts, paginate, news}) {
   const [active, setActive] = useState(1);
   const pageNumbers = [];
 
@@ -17,11 +17,12 @@ function Pagination({
   }
 
   return (
-    <Nav>
+    <Nav news={news}>
       <ButtonUl>
         {pageNumbers.map((number) => (
           <ButtonLi key={number}>
             <Button
+              news={news}
               onClick={(n) => activeStyle(number)}
               style={{
                 color: active === number ? '#444444' : '#B7B7B7'
@@ -41,11 +42,18 @@ function Pagination({
 export default Pagination;
 
 const Nav = styled.div`
-  width: 100%;
+  width: 100%;  
   @media(max-width: 700px) {
     padding: 11% 0;
     display: none;
   }
+
+  ${props => props.news && css`
+    @media(max-width: 700px) {
+      padding: 5% 0;
+      display: block;
+    }
+  `}
 `;
 
 const Button = styled.button`
@@ -65,6 +73,12 @@ const Button = styled.button`
     height: 27px;
     font-size: 0.65rem;
   }
+
+  ${props => props.news && css`
+    @media(max-width: 700px) {
+      font-size: 0.9375rem;
+    }
+  `}
 `;
 
 const ButtonUl = styled.ul`

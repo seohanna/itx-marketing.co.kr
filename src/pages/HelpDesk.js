@@ -6,7 +6,7 @@ import HelpDeskInfo from '../components/Customer/HelpDeskInfo';
 
 const HelpDesk = () => {
   return (
-    <Layout>
+    <Layout primary>
       <>
         <CommonBanner
           img={bannerImg}

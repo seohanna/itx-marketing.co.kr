@@ -106,6 +106,9 @@ const Items = styled.li`
       height: 90px;
       padding: 6%;
       margin:13% 11% 2%;
+      > img {
+        width: 50px;
+      }
     }
   }
   > h3 {

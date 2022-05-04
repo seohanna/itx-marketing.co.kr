@@ -13,7 +13,7 @@ const PlatForm = () => {
   const location = useLocation();
 
   return (
-    <Layout>
+    <Layout primary>
       <CommonBanner
         img={bannerImg}
         strong='B'

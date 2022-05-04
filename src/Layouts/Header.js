@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import styled  from 'styled-components';
-import { useLocation } from "react-router-dom";
+import styled, { css }  from 'styled-components';
 import { ReactComponent as TopLogo } from "../img/common/Logo.svg";
 import { ReactComponent as MenuBtn } from "../img/common/MenuIcon.svg";
 import submenuicon from "../img/common/listIcon.svg"
@@ -15,14 +14,16 @@ const Headers =  styled.header`
   font-size: 1rem;
   width: 100%;
   height: 100px;
-  
-  &.primary-header {
+
+  ${props => props.primary && css`
     color: #FFFFFF;
-  }
-  &.black-font {
+  `}
+
+  ${props => props.black && css`
     color: #323232;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-  }
+  `}
+
   &#scroll-header{
     background-color: #FFFFFF;
     color: #323232;
@@ -70,12 +71,18 @@ const Logo = styled.h2`
   #scroll-logo {
     fill: #2D2D2D;
   }
-  > .primary-logo {
-    fill: #FFFFFF;
-  }
-  > .black-logo {
-    fill: #2D2D2D;
-  }
+
+  ${props => props.primary && css`
+    > .top-logo{
+      fill: #FFFFFF;
+    }
+  `}
+
+  ${props => props.black && css`
+    > .top-logo{
+      fill: #2D2D2D;
+    }
+  `}
   @media (max-width: 700px) {
     padding-right: 0;
     margin-right: 0;
@@ -252,15 +259,17 @@ const ToggleBtn = styled.div`
     justify-content: flex-end;
   }
 
-  .black-toggle {
-    stroke: #1A1A1A;
-  }
   #scroll-toggle {
     stroke: #1A1A1A;
   }
-  .primary-toggle {
-    stroke: #FFFFFF; 
-  }
+  ${props => props.primary && css`
+    stroke: #FFFFFF;
+  `}
+
+  ${props => props.black && css`
+    stroke: #1A1A1A;
+  `}
+ 
 `;
  
 const Header = (props) => {
@@ -298,26 +307,16 @@ const Header = (props) => {
     window.addEventListener('scroll', updeateScroll);
   },[]);
 
-  const location = useLocation();
-
   return (
     <Headers 
         isopen={isToggleOn}
-        className={
-          location.pathname === '/intro/summary' ||
-          location.pathname === '/intro/partners' ?
-          'black-font' : 'primary-header'
-        }
+        primary={props.primary} black={props.black}
         id={scrollPosition > 500 || isHovering ? 'scroll-header' : ''}
     >
       <Inner>
-        <Logo as="a" href="/">
+        <Logo as="a" href="/" primary={props.primary} black={props.black}>
           <TopLogo 
-            className={
-              location.pathname === '/intro/summary' ||
-              location.pathname === '/intro/partners' ?
-              'black-logo' : 'primary-logo'
-            }
+            className={'top-logo'}
             id={scrollPosition > 500 || isHovering || isToggleOn ? 'scroll-logo' : ''}
           />
         </Logo>
@@ -390,17 +389,17 @@ const Header = (props) => {
           </nav>
           <div></div>
         </Lnb>
-           <ToggleBtn onClick={handleClick} isopen={isToggleOn}>
+           <ToggleBtn 
+              onClick={handleClick} 
+              isopen={isToggleOn}
+              primary={props.primary} 
+              black={props.black}
+            >
              {isToggleOn && (
-               <CloseBtn stroke='#B8292D'/>
+               <CloseBtn stroke='#B8292D' />
              )}
               {!isToggleOn && (
                 <MenuBtn
-                  className={
-                    location.pathname === '/intro/summary' ||
-                    location.pathname === '/intro/partners' ?
-                    'black-toggle' : 'primary-toggle'
-                  }
                   id={scrollPosition > 500 || isHovering ? 'scroll-toggle' : ''}
                 />
               )}

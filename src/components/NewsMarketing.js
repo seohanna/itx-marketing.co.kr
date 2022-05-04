@@ -309,15 +309,15 @@ const NewsMarketing = () => {
 
   return (
     <SectionContainer>
-      <div className="news-wrap">
+      <div className="news-wrap"> 
         <DirectNews>
           <h2>
             <strong style={{color:"#C22229"}}>N</strong>
               e<strong>W</strong>s&nbsp;<br />
             <p>ITX&nbsp;Marketing</p>
           </h2>
-          <StyledLink to="#">
-            <p>자세히보기</p>
+          <StyledLink to="/intro/summary?veiw">
+            <p>자세히보기</p> 
             <span></span>
           </StyledLink>
         </DirectNews>

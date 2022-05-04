@@ -11,7 +11,7 @@ import Contents from '../components/Inherit/Contents';
 const Inherit = () => {
   const location = useLocation();
   return (
-    <Layout>
+    <Layout primary>
       {location.pathname === '/inherit' ? (
         <>
           <CommonBanner

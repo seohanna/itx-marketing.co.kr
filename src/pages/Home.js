@@ -9,7 +9,7 @@ import NewsMarketing from '../components/NewsMarketing';
 
 const Home = () => {
   return (
-      <Layout>
+      <Layout primary>
       <MainBanner />
       <Business />
       <RecruitSlider />

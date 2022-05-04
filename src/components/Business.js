@@ -22,10 +22,10 @@ const card = [
   },
   {
     id: 1,
-    title: '법인컨설팅',
+    title: '기업컨설팅',
     description: '중소기업과 개인사업자의\n안정적인 기업경영을 위한 컨설팅',
     icon: icon2,
-    url: ''
+    url: '/corporation'
   },
   {
     id: 2,

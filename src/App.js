@@ -27,8 +27,12 @@ function App() {
           <ScrollToTop />
           <Route exact path="/" component={Home} />
           <Route exact path="/intro/summary" component={Summary}/>
+          <Route exact path="/intro/summary?veiw=:id" component={Summary} />
           <Route exact path="/intro/partners" component={Partners} />
           <Route exact path="/intro/recruit" component={Recruit} />
+          <Route exact path="/intro/recruit?system" component={Recruit} />
+          <Route exact path="/intro/recruit?fp" component={Recruit} />
+          <Route exact path="/intro/recruit?perment" component={Recruit} />
           <Route exact path="/intro/contact" component={ContactTab} />
           <Route exact path="/business/platform" component={PlatForm} />
           <Route exact path="/business/platform/:pagename" component={PlatForm} />

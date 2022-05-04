@@ -8,7 +8,7 @@ import FaqList from '../components/Customer/FaqList';
 
 const Faq = () => {
   return (
-    <Layout>
+    <Layout primary>
       <>
         <CommonBanner
           img={bannerImg}

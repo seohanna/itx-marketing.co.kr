@@ -13,8 +13,8 @@ const Corporation = () => {
   const location = useLocation();
   return (
     <>
-      <Layout>
-      {location.pathname === '/corporation' && (
+      <Layout primary>
+        {location.pathname === '/corporation' && (
         <>
           <CommonBanner
             img={corporation}
