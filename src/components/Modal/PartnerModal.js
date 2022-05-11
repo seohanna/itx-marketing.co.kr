@@ -7,13 +7,12 @@ import PrivateModal from './PrivateModal';
 const data = [
   {
     id: 0,
-    title: '입사지원',
+    title: '제휴상담',
     article: '성명, 연락처'
   }
 ]
 
-function FpModal({onClick}) {
-  
+function PartnerModal({onClick, en, ko}) {
   const [checkModal, setCheckModal] = useState(false);
 
   const checkOpen = () => {
@@ -22,9 +21,10 @@ function FpModal({onClick}) {
   return (
     <Modal recruit onClick={onClick}>
       <ModalHead>
-        <h2>FP 입사 지원하기</h2>
+        <p>{en}</p>
+        <h2>{ko} 제휴상담문의</h2>
       </ModalHead>
-      <EmailSendForm fpjoin onClick={checkOpen}/>
+      <EmailSendForm partners onClick={checkOpen} />     
       {checkModal && (
         <PrivateModal onClick={checkOpen} data={data[0]} />
       )}
@@ -32,18 +32,20 @@ function FpModal({onClick}) {
   );
 };
 
-export default FpModal;
-
-
+export default PartnerModal;
 
 const ModalHead = styled.div`
 
   > h2 {
     font-size: 1.5rem;
     text-align: center;
-    padding: 5% 0;
   }
-
+  > p {
+    font-size: 1.25rem;
+    color: #767676;
+    text-align: center;
+    padding-bottom: 10px;
+  }
   @media(max-width: 700px) {
     > button {
       width: 100%;
@@ -56,13 +58,4 @@ const ModalHead = styled.div`
       padding: 2% 0 5% 0;
     }
   }
-`;
-
-const Private = styled.div`
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 50%;
-  right: 10%;
-  background-color: aliceblue;
 `;

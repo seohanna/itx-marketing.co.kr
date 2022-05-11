@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { table1, table2, table3 } from '../../data/PressRoom';
 
 function InvestDetail({ data }) {
   const history = useHistory();
@@ -20,11 +21,74 @@ function InvestDetail({ data }) {
             <h2>{data.title}</h2>
             <p>{data.date}</p>
           </Header>
-          <ImageWrap><img src={data.img} alt=''/></ImageWrap>
+          <ImageWrap>
+            <img src={data.img} alt=''/>
+            {data.coment && (<p>{data.coment}</p>)}
+          </ImageWrap>
           <TextWrap>
-            <p>{data.content}</p>
-            <p>{data.subCont}</p>
+            {data.content1 && (<p>{data.content1}</p>)}
+            {data.content2 && (<p>{data.content2}</p>)}
+            {data.content3 && (<p>{data.content3}</p>)}
+            {data.content4 && (<p>{data.content4}</p>)}
+            {data.content5 && (<p>{data.content5}</p>)}
+            {data.content6 && (<p>{data.content6}</p>)}
+            {data.content7 && (<p>{data.content7}</p>)}
+            {data.content8 && (<p>{data.content8}</p>)}
           </TextWrap>
+          {data.table1 && (
+            <TableContainer>
+              <h3>{data.table1}</h3>
+              <table className='table1'>
+                <tr>
+                  <th>증권번호</th>
+                  <th>계약자</th>
+                  <th>계약일</th>
+                </tr>
+                {table1.map((td) => (
+                  <tr key={td.id}>
+                    <td>{td.number}</td>
+                    <td>{td.name}</td>
+                    <td>{td.date}</td>
+                  </tr>
+                ))}
+              </table>
+            </TableContainer>
+          )}
+          {data.table2 && (
+            <TableContainer>
+              <h3>{data.table2}</h3>
+              <div>
+                <table>
+                  <tr>
+                    <th>증권번호</th>
+                    <th>계약자</th>
+                    <th>계약일</th>
+                  </tr>
+                  {table2.map((td) => (
+                    <tr key={td.id}>
+                      <td>{td.number}</td>
+                      <td>{td.name}</td>
+                      <td>{td.date}</td>
+                    </tr>
+                  ))}
+                </table>
+                <table>
+                  <tr>
+                    <th>증권번호</th>
+                    <th>계약자</th>
+                    <th>계약일</th>
+                  </tr>
+                  {table3.map((td) => (
+                    <tr key={td.id}>
+                      <td>{td.number}</td>
+                      <td>{td.name}</td>
+                      <td>{td.date}</td>
+                    </tr>
+                  ))}
+                </table>
+              </div>
+            </TableContainer>
+          )}
           <ButtonWrap>
             <Button onClick={goList}>목록</Button>
           </ButtonWrap>
@@ -84,18 +148,26 @@ const Header = styled.div`
 `;
 const ImageWrap = styled.div`
   padding: 4% 0;
+  > p {
+      font-size: 0.8rem;
+      padding-top: 5px;
+    }
   @media (max-width: 700px) {
     padding: 9.2% 0 11.9% 0;
     > img {
       width: 80%;
     }
+    > p {
+      font-size: 0.625rem;
+    }
+    
   }
 `;
 const TextWrap = styled.div`
   padding-right: 18%;
   
   > p {
-    padding-bottom: 5%;
+    padding-bottom: 3%;
     line-height: 1.25rem;
   }
   @media (max-width: 700px) {
@@ -181,6 +253,56 @@ const PageNavigation = styled.div`
   }
 `;
 
+const TableContainer = styled.div`
+  > h3 {
+    font-size: 1rem;
+    padding-bottom: 1%;
+  }
+  > div {
+    display: flex;
+    justify-content: space-between;
+  }
+  table {
+    width: 45%;
+    text-align: center;
+    &.table1 {
+      margin-bottom: 5%;
+    }
+  }
+  table, th, td {
+    border-collapse: collapse;
+    border: 1px solid #DDDDDD;
+  }
+  th {
+    height: 50px;
+  }
+  td {
+    padding: 15px;
+
+  }
+
+  @media (max-width: 700px) {
+    > h3 {
+      font-size: 0.8125rem;
+      padding-bottom: 3%;
+    }
+    > div {
+      flex-direction: column;
+    }
+    table {
+      width: 100%;
+      margin-bottom: 5%;
+    }
+    th {
+      height: 30px;
+      font-size: 0.625rem;
+    }
+    td {
+      padding: 8px;
+      font-size: 0.625rem;
+    }
+  }
+`;
 
 
 

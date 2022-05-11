@@ -100,11 +100,11 @@ const InsuPlus = () => {
         left="left"
         bottom="6.15%"
       />
-      <InsuSlider
+      {/* <InsuSlider
         thin="보험플러스는"
         title1="성공사례"
         thin2="를 만들어 갑니다."
-        />
+      /> */}
     </>
   );
 }

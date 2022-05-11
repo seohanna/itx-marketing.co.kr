@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { Data } from '../../../../data/InvestStory';
+import { Data2 } from '../../../../data/InvestStory';
 import navigation from '../../../../img/sub/pagination.svg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/swiper.min.css";
@@ -24,7 +24,7 @@ function StoryList({data}) {
     <Layout>
       <>
         <DataList>
-            {Data.map((dt) => (
+            {Data2.map((dt) => (
               <li key={dt.id}>
                 <RouteImage>
                   <Link to={`/business/invest/story/${dt.id}`}>
@@ -39,7 +39,7 @@ function StoryList({data}) {
         </DataList>
         <StyleSwiper {...swiperParams} ref={setSwiper}>
           <>
-            {Data.map((dt) => (
+            {Data2.map((dt) => (
               <SwiperSlide key={dt.id}>
                  <RouteImage>
                   <Link to={`/business/invest/story/${dt.id}`}>

@@ -52,7 +52,7 @@ const Apply = () => {
               <EmailSendForm apply business individual />
             )}
             {location.search === '?3' && (
-              <EmailSendForm apply business />
+              <EmailSendForm apply business expert />
             )}
           </BottomWrap>
           </Layout>

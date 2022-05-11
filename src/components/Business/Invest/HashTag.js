@@ -1,46 +1,31 @@
 import React from 'react'
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 
-function HashTag({name, link}) {
+function HashTag({name, bg, color, width, mb}) {
   return (
-    <HashBox link={link}>
-      <p># {name}</p>
+    <HashBox bg={bg} color={color} width={width} mb={mb}>
+      # {name}
     </HashBox>
   )
 }
 
 export default HashTag;
 
-const HashBox = styled.div`
+const HashBox = styled.h4`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 48px;
-  background-color: #F8F8F8;
   font-size: 0.75rem;
-  padding: 0 1.5%;
-  margin-right: 25px;
-   > p {
-     padding-top: 0;
-     font-family: 'GoyangDeogyang';
-     line-height: 1.75rem;
-   }
-  
-  ${props => props.link && css`
-    height: 35px;
-    width: 180px;
-    background-color: #C22229;
-    color: #FFFFFF;
+  line-height: 1.75rem;
+  background: ${props => props.bg || '#F8F8F8'};
+  color: ${props =>  props.color || '#444444'};
+  width: ${props => props.width};
+  height: 35px;
 
-    @media (max-width: 700px) {
-      width: 114px;
-    }
-  `}
   @media (max-width: 700px) {
     font-size: 0.625rem;
-    padding: 1.8% 4%;
-    margin-right: 15px;
-    height: 25px;    
+    width: ${props => props.mb};
   }
 `;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import CommonBanner from '../components/CommonBanner';
 import Layout from '../Layouts/Layout';
 import bannerImg from '../img/sub/investbanner.png';
@@ -10,11 +10,12 @@ import ScrollMagic from "scrollmagic";
 import { useLocation } from 'react-router-dom';
 import InvestDetail from '../components/Business/Invest/InvestDetail';
 import { getPostByNo, Data } from '../data/InvestData';
-import { getPostByNo2 } from '../data/InvestStory';
+import { getPostByNo2, Data2 } from '../data/InvestStory';
 import StoryList from '../components/Business/Invest/story/StoryList';
 import SectionTitle from '../components/PlatForm/SectionTitle';
 import { Link } from 'react-router-dom';
 import InvestList from '../components/Business/Invest/InvestList';
+import InvestTable from '../components/Business/Invest/InvestTable';
 
 const Invest = ({match, history}) => {
   const [ data, setData ] = useState({});
@@ -60,19 +61,20 @@ const Invest = ({match, history}) => {
             </div>
             <HashWrap className='fade-el'>
               <StyledLink to='/business/invest/story'>
-                <HashTag name='프롬이 보험이야기'  />
+                <HashTag name='프롬이 보험이야기' width={'163px'} color={'#FFFFFF'} bg={'#C22229'} />
               </StyledLink>
-              <HashTag name='보험플러스'/>
-              <HashTag name='재테크'/>
-              <HashTag name='보장분석'/>
-              <HashTag name='법인컨설팅'/>
-              <HashTag name='재무설계'/>
-              <HashTag name='성공사례'/>
-              <HashTag name='기타'/>
+              <HashTag name='보험플러스' width={'146px'} />
+              <HashTag name='재테크' width={'116px'} />
+              <HashTag name='보장분석' width={'125px'} />
+              <HashTag name='법인컨설팅' width={'146px'} />
+              <HashTag name='재무설계' width={'125px'} />
+              <HashTag name='성공사례' width={'125px'} />
+              <HashTag name='기타' width={'85px'} />
             </HashWrap>
           </EventSection>
           <SubContents>
-            <InvestList data={Data} />
+            <InvestList data={Data2} />
+            <InvestTable data={Data} />
           </SubContents>
          </>
        )}
@@ -88,9 +90,9 @@ const Invest = ({match, history}) => {
                     <span>+ </span>
                     <strong>3분</strong> 재테크
                   </div>
-                  <HashWrap title>
-                    <HashTag name='프롬이 보험이야기' link/>
-                    <HashTag name='프롬이의 보험웹툰'/>
+                  <HashWrap className='title-hash'>
+                    <HashTag name='프롬이 보험이야기' width={'163px'} color={'#FFFFFF'} bg={'#C22229'} />
+                    <HashTag name='프롬이의 보험웹툰' width={'163px'} />
                   </HashWrap>
                 </Wrap>
               </SectionTitle>
@@ -108,99 +110,48 @@ const Invest = ({match, history}) => {
 export default Invest;
 
 
-
 const HashWrap = styled.div`
-  width: 80%;
-  padding-right: 5%;
-
   &.fade-el {
-    div {
+    padding-top: 5%;
+    h4 {
       opacity: 0;
-      transition: 1s;
-      :first-child {
-        transition-delay: 0s;
-      }
+      margin: 0 25px 34px 0;
+      transition: 1.4s;
       :nth-child(2) {
         transition-delay: 0.2s;
       }
       :nth-child(3) {
-        transition-delay: 0.3s;
-      }
-      :nth-child(4) {
         transition-delay: 0.4s;
       }
-      :nth-child(5) {
-        transition-delay: 0.5s;
-      }
-      :nth-child(6) {
+      :nth-child(4) {
         transition-delay: 0.6s;
       }
-      :nth-child(7) {
-        transition-delay: 0.7s;
-      }
-      :nth-child(8) {
+      :nth-child(5) {
         transition-delay: 0.8s;
       }
-      :last-child {
-        transition-delay: 0.9s;
+      :nth-child(6) {
+        transition-delay: 1s;
       }
+      :nth-child(7) {
+        transition-delay: 1.2s;
+      }
+      :nth-child(8) {
+        transition-delay: 1.4s;
+      }
+
     }
   }
   &.fade-el.show {
-    div {
+    h4 {
       opacity: 1;
     }
   }
 
-  > div {
-    margin-top: 5%;
-
-    @media (max-width: 700px) {
-      margin-top: 0;
-      margin-bottom: 14px;
+  &.title-hash {
+    padding-left: 3%;
+    > h4 {
+      margin: 0 25px 0 0;
     }
-  }
- 
-  ${props => props.title && css`
-    display: flex;
-    align-items: flex-end;
-    margin-left: 1%;
-    width: auto;
-    div {
-      margin: 0 10% 0 0;
-      :last-child {
-        margin-top: 10px;
-      }
-      > p {
-        width: 165px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-      }
-    }
-  `}  
-
-  @media (max-width: 700px) {
-    width: 100%;
-    padding-right: 0%;
-    ${props => props.title && css`
-      display: flex;
-      flex-direction: column;
-      margin-left: 3%;
-      width: auto;
-    div {
-      margin-top: 0;
-      width: 114px;
-      
-      > p {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-      }
-    }
-  `}
   }
 `;
 

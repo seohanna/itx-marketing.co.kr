@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Pagination from '../../Pagination';
-import InvestTable from './InvestTable';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import "swiper/swiper.min.css";
@@ -20,6 +19,7 @@ function InvestList({data}) {
   const [swiper , setSwiper] = useState(null);
   console.log(swiper);
   SwiperCore.use([Navigation]);
+
   const swiperParams = {
     onSwiper: setSwiper,
     slidesPerView: '1',
@@ -41,13 +41,13 @@ function InvestList({data}) {
               <li key={dt.id}>
                 <RouteImage>
                   <Link 
-                    to={`/business/invest/${dt.id}`}>
-                      <img src={dt.img} alt='보험' />
+                    to={`/business/invest/story/${dt.id}`}>
+                      <img src={dt.banner} alt='보험' />
                   </Link>
                 </RouteImage>
                 <h2>{dt.title}</h2>
                 <div>
-                  <p>{dt.hash}</p>
+                  <p>{dt.tag}</p>
                 </div>
               </li>
             ))}</>) : ''
@@ -59,13 +59,13 @@ function InvestList({data}) {
               <SwiperSlide key={dt.id}>
                 <RouteImage>
                   <Link 
-                    to={`/business/invest/${dt.id}`}>
-                      <img src={dt.img} alt='보험' />
+                    to={`/business/invest/story/${dt.id}`}>
+                      <img src={dt.banner} alt='보험' />
                   </Link>
                 </RouteImage>
                 <h2>{dt.title}</h2>
                 <div>
-                  <p>{dt.hash}</p>
+                  <p>{dt.tag}</p>
                 </div>
               </SwiperSlide>
             ))}</>) : ''
@@ -76,7 +76,6 @@ function InvestList({data}) {
           totalPosts={data.length} 
           paginate={setCurrentPage} 
         />
-        <InvestTable data={data} />
       </>
     </Layout>
   );

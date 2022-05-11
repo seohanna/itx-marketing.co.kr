@@ -38,7 +38,7 @@ function InvestTable({data}) {
             <th>제목</th>
             <th className='writer'>작성자</th>
             <th>등록일</th>
-            <th className='hits'>조회수</th>
+            {/* <th className='hits'>조회수</th> */}
           </tr>
         </thead>
         {inquiries.map((dt) => (
@@ -49,7 +49,7 @@ function InvestTable({data}) {
             <td className='title'><Link to={`/business/invest/${dt.id}`}>{dt.title}</Link></td>
             <td className='writer'>{dt.writer}</td>
             <td className='date'>{dt.date}</td>
-            <td className='hits'>{dt.hit}</td>
+            {/* <td className='hits'>{dt.hit}</td> */}
           </tr>
         </tbody>
         ))}
@@ -79,7 +79,7 @@ const Layout = styled.div`
   align-items: center;
 
   @media (max-width: 700px) {
-    padding: 10% 0 25% 0;
+    padding: 10% 7.2% 25%;
   }
 `;
 const Table = styled.table`
@@ -151,6 +151,7 @@ const Table = styled.table`
 
 const SearchBox = styled.div`
   display: flex;
+
   select {
     border: 1px solid #BEBEBE;
     width: 142px;
@@ -179,6 +180,7 @@ const SearchBox = styled.div`
   }
 
   @media (max-width: 700px) {
+    width: 100%;
     select {
       width: 106px;
       font-size: 0.8125rem;

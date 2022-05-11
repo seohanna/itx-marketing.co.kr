@@ -36,6 +36,7 @@ function App() {
           <Route exact path="/intro/contact" component={ContactTab} />
           <Route exact path="/business/platform" component={PlatForm} />
           <Route exact path="/business/platform/:pagename" component={PlatForm} />
+          <Route exact path="/business/platform/insuplus?veiw=:id" component={PlatForm} />
           <Route exact path="/business/invest" component={Invest} />
           <Route exact path="/business/invest/story/:id" component={Invest} />
           <Route exact path="/business/invest/:id" component={Invest} />

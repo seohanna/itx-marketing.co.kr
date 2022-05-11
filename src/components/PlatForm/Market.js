@@ -7,10 +7,10 @@ import customer1 from '../../img/sub/customer1.svg';
 import customer2 from '../../img/sub/customer2.svg';
 import customer3 from '../../img/sub/customer3.svg';
 import customer4 from '../../img/sub/customer4.svg';
-import kiosque from '../../img/sub/kiosque.svg';
-import smallOwner from '../../img/sub/smallOwner.svg';
-import traditionalMarket from '../../img/sub/traditionalMarket.svg';
-import smallOwner2 from '../../img/sub/smallOwner2.svg';
+import kiosque from '../../img/sub/kiosque.png';
+import smallOwner from '../../img/sub/smallOwner.png';
+import traditionalMarket from '../../img/sub/traditionalMarket.png';
+import assurance from '../../img/sub/assurance.png';
 
 
 const Data = [
@@ -75,7 +75,7 @@ const Data2 = [
     list1: "Push(프로모션, 이벤트) 보장분석 고객 확보 후 공급",
     list2: "TM을 통한 보장분석, 재무설계, 보험비교 서비스 제공",
     list3: "보험 뿐만 아니라 금융대출(대출, 카드) 유통을 위한 채널로 활용",
-    img: smallOwner2,
+    img: assurance,
   }
 ];
 const Market = () => {

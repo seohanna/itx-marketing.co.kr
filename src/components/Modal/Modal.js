@@ -36,7 +36,6 @@ const ModalContainer = styled.div`
 
   ${props => props.apply && css`
     background-color: rgba(0,0,0,.4);
-    
   `}
 
   @media (max-width: 700px) {
@@ -46,23 +45,23 @@ const ModalContainer = styled.div`
 `;
 
 const ModalContent = styled.div`
-  width: 100%;
   background-color: #FFFFFF;
   z-index: 1000;
   
   ${props => props.recruit && css`
-    width:45%;
-    height: 100vh;
-    padding: 2.4% 2.4% 2%;
+      width:45%;
+      height: 100vh;
+      padding: 2.4% 2.4% 2%;
     
   `}
 
   ${props => props.apply && css`
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    background-color: transparent;
+    background-color: #FFFFFF;
+    width: 480px;
+    height: 780px;
+    border: 1px solid #B8292D;
   `}
+  
   ${props => props.pdf && css`
     width: 1000px;
     height: 500px;
@@ -70,18 +69,17 @@ const ModalContent = styled.div`
   `}
 
   @media (max-width: 700px) {
-    overflow-y: scroll;
+    
     ${props => props.recruit && css`
       width: 100%;
       height: 100%;
       padding: 5.7%;
+      overflow-y: scroll;
     `}
 
     ${props => props.apply && css`
-      width: 100%;
-      height: 100vh;
-      overflow-y: scroll;
-      padding-top: 10%;
+      width: 300px;
+      height: 500px;
     `}
   }
 `;
@@ -91,8 +89,7 @@ const ButtonWrap = styled.div`
   justify-content: flex-end;
   align-items: center;
   display: flex;
-  
-  
+  position: relative;
 `;
 
 const Button = styled.button`
@@ -103,23 +100,25 @@ const Button = styled.button`
     height: 24px;
     background-image: url(${closeBtn});
   `}
+
   ${props => props.apply && css`
     width: 60px;
     height: 60px;
     background-image: url(${closeBtnWhite});
     position: absolute;
-    top: 0%;
-    right: 3%;
+    top: 5%;
+    right: -100%;
 
     @media (max-width: 700px) {
       width: 26px;
       height: 26px;
-      right: 8%;
-      top: 4%;
+      right: 0;
+      transform: translateY(-150%);
+      position: absolute;
       background-size: contain;
     }
-    
   `}
+
   ${props => props.pdf && css`
     width: 60px;
     height: 60px;

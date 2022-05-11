@@ -10,33 +10,8 @@ import sinhan from "../img/main/sinhanSimbol.png";
 import morebtn from "../img/main/newsMoreBtn.svg";
 import nextbtn from "../img/main/nextBtn.svg";
 import styled from "styled-components";
+import { Data } from "../data/PressRoom";
 
-const NewsData = [
-  {
-    id: 0,
-    date: '2021-09-17',
-    title: '아이티엑스마케팅 ‘건강한 상속·증여연구소’출범',
-    content: '보험전문대리점(GA)인 아이티엑스 마케팅(대표이사 전병무)은 상속과 증여에 대한 전문적인 자산관리 서비스를 제공하기 위해 ‘건강한 상속 · 증여 연구소’를····'
-  },
-  {
-    id: 1,
-    date: '2021-07-23',
-    title: '더 에이치 희망 플러스, ITX마케팅,(주)케이닥, 국제의료봉사···',
-    content: '국제의료봉사 간체 “더 에이치 희망 플러스” (이사장 에이티세미콘 김형준 대표) 22일 ITX마케팅, (주)케이닥과 업무협약(MOU)을 체결하였다고····'
-  },
-  {
-    id: 2,
-    date: '2021-07-15',
-    title: 'GA업체 ‘아이티엑스마케팅’, 오프라인 보험플랫폼···',
-    content: '독립법인보험대리점(GA)인 아이티엑스마케팅과 이달부터 보험전문 방문형점포 ‘보험플러스’를 운영한다고 7일 밝혔다. 보험플러스는 보험····'
-  },
-  {
-    id: 3,
-    date: '2021-07-15',
-    title: '인슈로보·아이티엑스마케팅, 인슈어테크 플랫폼과 오프라인···',
-    content: 'AI기반의 차세대 지능형 인슈어테크 기업 (주)인슈로보(대표 서민)는 독립보험대리점(GA), (주)아이티엑스마케팅(대표 전병무)과 보험사업의 온·오프라인····'
-  },
-]
 
 const AwardData = [
   {
@@ -76,33 +51,44 @@ const SectionContainer = styled.div`
   }
 `;
 
-const DirectNews =  styled.div`
-  width: 33.85416666666667%;
-  padding: 17.36% 6.6% 17.36% 7.8125%;
+const DirectNews = styled.div`
+  width: 650px;
+  height: 900px;
   background-color: #F8F8F8;
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-flow: column;
-  > h2 {
-    font-size: 3.13vw;
-    color: #1A1A1A;
-    padding-bottom: 28px;
-    > p {
-      font-family: 'GoyangIlsan';
-      font-weight: 400;
+  color: #1A1A1A;
+  h2 {
+    font-size: 3rem;
+    > strong {
+      color: #C22229;
     }
   }
+  p {
+    font-size: 3rem;  
+  }
   @media (max-width: 700px) {
+    width: 100%;
+    height: auto;
     padding: 0%;
-    display: flex;
-    align-self: flex-start;
     margin-bottom: 0;
-    > h2 {
-      font-size: 1.25rem;
+    > div {
+      display: flex;
+      width: 100%;
+    }
+     h2 {
+      font-size: 1rem;
       padding-bottom: 0;
-      > br {
-        display: none;
-      }
+      margin-right: 2%;
+    }
+    p {
+      font-size: 1rem;  
+    }
+    .pc {
+      display: none;
     }
   }
 `;
@@ -110,11 +96,11 @@ const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
   line-height: 72px;
-  width: 100%;
+
   @media (max-width: 700px) {
      line-height: 31px;
      position: absolute;
-     top: 1065%;
+     top: 1800%;
      z-index: 20;
   }
   > p {
@@ -139,31 +125,35 @@ const StyledLink = styled(Link)`
   }
 `;
 const NewsContainer = styled.div`
-  width: 100%;
-  margin: 0 7.916666666666667% 0 4.53125%;
+  height: 900px;
+  width: 1260px;
+  display: flex;
+  align-items: center;
+  padding-left: 3%;
   overflow: hidden;
 
   @media (max-width: 700px) {
     padding:0;
     width: 100%;
+    height: 300px;
   } 
 `;
 const StyleSwiper = styled(Swiper)`
   overflow: hidden;
   
-@media (max-width: 700px) {
-  .swiper-slide-duplicate,
-  .swiper-slide {
-    transition: all .3s;
-    transform: scale(1);
-    overflow: hidden;
-    background-color: #FFFFFF;
+  @media (max-width: 700px) {
+    .swiper-slide-duplicate,
+    .swiper-slide {
+      transition: all .3s;
+      transform: scale(1);
+      overflow: hidden;
+      background-color: #FFFFFF;
+    }
+    .swiper-slide-active,
+    .swiper-slide-duplicate-active {
+      transform: scale(0.9);
+    }
   }
-  .swiper-slide-active,
-  .swiper-slide-duplicate-active {
-    transform: scale(0.9);
-  }
-}
   
   .swiper-button-prev {
       display: none;
@@ -172,7 +162,7 @@ const StyleSwiper = styled(Swiper)`
     position: absolute;
     width: 107.5px;
     height: 16.5px;
-    right: 0;
+    right: 10%;
     margin-top: 0;
     @media (max-width: 700px) {
       display: none;
@@ -203,26 +193,37 @@ const StyleSwiper = styled(Swiper)`
     overflow: hidden;
   }
     h3, h2 {
-        font-size: 2rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        @media (max-width: 700px) {
-          font-size: 0.625rem;
-        }
-    }
-    > div {
-      padding-top: 62px;
-      height: 289px;
-      > p {
-      font-size: 1.25rem;
-      font-weight: 400;
-      font-family: GoyangIlsan;
-      padding-top: 10px;
-      line-height: 35px;
+      font-size: 2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-bottom: 10px;
       @media (max-width: 700px) {
+        font-size: 0.625rem;
+        width: 187px;
+        height: 30px;
+      }
+    }
+    .text-wrap {
+      padding-top: 62px;
+      width: 793px;
+ 
+      > p { 
+        font-size: 1.25rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow-y: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;        
+      }
+      @media (max-width: 700px) {
+        padding-top: 30px;
+        > p {
           font-size: 0.625rem;
           line-height: 15px;
+          -webkit-line-clamp: 3;
+          width: 187px;
         }
       }
     }
@@ -243,20 +244,21 @@ const AwradList = styled.ul`
  @media (max-width: 700px) {
     flex-direction: column;
   }
->li {
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  padding: 27px 0 28px 0;
-  border-right: 2px solid #C4C4C4;
-  @media (max-width: 700px) {
-    border-right: 0;
-    padding: 12px 0 13px 0;
-    align-items: center;
-  }
-  :last-child {
-    border-right: 0;
-  }
+  > li {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 27px 0 28px 0;
+    border-right: 2px solid #C4C4C4;
+
+    @media (max-width: 700px) {
+      border-right: 0;
+      padding: 12px 0 13px 0;
+      align-items: center;
+    }
+    :last-child {
+      border-right: 0;
+    }
     > .sponsor-logo {
       background-image: url(${sinhan});
       width: 25px;
@@ -311,24 +313,25 @@ const NewsMarketing = () => {
     <SectionContainer>
       <div className="news-wrap"> 
         <DirectNews>
-          <h2>
-            <strong style={{color:"#C22229"}}>N</strong>
-              e<strong>W</strong>s&nbsp;<br />
-            <p>ITX&nbsp;Marketing</p>
-          </h2>
-          <StyledLink to="/intro/summary?veiw">
-            <p>자세히보기</p> 
-            <span></span>
-          </StyledLink>
+          <div>
+            <h2>
+              <strong>N</strong>e<span>w</span>s
+            </h2>
+            <p>ITX Marketing</p>
+            <StyledLink to="/intro/summary?veiw">
+              <p>자세히보기</p> 
+              <span></span>
+            </StyledLink>
+          </div>
         </DirectNews>
         <NewsContainer>
           <StyleSwiper {...swiperParams} ref={setSwiper}> 
-            {NewsData.map((newDt) => (
+            {Data.map((newDt) => (
               <SwiperSlide key={newDt.id}>
                 <h3>{newDt.date}</h3>
-                <div>
+                <div className="text-wrap">
                   <h2>{newDt.title}</h2>
-                  <p>{newDt.content}</p>
+                  <p>{newDt.content1}</p>
                 </div>
               </SwiperSlide>
             ))} 

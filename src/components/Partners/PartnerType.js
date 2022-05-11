@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import Button from '../Button'
 import ScrollMagic from "scrollmagic";
@@ -8,6 +8,7 @@ import healthCare from "../../img/sub/healthCare.png"
 import financial from "../../img/sub/financial.png"
 import bigData from "../../img/sub/bigData.png"
 import  { ReactComponent as ArrowBtn } from '../../img/common/ArrowShortBtn.svg';
+import PartnerModal from '../Modal/PartnerModal';
 const TypeContainer = styled.section`
   padding: 10.12% 0 2.4% 0;
   background-color: #F8F8F8;
@@ -79,7 +80,7 @@ const Item = styled.li`
     transition: width 1s ease-out .6s;
   }
   
-  .text-box{
+  .text-box {
     width: 49.21875%;
     position: absolute;
     right: 7.8125%;
@@ -92,7 +93,7 @@ const Item = styled.li`
     opacity: 0;
     transition-duration: 1s;
     
-    > div {
+    .left-cont {
       width: 76%;
       > span {
         font-size: 1.25rem;
@@ -136,22 +137,22 @@ const Item = styled.li`
       justify-content: space-between;
       opacity: 1;
 
-      > div {
+      .left-cont {
         align-self: flex-start;
         > span {
-        font-size: 0.625rem;
-        line-height: 0rem;
+          font-size: 0.625rem;
+          line-height: 0rem;
         }
         > h1 {
-        font-size: 1.25rem;
-        padding-top: 0%;
-        padding-bottom: 20%;
+          font-size: 1.25rem;
+          padding-top: 0%;
+          padding-bottom: 20%;
         }
         > p {
-        line-height: 0.87rem;
-        font-size: 0.625rem;
-        width: 100%;
-        padding-bottom: 3.1%;
+          line-height: 0.87rem;
+          font-size: 0.625rem;
+          width: 100%;
+          padding-bottom: 3.1%;
         }
       }
     }
@@ -189,7 +190,14 @@ const Type = [
 ]
 
 const PartnerType = () => {
+  const [modalVisible, setModalVisible] = useState(false);
 
+  const openModal = () => { 
+    setModalVisible(true);
+  }
+  const closeModal = () => {
+    setModalVisible(false);
+  }
   useEffect(() => {
     const fadeEls = document.querySelectorAll('.fade-el');
     fadeEls.forEach(function (fadeEl) {
@@ -204,34 +212,39 @@ const PartnerType = () => {
   }, []);
 
   return (
-    <TypeContainer>
-      <TypeList>
-      {Type.map((td) => (
-        <Item key={td.id} className='fade-el'>
-          <div
-            className='img-box'
-            style={{
-              backgroundImage: `url(${td.image})`
-            }}
-          >
-          </div>
-          <div className='text-box'>
-            <div>
-              <span>{td.en}</span>
-              <h1>{td.ko}</h1>
-              <p>{td.desc}</p>
-            </div>
-            <Button size="md">
-              <Text>
-                제휴상담문의
-                <ArrowBtn stroke="#FFFFFF" className='arrow-icon'/>
-              </Text>
-            </Button>
-          </div>
-        </Item>
-      ))}
-      </TypeList>
-    </TypeContainer>
+    <>
+      <TypeContainer>
+        <TypeList>
+          {Type.map((td) => (
+            <>
+              <Item key={td.id} className='fade-el'>
+                <div
+                  className='img-box'
+                  style={{
+                    backgroundImage: `url(${td.image})`
+                  }}
+                >
+                </div>
+                <div className='text-box'>
+                  <div className='left-cont'>
+                    <span>{td.en}</span>
+                    <h1>{td.ko}</h1>
+                    <p>{td.desc}</p>
+                  </div>
+                  <Button size="md" onClick={openModal} >
+                    <Text>
+                      제휴상담문의
+                      <ArrowBtn stroke="#FFFFFF" className='arrow-icon'/>
+                    </Text>
+                  </Button>
+                  {modalVisible && <PartnerModal  onClick={closeModal} en={td.en} ko={td.ko} />}
+                </div>
+              </Item>
+            </>
+          ))}
+        </TypeList>
+      </TypeContainer>
+    </>
   )
 }
 

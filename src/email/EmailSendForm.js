@@ -7,12 +7,31 @@ import Button from '../components/Button';
 import scrollBtnTop from '../img/sub/scrollBtnTop.svg';
 import scrollBtndown from '../img/sub/scrollBtndown.svg';
 import selectBoxIcon from '../img/sub/selectboxIcon.svg';
-import ApplyModal from '../components/Modal/ApplyModal';
+import PrivateModal from '../components/Modal/PrivateModal';
 
 
 export const EmailSendForm = ({
-  fpjoin, fpadvice, onClick, corporate, corporation, inherit, individual, business, apply
+  fpjoin, fpadvice, onClick, corporate, expert, partners,
+  corporation, inherit, individual, business, apply
 }) => {
+  const modaldata = [
+    {
+      id: 0,
+      title: '법인컨설팅',
+      article: '성명, 연락처'
+    },
+    {
+      id: 1,
+      title: '개인컨설팅',
+      article: '성명, 연락처, 생년월일'
+    },
+    {
+      id: 2,
+      title: '전문가 입사문의',
+      article: '성명, 연락처, 생년월일'
+    },
+  ];
+
   const [modalVisible, setModalVisible] = useState(false);
   const form = useRef();
   const openModal = () => { 
@@ -71,6 +90,43 @@ export const EmailSendForm = ({
           </CheckBoxWrapper>
           <SubmitBox fpjoin>
             <button type="submit" value="Send">지원하기</button>
+          </SubmitBox>
+        </Form>
+      )}
+      {partners && (
+        <Form fpjoin ref={form} onSubmit={sendEmail} name='template_evvw7vb'>
+          <InputBox fpjoin>
+            <h3>회사명</h3>
+            <input type="text" name="partners_name" placeholder='회사명을 입력하세요'/>
+          </InputBox>
+          <InputBox fpjoin>
+            <h3>담당자</h3>
+            <input type="text" name="partners_manager" placeholder='담당자 성함을 입력하세요'/>
+          </InputBox>
+          <InputBox fpjoin>
+            <h3>제휴분야</h3>
+            <select name="partners_type">
+              <option value="">분야</option>
+              <option value="인슈어테크">인슈어테크</option>
+              <option value="헬스케어">헬스케어</option>
+              <option value="금융서비스">금융서비스</option>
+              <option value="빅데이터">빅데이터</option>
+              <option value="기타문의">기타문의</option>
+            </select>
+          </InputBox>
+          <InputBox fpjoin>
+            <h3>지역</h3>
+            <input type="text" name="partners_area" placeholder="시도 단위로 입력하세요"/>
+          </InputBox>
+          <InputBox fpjoin>
+            <h3>연락처</h3>
+            <input type="tel" name="partners_telNumber" placeholder="‘-’없이 번호만 입력해 주세요." />
+          </InputBox>
+          <CheckBoxWrapper partners>
+            <CheckBox onClick={onClick} name={'partners_private'} />
+          </CheckBoxWrapper>
+          <SubmitBox fpjoin>
+            <button type="submit" value="Send">상담신청</button>
           </SubmitBox>
         </Form>
       )}
@@ -298,8 +354,14 @@ export const EmailSendForm = ({
         <ButtonContainer>
           <Button type="submit" value="Send" size={'md2'}>상담하기 &#62;&#62;</Button>
         </ButtonContainer>
-        {modalVisible && (<ApplyModal onClick={closeModal} />)}  
-      </Form>
+          {modalVisible && (
+            <PrivateModal onClick={closeModal} 
+              data={corporate ? modaldata[0] : 
+              (individual ? modaldata[1] : 
+                (expert ? modaldata[2] : null))}
+            />
+          )}  
+        </Form>
       )}
     </>
   );
@@ -356,8 +418,8 @@ const InputBox = styled.div`
     > h3 {
       line-height: 2.6rem;
       color: #1A1A1A;
+      font-size: 1rem;
       @media(max-width: 700px){
-        font-size: 1rem;
         line-height: 2.25rem;
       }
     }
@@ -480,6 +542,10 @@ const InputBox = styled.div`
 
 const CheckBoxWrapper = styled.div`
   padding: 2% 0;
+
+  ${props => props.partners && css`
+    padding: 10% 0 2% 0;
+  `}
 `;
 
 const SubmitBox = styled.div`
@@ -496,8 +562,8 @@ const SubmitBox = styled.div`
       border-radius: 95px;
       font-size: 0.8125rem;
       cursor: pointer;
-
     }
+
     @media(max-width: 700px) {
       button {
         width: 100% ;
@@ -506,7 +572,8 @@ const SubmitBox = styled.div`
       }
     }
   `}
-  
+
+
   ${props => props.fpadvice && css`
     display: flex;
     justify-content: center;

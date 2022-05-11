@@ -79,7 +79,7 @@ const Content = styled.ul`
     justify-content: space-between;
     width: 100%;
     line-height: 1.9rem;
-
+   
     .sub-txt {
       transform: translate3d(0px, 38.5393px, 0px);
       transition-duration: 0.6s;
@@ -148,7 +148,7 @@ const Content = styled.ul`
 `;
 
 const TextWrap = styled.div`
-  width: 46.73839946200403%;
+  /* width: 46.73839946200403%; */
   white-space: pre;
   display: flex;
   flex-direction: column;

@@ -2,71 +2,9 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
-// import "swiper/components/effect-coverflow/effect-coverflow.min.css";
 import SwiperCore, { Autoplay } from 'swiper';
+import { Link } from 'react-router-dom';
 
-import SectionTitle from './SectionTitle';
-import sucCaseIcon1 from '../../img/sub/sucCaseIcon1.png';
-import sucCaseIcon2 from '../../img/sub/sucCaseIcon2.png';
-import sucCaseIcon3 from '../../img/sub/sucCaseIcon3.png';
-import sucCaseIcon4 from '../../img/sub/sucCaseIcon4.png';
-import sucCaseIcon5 from '../../img/sub/sucCaseIcon5.png';
-
-const Data = [
-  {
-    id: 0,
-    icon: sucCaseIcon1,
-    lounge: '병원 Lounge',
-    award: '12개월 연속 Top3 선정',
-    content: '최초 입점 후 1개월 동안 10건이 넘는 신계약\n체결과 100명이 넘는 가맹고객 확보\n\n',
-    content2: '보험금청구는 과제 개인영업을 하면서 가장\n어려웠던 보험니즈 환기를 가장 우월하게 만들어 줄···',
-    linkBtn: '+ more'
-  },
-  {
-    id: 1,
-    icon: sucCaseIcon2,
-    lounge: '병원 Lounge',
-    award: '12개월 연속 Top3 선정',
-    content: '최초 입점 후 1개월 동안 10건이 넘는 신계약\n체결과 100명이 넘는 가맹고객 확보\n\n',
-    content2: '보험금청구는 과제 개인영업을 하면서 가장\n어려웠던 보험니즈 환기를 가장 우월하게 만들어 줄···',
-    linkBtn: '+ more'
-  },
-  {
-    id: 2,
-    icon: sucCaseIcon3,
-    lounge: '병원 Lounge',
-    award: '12개월 연속 Top3 선정',
-    content: '최초 입점 후 1개월 동안 10건이 넘는 신계약\n체결과 100명이 넘는 가맹고객 확보\n\n',
-    content2: '보험금청구는 과제 개인영업을 하면서 가장\n어려웠던 보험니즈 환기를 가장 우월하게 만들어 줄···',
-    linkBtn: '+ more'
-  },
-  {
-    id: 3,
-    icon: sucCaseIcon4,
-    lounge: '병원 Lounge',
-    award: '12개월 연속 Top3 선정',
-    content: '최초 입점 후 1개월 동안 10건이 넘는 신계약\n체결과 100명이 넘는 가맹고객 확보\n\n',
-    content2: '보험금청구는 과제 개인영업을 하면서 가장\n어려웠던 보험니즈 환기를 가장 우월하게 만들어 줄···',
-    linkBtn: '+ more'
-  },
-  {
-    id: 4,
-    icon: sucCaseIcon5,
-    lounge: '병원 Lounge',
-    award: '12개월 연속 Top3 선정',
-    content: '최초 입점 후 1개월 동안 10건이 넘는 신계약\n체결과 100명이 넘는 가맹고객 확보\n\n',
-    content2: '보험금청구는 과제 개인영업을 하면서 가장\n어려웠던 보험니즈 환기를 가장 우월하게 만들어 줄···',
-    linkBtn: '+ more'
-  },
-]
-const TitleWrap = styled.div`
-  padding-right: 11.05%;
-  text-align: right;
-
-  @media (max-width: 700px) {
-    padding-right: 6%;
-  }
-`;
 
 const StyleSwiper = styled(Swiper)`
   padding: 10% 0;
@@ -150,9 +88,9 @@ const StyleSwiper = styled(Swiper)`
     }
   }
 `;
-const InsuSlider = (props) => {
+const InsuSlider = ({data}) => {
   const [swiper , setSwiper] = useState(null);
-
+  console.log(swiper)
   SwiperCore.use([Autoplay]);
 
   const swiperParams = {
@@ -175,18 +113,10 @@ const InsuSlider = (props) => {
     }
   }
 
-
+  
   return (
-    <>
-    <TitleWrap>
-      <SectionTitle>
-        <span>{props.thin}</span>
-        &nbsp;{props.title1}
-        <span>{props.thin2}</span>
-      </SectionTitle>
-    </TitleWrap>
-      <StyleSwiper {...swiperParams}>
-        {Data.map((dt) => (
+    <StyleSwiper {...swiperParams}>
+      {data.map((dt) => (
           <SwiperSlide key={dt.id}>
             <img src={dt.icon} alt={dt.award} />
             <div>
@@ -197,11 +127,10 @@ const InsuSlider = (props) => {
               <p>{dt.content}</p>
               <p>{dt.content2}</p>
             </div>
-            <button>{dt.linkBtn}</button>
+            <button><Link to={`/business/platform/insuplus?veiw=${dt.id}`}>{dt.linkBtn}</Link></button>
           </SwiperSlide>
-        ))}
-      </StyleSwiper>
-    </>
+      ))}
+    </StyleSwiper>
   );
 }
 
