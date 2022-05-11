@@ -2,8 +2,6 @@ import React from 'react';
 import Section1 from './Section1';
 import Section2 from './Section2';
 import Section3 from './Section3';
-import InsuSlider from './InsuSlider';
-
 import insuplus from '../../img/sub/insuplus.png';
 import hospital from '../../img/sub/hospital.svg';
 import mart from '../../img/sub/mart.svg';
@@ -100,11 +98,6 @@ const InsuPlus = () => {
         left="left"
         bottom="6.15%"
       />
-      {/* <InsuSlider
-        thin="보험플러스는"
-        title1="성공사례"
-        thin2="를 만들어 갑니다."
-      /> */}
     </>
   );
 }

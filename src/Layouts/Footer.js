@@ -129,6 +129,12 @@ const Button = styled.button`
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(${closeBtn});
+  @media (max-width: 700px) {
+    width: 35px;
+    height: 35px;
+    right: 5%;
+    top: 10%;
+  }
 `;
 
 

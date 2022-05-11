@@ -84,7 +84,7 @@ export default InvestList;
 
 const Layout = styled.div`
   width: 100%;
-  padding: 5% 7.8125% 0%;
+  padding: 5% 11.25% 0%;
   @media (max-width: 700px) {
     padding: 0 7.8125%;
   }
@@ -95,7 +95,7 @@ const DataList = styled.ul`
   justify-content: space-between;
 
   > li {
-    width: 30.8641975308642%;
+    /* width: 30.8641975308642%; */
     display: flex;
     flex-direction: column;
     
@@ -144,7 +144,7 @@ const StyleSwiper = styled(Swiper)`
   display: none;
   @media (max-width: 700px) {
     display: block;
-    padding: 10% 0 40% 0;
+    padding: 0 0 30% 0;
 
     .swiper-button-next,.swiper-button-prev {
       color: #444444;

@@ -1,8 +1,6 @@
 import React from 'react';
 import Modal from './Modal';
-
 import PdfViewer from '../PdfViewer';
-
 
 function PdfModal({onClick, file}) {
   return (

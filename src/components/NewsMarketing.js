@@ -184,14 +184,14 @@ const StyleSwiper = styled(Swiper)`
     width: 100%;
 
     @media (max-width: 700px) {
-    padding: 20px 10px 29px 8px;
-    margin-right: 20px;
-    width: 203px;
-    height: 204px;
-    border-radius: 9px;
-    box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-  }
+      padding: 20px 10px 29px 8px;
+      margin-right: 20px;
+      width: 203px;
+      height: 204px;
+      border-radius: 9px;
+      box-shadow: 6px 7px 14px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
     h3, h2 {
       font-size: 2rem;
       white-space: nowrap;

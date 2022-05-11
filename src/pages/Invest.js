@@ -60,16 +60,16 @@ const Invest = ({match, history}) => {
               </p>
             </div>
             <HashWrap className='fade-el'>
-              <StyledLink to='/business/invest/story'>
-                <HashTag name='프롬이 보험이야기' width={'163px'} color={'#FFFFFF'} bg={'#C22229'} />
-              </StyledLink>
-              <HashTag name='보험플러스' width={'146px'} />
-              <HashTag name='재테크' width={'116px'} />
-              <HashTag name='보장분석' width={'125px'} />
-              <HashTag name='법인컨설팅' width={'146px'} />
-              <HashTag name='재무설계' width={'125px'} />
-              <HashTag name='성공사례' width={'125px'} />
-              <HashTag name='기타' width={'85px'} />
+              <Link to='/business/invest/story'>
+                <HashTag name='프롬이 보험이야기' width={'163px'} color={'#FFFFFF'} bg={'#C22229'} mb={'114px'}/>
+              </Link>
+              <HashTag name='보험플러스' width={'146px'} mb={'94px'}/>
+              <HashTag name='재테크' width={'116px'} mb={'64px'}/>
+              <HashTag name='보장분석' width={'125px'} mb={'80px'}/>
+              <HashTag name='법인컨설팅' width={'146px'} mb={'94px'}/>
+              <HashTag name='재무설계' width={'125px'} mb={'80px'}/>
+              <HashTag name='성공사례' width={'125px'} mb={'80px'}/>
+              <HashTag name='기타' width={'85px'} mb={'65px'}/>
             </HashWrap>
           </EventSection>
           <SubContents>
@@ -91,8 +91,8 @@ const Invest = ({match, history}) => {
                     <strong>3분</strong> 재테크
                   </div>
                   <HashWrap className='title-hash'>
-                    <HashTag name='프롬이 보험이야기' width={'163px'} color={'#FFFFFF'} bg={'#C22229'} />
-                    <HashTag name='프롬이의 보험웹툰' width={'163px'} />
+                    <HashTag name='프롬이 보험이야기' width={'163px'} color={'#FFFFFF'} bg={'#C22229'} mb={'114px'} />
+                    <HashTag name='프롬이의 보험웹툰' width={'163px'} mb={'114px'} />
                   </HashWrap>
                 </Wrap>
               </SectionTitle>
@@ -111,6 +111,7 @@ export default Invest;
 
 
 const HashWrap = styled.div`
+  padding-right: 20%;
   &.fade-el {
     padding-top: 5%;
     h4 {
@@ -138,7 +139,6 @@ const HashWrap = styled.div`
       :nth-child(8) {
         transition-delay: 1.4s;
       }
-
     }
   }
   &.fade-el.show {
@@ -153,11 +153,29 @@ const HashWrap = styled.div`
       margin: 0 25px 0 0;
     }
   }
+
+  @media (max-width: 700px) {
+    padding-right: 0;
+    &.fade-el {
+      padding-top: 0%;
+      h4 {
+        margin: 0 15px 14px 0;
+      }
+    }
+    &.title-hash {
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      h4 {
+      margin: 0 0 10px 20px;
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
 `;
 
-const StyledLink = styled(Link)`
-
-`;
 
 const TitleWrap = styled.div`
   padding-left: 11.25%;

@@ -1,13 +1,17 @@
 import ALZHEIMER_TEST_DETAIL from '../img/sub/webtoon/alzheimer_test_detail.png';
+import ALZHEIMER_TEST_LIST from '../img/sub/webtoon/alzheimer_test_list.png';
 import CANCER_DETAIL from '../img/sub/webtoon/cancer_detail.png';
 import CANCER_LIST from '../img/sub/webtoon/cancer_list.png';
 import DRIVER_DETAIL from '../img/sub/webtoon/driver_detail.png';
+import DRIVER_LIST from '../img/sub/webtoon/driver_list.png';
 import INJURY_DETAIL from '../img/sub/webtoon/injury_detail.png';
 import INJURY_LIST from '../img/sub/webtoon/injury_list.png';
 import INSURANCE_PLUS_DETAIL from '../img/sub/webtoon/insurancePlus_detail.png';
 import INSURANCE_PLUS_LIST from '../img/sub/webtoon/insurancePlus_list.png';
 import LIFE_DETAIL from '../img/sub/webtoon/life_detail.png';
+import LIFE_LIST from '../img/sub/webtoon/life_list.png';
 import NEW_PAYMENT_SYSTEM_DETAIL from '../img/sub/webtoon/new_payment_system_detail.png';
+import NEW_PAYMENT_SYSTEM_LIST from '../img/sub/webtoon/new_payment_system_list.png';
 import PET_DETAIL from '../img/sub/webtoon/pet_detail.png';
 import PET_LIST from '../img/sub/webtoon/pet_list.png';
 import PLUMMY_DETAIL from '../img/sub/webtoon/plummy_detail.png';
@@ -31,7 +35,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '163px',
-    mb: '',
+    mb: '114px',
     prev: '',
     next: 'none'
   },
@@ -46,7 +50,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '206px',
-    mb: '',
+    mb: '147px',
     prev: '',
     next: ''
   },
@@ -61,14 +65,14 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '190px',
-    mb: '',
+    mb: '114px',
     prev: '',
     next: ''
   },
   {
     id: '9',
     idx: '9',
-    banner: INJURY_LIST,
+    banner: NEW_PAYMENT_SYSTEM_LIST,
     title: '보험웹툰_신포괄수가제',
     contents: NEW_PAYMENT_SYSTEM_DETAIL,
     tag: '#프롬이 보험이야기 #신포괄수가제 #웹툰',
@@ -76,7 +80,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '190px',
-    mb: '',
+    mb: '130px',
     prev: '',
     next: ''
   },
@@ -91,7 +95,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '170px',
-    mb: '',
+    mb: '110px',
     prev: '',
     next: ''
   },
@@ -106,14 +110,14 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '212px',
-    mb: '',
+    mb: '130px',
     prev: '',
     next: ''
   },
   {
     id: '6',
     idx: '6',
-    banner: TRAVELER_LIST,
+    banner: DRIVER_LIST,
     title: '보험웹툰_운전자 보험',
     contents: DRIVER_DETAIL,
     tag: '#프롬이 보험이야기 #운전자보험 #웹툰',
@@ -121,14 +125,14 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '212px',
-    mb: '',
+    mb: '130px',
     prev: '',
     next: ''
   },
   {
     id: '5',
     idx: '5',
-    banner: TRAVELER_LIST,
+    banner: LIFE_LIST,
     title: '보험웹툰_종신 보험',
     contents: LIFE_DETAIL,
     tag: '#프롬이 보험이야기 #종신보험 #웹툰',
@@ -136,7 +140,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '181px',
-    mb: '',
+    mb: '115px',
     prev: '',
     next: ''
     
@@ -144,7 +148,7 @@ export const Data2 = [
   {
     id: '4',
     idx: '4',
-    banner: TOOTH_LIST,
+    banner: ALZHEIMER_TEST_LIST,
     title: '보험웹툰_치매자가Test',
     contents: ALZHEIMER_TEST_DETAIL,
     tag: '#프롬이 보험이야기 #치매자가테스트 #웹툰',
@@ -152,7 +156,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '218px',
-    mb: '',
+    mb: '135px',
     prev: '',
     next: ''
   },
@@ -167,7 +171,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '177px',
-    mb: '',
+    mb: '115px',
     prev: '',
     next: ''
   }, 
@@ -182,7 +186,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '177px',
-    mb: '',
+    mb: '110px',
     prev: '',
     next: ''
   },
@@ -197,7 +201,7 @@ export const Data2 = [
     keyword2: '대장내시경',
     keyword3: '건강검진',
     width: '196px',
-    mb: '',
+    mb: '130px',
     prev: 'none',
     next: ''
   },

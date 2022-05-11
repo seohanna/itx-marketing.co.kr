@@ -225,13 +225,14 @@ const Lnb = styled.div`
 }
 .sub-menu-dropdown {
   text-align: start;
-  line-height: 30px;
+  line-height: 40px;
   font-size: 15px;
-  padding-left: 35%;
+
 }
 .sub-menu-dropdown > li {
   display: flex;
   align-items: center;
+  padding-left: 40%;
 }
 .sub-menu-dropdown > li::before {
   content: '';

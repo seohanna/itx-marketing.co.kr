@@ -58,11 +58,3 @@ const ModalHead = styled.div`
   }
 `;
 
-const Private = styled.div`
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 50%;
-  right: 10%;
-  background-color: aliceblue;
-`;

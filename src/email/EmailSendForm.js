@@ -30,6 +30,11 @@ export const EmailSendForm = ({
       title: '전문가 입사문의',
       article: '성명, 연락처, 생년월일'
     },
+    {
+      id: 3,
+      title: '상속증여연구소',
+      article: '성명, 연락처, 생년월일'
+    },
   ];
 
   const [modalVisible, setModalVisible] = useState(false);
@@ -356,9 +361,11 @@ export const EmailSendForm = ({
         </ButtonContainer>
           {modalVisible && (
             <PrivateModal onClick={closeModal} 
-              data={corporate ? modaldata[0] : 
+              data={corporate || corporation ? modaldata[0] : 
               (individual ? modaldata[1] : 
-                (expert ? modaldata[2] : null))}
+                (expert ? modaldata[2] :
+                  (inherit? modaldata[3] : null)
+                  ))}
             />
           )}  
         </Form>

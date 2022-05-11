@@ -89,7 +89,7 @@ function InvestDetail({ data, data2, primary, webtoon }) {
           <MainTitle>
             <div>
               <h2>{data.title}</h2>
-              <HashTag name='재테크' />
+              <HashTag name='재테크' width={'116px'} mb={'64px'} />
             </div>
             <p>{data.date}</p>
           </MainTitle>
@@ -163,7 +163,7 @@ function InvestDetail({ data, data2, primary, webtoon }) {
                   <strong>3분</strong> 재테크
                 </div>
                 <div className='mobile'>
-                  <HashTag name='프롬이 보험이야기' width={'163px'} mb={'50px'} />
+                  <HashTag name='프롬이 보험이야기' width={'163px'} mb={'114px'} />
                   <HashTag name={data2.title} width={data2.width} mb={data2.mb} />
                 </div>
               </Wrap>
@@ -191,9 +191,9 @@ function InvestDetail({ data, data2, primary, webtoon }) {
                   <div className='keyword'>
                     <span>키워드</span>
                     <div>
-                      <HashTag name={data2.keyword1} width={'121px'} />
-                      <HashTag name={data2.keyword2} width={'121px'} />
-                      <HashTag name={data2.keyword3} width={'121px'} />
+                      <HashTag name={data2.keyword1} width={'121px'} mb={'90px'} />
+                      <HashTag name={data2.keyword2} width={'121px'} mb={'90px'} />
+                      <HashTag name={data2.keyword3} width={'121px'} mb={'90px'} />
                     </div>
                   </div>
                   <p>금융상품판매업자 : 아이티엑스마케팅(주)  등록본호 : 제 20111201710호 </p>
@@ -284,12 +284,12 @@ const InvestContents = styled.div`
     }
   }
 
-  >.cont3 .sub-list{
+  > .cont3 .sub-list{
     > li {
       padding-bottom: 5%;
     }
   }
-  }
+}
 `;
 
 const MainTitle = styled.div`
@@ -315,6 +315,7 @@ const MainTitle = styled.div`
     > div {
       > h2 {
         font-size: 0.625rem;
+        margin-right: 6%;
       }
     }
     > p {
@@ -331,7 +332,6 @@ const TitleWrap = styled.div`
   
   @media (max-width: 700px) {
     padding-left: 6%;
-    background-color: #f8f8f8;
   }
 `;
 
@@ -392,6 +392,7 @@ const ContentsWrap = styled.div`
       width: 18.04123711340206%;
     }
   }
+
   @media (max-width: 700px) {
     > div {
       padding: 12.9% 0%;
@@ -426,10 +427,8 @@ const ContentsWrap = styled.div`
       margin-bottom: 4%;
       > div {
         width: 100%;
-        > div {
-          padding: 0 9%;
+        > h4 {
           margin-bottom: 5%;
-          
           :last-child {
             margin: 0;
           }
@@ -442,7 +441,6 @@ const ContentsWrap = styled.div`
         font-size: 0.8rem;
         width: 50%;
       }
-      
     }
   }
 `;
@@ -604,20 +602,15 @@ const Wrap = styled.div`
       
     }
     .mobile {
-      display: flex;
       flex-direction: column;
-      
-      > div {
-        margin: 0;
-        height: 25px;
-        padding: 0%;
-        width: 114px;   
-        :first-child {
-          margin-bottom: 5px;
+      > h4 {
+        margin: 0 0 5px 20px;
+        :last-child {
+          margin-bottom: 0;
         }
       }
-    } 
-  }
+    }   
+  } 
 `;
 
 const ButtonWrap = styled.div`

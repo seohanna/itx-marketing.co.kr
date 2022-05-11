@@ -27,5 +27,6 @@ const HashBox = styled.h4`
   @media (max-width: 700px) {
     font-size: 0.625rem;
     width: ${props => props.mb};
+    height: 25px;
   }
 `;

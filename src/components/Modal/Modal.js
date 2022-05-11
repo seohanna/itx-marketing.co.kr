@@ -2,14 +2,14 @@ import React from 'react'
 import styled, { css } from 'styled-components';
 import closeBtn from '../../img/common/closeBtnBlack.svg';
 import closeBtnWhite from '../../img/common/closeBtnWhite.svg';
-const Modal = ({children, recruit, onClick, apply, pdf}) => {
+const Modal = ({children, recruit, onClick, apply}) => {
  
   return (
     <>
       <ModalContainer apply={apply}>
-        <ModalContent recruit={recruit} apply={apply} pdf={pdf}>
+        <ModalContent recruit={recruit} apply={apply}>
           <ButtonWrap>
-            <Button onClick={onClick} recruit={recruit} apply={apply} pdf={pdf}>X</Button>
+            <Button onClick={onClick} recruit={recruit} apply={apply}>X</Button>
           </ButtonWrap>
           {children}
         </ModalContent>
@@ -49,10 +49,9 @@ const ModalContent = styled.div`
   z-index: 1000;
   
   ${props => props.recruit && css`
-      width:45%;
-      height: 100vh;
-      padding: 2.4% 2.4% 2%;
-    
+    width:45%;
+    height: 100vh;
+    padding: 2.4% 2.4% 2%;
   `}
 
   ${props => props.apply && css`
@@ -62,14 +61,9 @@ const ModalContent = styled.div`
     border: 1px solid #B8292D;
   `}
   
-  ${props => props.pdf && css`
-    width: 1000px;
-    height: 500px;
-    overflow: scroll;
-  `}
+
 
   @media (max-width: 700px) {
-    
     ${props => props.recruit && css`
       width: 100%;
       height: 100%;
@@ -117,15 +111,5 @@ const Button = styled.button`
       position: absolute;
       background-size: contain;
     }
-  `}
-
-  ${props => props.pdf && css`
-    width: 60px;
-    height: 60px;
-    background-image: url(${closeBtnWhite});
-    position: absolute;
-    top: 26%;
-    right: 3%;
-    
   `}
 `;

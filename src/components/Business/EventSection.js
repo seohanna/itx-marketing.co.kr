@@ -125,7 +125,6 @@ const TextWrap = styled.div`
   `}
 
   ${props => props.invest && css`
-
     @media (max-width: 700px) {
       width: 100%;
       h2 {
@@ -141,6 +140,7 @@ const TextWrap = styled.div`
   `}
   
     @media (max-width: 700px) {
+      padding-left: 0;
       > div {
         padding: 0;
       }

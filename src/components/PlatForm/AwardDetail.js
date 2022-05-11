@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 function AwardDetail({ data }) {
-  const history = useHistory();
+  // const history = useHistory();
 
 
-  const goList = () => {
-    history.push('summary?veiw');
-  }
+  // const goList = () => {
+  //   history.push('summary?veiw');
+  // }
 
    
   return (
@@ -23,16 +23,35 @@ function AwardDetail({ data }) {
               <h2>{data.award}</h2>
             </div>
           </Header>
-          <ImageWrap>
-            <img src={data.img} alt='' className={data.class} />
-          </ImageWrap>
           <TextWrap>
-            <p>{data.content}</p>
-            <p>{data.content2}</p>
+            <li>
+              <h3>{data.content1}</h3>
+              <p>{data.content1_2}</p>
+            </li>
+            <li>
+              <h3>{data.content2}</h3>
+              <p>{data.content2_2}</p>
+            </li>
+            <li>
+              <h3>{data.content3}</h3>
+              <p>{data.content3_2}</p>
+            </li>
+            <li>
+              <h3>{data.content4}</h3>
+              <p>{data.content4_2}</p>
+            </li>
+            <li>
+              <h3>{data.content5}</h3>
+              <p>{data.content5_2}</p>
+            </li>
+            <li>
+              <h3>{data.content5}</h3>
+              <p>{data.content5_2}</p>
+            </li>
           </TextWrap>
-          <ButtonWrap>
+          {/* <ButtonWrap>
             <Button onClick={goList}>목록</Button>
-          </ButtonWrap>
+          </ButtonWrap> */}
           <PageNavigation>
             <div className={data.class}>
               <div><p>다음글</p><span>▲</span></div>
@@ -53,90 +72,81 @@ export default AwardDetail;
 
 const DetailContainer = styled.div`
   width: 100%;
-  padding: 5.7% 7%;
+  padding: 2% 7.8125% 10%;
 
   @media (max-width: 700px) {
-    padding: 20% 7.1% 20% 0;
+    padding: 10% 7.2%;
   }
 `;
 const Header = styled.div`
-  padding: 3.5% 0 2%;
+  padding: 3.5% 0;
+  margin-bottom: 3%;
   border-bottom: 1px solid #D7D7D7;
   color: #323232;
-  > h2 {
-    font-size: 1.25rem;
+  > img {
+    padding-bottom: 2.9%;
   }
-  > p {
-    font-size: 0.8rem;
-    padding-top: 1.9%;
-  }
-
-  @media (max-width: 700px) {
-    padding: 7.5% 0;
+  > div {
+    > p {
+      font-size: 0.65rem;
+      color: #C4C4C4;
+      padding-bottom: 1%;
+    }
     > h2 {
-      width: 300px;
-      padding-right: 10%;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      font-size: 0.625rem;
-    }
-    > p {
-      font-size: 0.625rem;
-      padding-top: 5%;
+      font-size: 1.25rem;
+      
     }
   }
-`;
-const ImageWrap = styled.div`
-  padding: 4% 0;
-  &.none {
-    display: none;
-  }
+
   @media (max-width: 700px) {
-    padding: 9.2% 0 11.9% 0;
+    padding: 0;
+    border-bottom: 1px solid #D7D7D7;
+   
     > img {
-      width: 80%;
+      transform: scale(0.8) translateX(-20%);
+      padding-bottom: 5%;
+    }
+    > div {
+      > p {
+        font-size: 0.625rem;
+        padding-bottom: 5%;
+      }
+      > h2 {
+        font-size: 0.8125rem;
+        padding-bottom: 10%;
+      }
     }
   }
 `;
-const TextWrap = styled.div`
-  padding-right: 18%;
-  
-  > p {
-    padding-bottom: 5%;
-    line-height: 1.25rem;
-  }
-  @media (max-width: 700px) {
-    padding-right: 0;
+
+const TextWrap = styled.ul`
+  padding-bottom: 10%;
+  > li {
+    padding-bottom: 3%;
+    > h3 {
+      font-size: 1.25rem;
+      color: #B8292D;
+    }
     > p {
-      padding-bottom: 7%;
-      line-height: 1rem;
-      font-size: 0.625rem;
+      line-height: 1.25rem;
     }
   }
-`;
 
-const ButtonWrap = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding: 5% 0;
+  
   @media (max-width: 700px) {
-    padding: 8% 0;
+    padding: 10% 0;
+    > li {
+      padding-bottom: 6%;
+    > h3 {
+      font-size: 0.625rem;
+      padding-bottom: 1%;
+    }
+    > p {
+      font-size: 0.625rem;
+      line-height: 0.9rem;
+    }
   }
-`;
-
-const Button = styled.button`
-  width: 100px;
-  height: 30px;
-  background-color: #B8292D;
-  color: #FFFFFF;
-  font-size: 0.65rem;
-
-  @media (max-width: 700px) {
-    width: 50px;
-    height: 20px;
-    font-size: 0.5625rem;
-  }
+}
 `;
 
 const PageNavigation = styled.div`
