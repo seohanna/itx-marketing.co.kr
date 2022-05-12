@@ -38,11 +38,12 @@ const SearchMap = () => {
     console.log(e.target.value)
   }
 
-  
-
   const handleClick = (e) => {
+    
     for (let i = 0; searchMork.item.length > i; i++) {
-      if (search === searchMork.item[i].name) {
+      var str = searchMork.item[i].name;
+      
+      if (str.includes(search)) {
         setData((prevState) => ({
           ...prevState,
           hits: searchMork.item[i]
@@ -58,7 +59,9 @@ const SearchMap = () => {
 
         window.scrollTo(0, 2500);
       }
-      
+      else {
+        
+      }
       // if (search !== searchMork.item[i].name) {
       //   alert('일치하는 사업단이 없습니다. 띄어쓰기 포함해서 입력해주세요! 수정예정입니다');
       //   return false;
@@ -74,9 +77,9 @@ const SearchMap = () => {
           type="text"
           placeholder='본부, 사업단, 지점명, 보험플러스 점포명 입력'
           onChange={(e) => setSearch(e.target.value)}
-          onKeyPress={handleClick}
+          // onKeyPress={handleClick}
         />
-        <Button onClick={handleClick} />
+        <Button onClick={handleClick} onKeyPress={handleClick} />
    
       </Search>
       <SearchGuide>

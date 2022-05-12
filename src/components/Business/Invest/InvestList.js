@@ -46,7 +46,7 @@ function InvestList({data}) {
                   </Link>
                 </RouteImage>
                 <h2>{dt.title}</h2>
-                <div>
+                <div className='tag'>
                   <p>{dt.tag}</p>
                 </div>
               </li>
@@ -113,6 +113,13 @@ const DataList = styled.ul`
         display: flex;
         align-items: center;
         height: 80px;
+      }
+
+      
+    }
+    .tag {
+      > p {
+        font-size: 1vw;
       }
     }
   }
