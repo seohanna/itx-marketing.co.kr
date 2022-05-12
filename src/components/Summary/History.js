@@ -157,15 +157,24 @@ const BigTextScroll = styled.div`
     line-height: 15rem;
     transform: translateX(-2000px);
   
-  &.show {
-    opacity: 1;
-    transform: translateX(100px);
-    @media (max-width: 700px) {
-      transform: translateX(0);
+    &.show {
+      opacity: 1;
+      transform: translateX(100px);  
     }
   }
- 
-}
+  @media (max-width: 700px) {
+    padding-top: 20px;
+    > p {
+      font-size: 2.5rem;
+      line-height: 5rem;
+      transform: translateX(-2000px);
+    
+      &.show {
+        opacity: 1;
+        transform: translateX(17%);  
+      }
+    }
+  }
 `;
 const History = () => {
  
@@ -184,7 +193,7 @@ const History = () => {
       new ScrollMagic
       .Scene({
         triggerElement: textRef.current,
-        triggerHook: .8
+        triggerHook: .9
       })
       .setClassToggle(textRef.current, 'show')
       .addTo(controller);

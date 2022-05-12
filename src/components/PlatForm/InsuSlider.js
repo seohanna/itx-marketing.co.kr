@@ -9,7 +9,7 @@ import SwiperCore, { Autoplay, Pagination } from 'swiper';
 
 
 const StyleSwiper = styled(Swiper)`
-  margin: 5% 10%;
+  margin: 5% 15%;
   padding: 5% 9.21875%;
 
   .swiper-slide {
@@ -58,7 +58,7 @@ const StyleSwiper = styled(Swiper)`
     }
   }
   @media (max-width: 700px) {
-    margin: 0;
+    margin: 0 0 20% 0;
     padding: 15% 0 20%;
     .swiper-slide {
       box-shadow: 8px 7px 20px rgba(0, 0, 0, 0.2);

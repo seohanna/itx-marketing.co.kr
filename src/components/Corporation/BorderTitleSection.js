@@ -257,15 +257,15 @@ const ProfileList = styled.ul`
  
   > li {
     width: 30.8641975308642%;
-    border: 2px solid #B8292D;
     margin-right: 3.6%;
     margin-bottom: 10%;
-
+    border: 2px solid #B8292D;
     :nth-child(3n) {
       margin-right: 0;
     }
       div {
         padding: 5% 4.5%;
+        
       }
       h2 {
         font-size: 1.25rem;
@@ -424,6 +424,7 @@ const StyleSwiper = styled(Swiper)`
         margin-right: 0;
       }
     div {
+      
       padding: 5% 7%;
     }
     .header {

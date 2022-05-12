@@ -29,7 +29,7 @@ const SearchMap = () => {
     }
   }));
   const [data, setData] = useState({
-    hits: searchMork.item[0]
+    hits: searchMork.item[7]
   });
   const [search, setSearch] = useState('');
 

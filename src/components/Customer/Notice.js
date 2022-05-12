@@ -15,7 +15,7 @@ function Notice() {
             <th>채널</th>
             <th>작성자</th>
             <th>등록일</th>
-            <th>조회수</th>
+            {/* <th>조회수</th> */}
           </tr>
         </thead>
         <tbody>
@@ -25,7 +25,7 @@ function Notice() {
               <Title><Link to={`/customer/${dt.id}`}>{dt.title}</Link></Title>
               <Writer>{dt.writer}</Writer>
               <Date>{dt.date}</Date>
-              <Hits>{dt.hits}</Hits>
+              {/* <Hits>{dt.hits}</Hits> */}
             </tr>
           ))}
         </tbody>
@@ -82,9 +82,20 @@ const Title = styled.td`
   width: 48.02469135802469%;
   text-align: start !important;
   padding-left: 2%;
+  
   @media (max-width: 700px) {
     width: 51.875%;
+    text-align: center !important;
     padding-left: 0;
+    a {
+      display: inline-block;
+      width: 145px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+
     /* overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; */
@@ -105,11 +116,11 @@ const Date = styled.td`
   }
 `;
 
-const Hits = styled.td`
-  width: 12.34567901234568%;
-  @media (max-width: 700px) {
-    width: 10.625%;
-  }
-`;
+// const Hits = styled.td`
+//   width: 12.34567901234568%;
+//   @media (max-width: 700px) {
+//     width: 10.625%;
+//   }
+// `;
 
 
