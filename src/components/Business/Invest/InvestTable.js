@@ -93,7 +93,7 @@ const Table = styled.table`
     color: #323232;
    
     th {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
     @media (max-width: 700px) {
       th {
