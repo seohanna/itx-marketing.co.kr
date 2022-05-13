@@ -19,4 +19,8 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 700px) {
+    padding: 50% 0 25% 0;
+  }
 `;
