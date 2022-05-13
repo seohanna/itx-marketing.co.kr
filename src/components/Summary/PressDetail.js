@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { table1, table2, table3 } from '../../data/PressRoom';
 
 function InvestDetail({ data }) {
   const history = useHistory();
@@ -12,7 +11,6 @@ function InvestDetail({ data }) {
     history.push('summary?veiw');
   }
 
-   
   return (
     <>
       {data && (
@@ -35,60 +33,6 @@ function InvestDetail({ data }) {
             {data.content7 && (<p>{data.content7}</p>)}
             {data.content8 && (<p>{data.content8}</p>)}
           </TextWrap>
-          {data.table1 && (
-            <TableContainer>
-              <h3>{data.table1}</h3>
-              <table className='table1'>
-                <tr>
-                  <th>증권번호</th>
-                  <th>계약자</th>
-                  <th>계약일</th>
-                </tr>
-                {table1.map((td) => (
-                  <tr key={td.id}>
-                    <td>{td.number}</td>
-                    <td>{td.name}</td>
-                    <td>{td.date}</td>
-                  </tr>
-                ))}
-              </table>
-            </TableContainer>
-          )}
-          {data.table2 && (
-            <TableContainer>
-              <h3>{data.table2}</h3>
-              <div>
-                <table>
-                  <tr>
-                    <th>증권번호</th>
-                    <th>계약자</th>
-                    <th>계약일</th>
-                  </tr>
-                  {table2.map((td) => (
-                    <tr key={td.id}>
-                      <td>{td.number}</td>
-                      <td>{td.name}</td>
-                      <td>{td.date}</td>
-                    </tr>
-                  ))}
-                </table>
-                <table>
-                  <tr>
-                    <th>증권번호</th>
-                    <th>계약자</th>
-                    <th>계약일</th>
-                  </tr>
-                  {table3.map((td) => (
-                    <tr key={td.id}>
-                      <td>{td.number}</td>
-                      <td>{td.name}</td>
-                      <td>{td.date}</td>
-                    </tr>
-                  ))}
-                </table>
-              </div>
-            </TableContainer>
-          )}
           <ButtonWrap>
             <Button onClick={goList}>목록</Button>
           </ButtonWrap>
@@ -253,56 +197,6 @@ const PageNavigation = styled.div`
   }
 `;
 
-const TableContainer = styled.div`
-  > h3 {
-    font-size: 1rem;
-    padding-bottom: 1%;
-  }
-  > div {
-    display: flex;
-    justify-content: space-between;
-  }
-  table {
-    width: 45%;
-    text-align: center;
-    &.table1 {
-      margin-bottom: 5%;
-    }
-  }
-  table, th, td {
-    border-collapse: collapse;
-    border: 1px solid #DDDDDD;
-  }
-  th {
-    height: 50px;
-  }
-  td {
-    padding: 15px;
-
-  }
-
-  @media (max-width: 700px) {
-    > h3 {
-      font-size: 0.8125rem;
-      padding-bottom: 3%;
-    }
-    > div {
-      flex-direction: column;
-    }
-    table {
-      width: 100%;
-      margin-bottom: 5%;
-    }
-    th {
-      height: 30px;
-      font-size: 0.625rem;
-    }
-    td {
-      padding: 8px;
-      font-size: 0.625rem;
-    }
-  }
-`;
 
 
 
