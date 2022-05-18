@@ -298,7 +298,7 @@ const Contents = ({slogan, disc, disc2, intro, service, id}) => {
                 </h1>
                 <ul className="list-style">
                   <li>정책자금 지원범위 : <br className="mobile"/>중소기업의 운영자금, 시설자금, 설립자금</li>
-                  <li>정책자금 지원효과 : <br className="mobile"/>고용중대효과, 경영난 해소, 창업 초기기업의 <br className="mobile"/>집중 육성 등</li>
+                  <li>정책자금 지원효과 : <br className="mobile"/>고용증대효과, 경영난 해소, 창업 초기기업의 <br className="mobile"/>집중 육성 등</li>
                 </ul>
                 <div className="circle-table">
                   <img src={section2} alt='' />
@@ -339,7 +339,7 @@ const Contents = ({slogan, disc, disc2, intro, service, id}) => {
                 </h1>
                 <ul className="list-style">
                   <li>혁신형 기업인증 : 기업부설연구소, 벤쳐기업, 이<br className="mobile"/>노비즈, 메인비즈, 우수그린비즈</li>
-                  <li>기업인증 : 부품소재전문기업, 뿌리기술전문기업, <br className="mobile"/>녹생인증, ISO인증, NEP인증</li>
+                  <li>기업인증 : 부품소재전문기업, 뿌리기술전문기업, <br className="mobile"/>녹색인증, ISO인증, NEP인증</li>
                 </ul>
                 <div className="circle-table col">
                   <img src={section4} alt='' className="pc" />
@@ -365,7 +365,7 @@ const Contents = ({slogan, disc, disc2, intro, service, id}) => {
                   <li>취업규칙, 근로계약서, 포괄임금제(연봉제)합법적 개선</li>
                   <li>급여, 복리후생 등 인건비관련 효율적 적법처리방안</li>
                   <li>각종 인사조치에 대한 적법 행사방법</li>
-                  <li>해고 또는 징계해고에 대한 적법 실행방법</li>
+                  <li>징계해고에 대한 적법 실행방법</li>
                   <li>평가보상체계 설계</li>
                   <li>노사협의회의 효과적 운영설계</li>
                 </ul>

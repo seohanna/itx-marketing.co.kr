@@ -13,10 +13,14 @@ const Container = styled.section`
   }
 `;
 const ChartWrap = styled.div`
+  
   .mobile {
     display: none;
   }
   @media(max-width: 700px) {
+    > img {
+      width: 100%;
+    }
     .pc {
       display: none;
     }

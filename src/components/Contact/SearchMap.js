@@ -28,6 +28,7 @@ const SearchMap = () => {
       return data;
     }
   }));
+
   const [data, setData] = useState({
     hits: searchMork.item[7]
   });
@@ -39,11 +40,9 @@ const SearchMap = () => {
   }
 
   const handleClick = (e) => {
-    
     for (let i = 0; searchMork.item.length > i; i++) {
-      var str = searchMork.item[i].name;
-      
-      if (str.includes(search)) {
+      // var str = searchMork.item[i].name;
+      if (search === searchMork.item[i].name) {
         setData((prevState) => ({
           ...prevState,
           hits: searchMork.item[i]
@@ -51,6 +50,14 @@ const SearchMap = () => {
         
         window.scrollTo(0, 2500);
       }  
+      // if (str.includes(search)) {
+      //   setData((prevState) => ({
+      //     ...prevState,
+      //     hits: searchMork.item[i]
+      //   }));
+        
+      //   window.scrollTo(0, 2500);
+      // }  
       if (e.target.value === searchMork.item[i].name) {
         setData((prevState) => ({
           ...prevState,
@@ -58,9 +65,6 @@ const SearchMap = () => {
         }));
 
         window.scrollTo(0, 2500);
-      }
-      else {
-        
       }
       // if (search !== searchMork.item[i].name) {
       //   alert('일치하는 사업단이 없습니다. 띄어쓰기 포함해서 입력해주세요! 수정예정입니다');

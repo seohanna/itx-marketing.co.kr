@@ -352,7 +352,7 @@ const Header = (props) => {
                       <li><a href='/business/platform/market'>Market</a></li>
                     </ul>
                   </li>
-                  <li><a href='/business/invest'>3분 재태크</a></li>
+                  <li><a href='/business/invest'>3분 재테크</a></li>
                   <li><a href='/business/apply'>상담신청</a></li>
                 </ul>
               </li>

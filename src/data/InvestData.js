@@ -225,7 +225,7 @@ export const Data = [
   {
     id: '1',
     idx: '1',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: '',
@@ -265,7 +265,7 @@ export const Data = [
   {
     id: '2',
     idx: '2',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: 'bold',
@@ -304,7 +304,7 @@ export const Data = [
   {
     id: '3',
     idx: '3',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: '',
@@ -344,7 +344,7 @@ export const Data = [
   {
     id: '4',
     idx: '4',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: '',
@@ -380,7 +380,7 @@ export const Data = [
   {
     id: '5',
     idx: '5',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: '',
@@ -418,7 +418,7 @@ export const Data = [
   {
     id: '6',
     idx: '6',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: 'bold',
@@ -456,7 +456,7 @@ export const Data = [
   {
     id: '7',
     idx: '7',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: '',
@@ -486,7 +486,7 @@ export const Data = [
   {
     id: '8',
     idx: '8',
-    type: '재태크',
+    type: '재테크',
     writer: '강세훈',
     date: '2022. 05. 03',
     bold: '',
