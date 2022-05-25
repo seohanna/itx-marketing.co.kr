@@ -8,10 +8,12 @@ import { useLocation } from 'react-router-dom';
 import SubMenu from '../components/Corporation/SubMenu';
 import Contents from '../components/Corporation/Contents';
 import BorderTitleSection from '../components/Corporation/BorderTitleSection';
+import PreparePage from '../components/PreparePage';
 
 const Corporation = () => {
   const location = useLocation();
   return (
+    <>
     <>
       <Layout primary>
         {location.pathname === '/corporation' && (
@@ -49,22 +51,21 @@ const Corporation = () => {
         </>
       )}
       {location.pathname === '/corporation/expert' && (
+        <Layout black overlap>
         <>
-          <CommonBanner
+          <PreparePage />
+          {/* <CommonBanner
             consulting
             img={corporExpert}
             title='전문가그룹'
             subtxt='ITX 전문가그룹'
             corporexpert
           />  
-          <BorderTitleSection disc={'아이티엑스마케팅에는\n'} span={'분야별 업계최고의 전문 컨설턴트로\n구성되어 있습니다.'}/>
+          <BorderTitleSection disc={'아이티엑스마케팅에는\n'} span={'분야별 업계최고의 전문 컨설턴트로\n구성되어 있습니다.'}/> */}
         </>
-        )}
-     </Layout>
-    </>
-      
-      
-    
+        </Layout> 
+      )}
+     </Layout></></>
   );
 };
 

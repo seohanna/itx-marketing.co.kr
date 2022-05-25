@@ -50,22 +50,22 @@ const Info = (props) => {
           <div style={{
             backgroundImage: `url(${infoInquiry})`
           }}></div>
-          <p>문의처 : 02 - 222 - 2222</p>
+          <p>문의처 : {props.phone}</p>
         </li>
         <li>
           <div style={{
             backgroundImage: `url(${infoEmail})`
           }}></div>
-          <p>{props.email}</p>
+          <p>이메일 : {props.email}</p>
         </li>
         <li>
           <div style={{
             backgroundImage: `url(${infoKeeper})`
           }}></div>
-          <p>{props.keeper}</p>
+          <p>담당자 : {props.keeper}</p>
         </li>
     </Wrap>
-  )
-}
+  );
+};
 
-export default Info
+export default Info;

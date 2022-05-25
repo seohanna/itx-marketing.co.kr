@@ -322,7 +322,11 @@ const Fp = () => {
           </Button>
         </div>
         <MiniBanner desc="FP채용 문의" />
-          <Info email="이메일 : kkang933@wehago.com" keeper="담당자 : 강세훈 부장" />
+          <Info
+            phone="02 - 6952 - 2952"
+            email="coolgui@wehago.com" 
+            keeper="정의석 과장" 
+          />
       </BottomWrap>
     </Container>
     <>

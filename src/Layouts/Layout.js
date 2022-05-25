@@ -12,14 +12,14 @@ const Wrap = styled.div`
   overflow: hidden;
 `;
 
-const Layout = ({children, black, primary}) => {
+const Layout = ({children, black, primary, overlap}) => {
   return (
     <>
       <PageScrollToTop />
       <Wrap className="wrap">
         <Header black={black} primary={primary} />
           {children}
-        <Footer />
+        <Footer overlap={overlap}/>
       </Wrap>
     </>
   );

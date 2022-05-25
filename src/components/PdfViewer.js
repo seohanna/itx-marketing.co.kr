@@ -46,6 +46,7 @@ export default PdfViewer;
 
 const ViewContainer = styled.div`
   .react-pdf__Page__canvas {
+      height: 750px !important;
     @media (max-width: 700px) {
       margin: 0 auto;
       width: 90% !important;

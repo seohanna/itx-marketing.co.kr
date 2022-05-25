@@ -371,7 +371,11 @@ const Permanent = () => {
       </ContentContainer>
       <BottomWrap>
           <MiniBanner desc="정규직 채용 문의" />
-            <Info email="이메일 : aseds@wehago.com" keeper="담당자 : 정의석 부장" />
+            <Info 
+              phone="02 - 6275 - 9399"
+              email="iamjsh6@wehago.com" 
+              keeper="정상헌 팀장" 
+            />
         </BottomWrap>
     </Container>
   )

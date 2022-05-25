@@ -151,7 +151,7 @@ const Contents = ({slogan, disc, disc2, intro, service, id}) => {
             <AsideBox>
               <h3>중소기업 전용<br />
               온라인 상담신청 Click</h3>
-              <h3>상담전화 <strong>1588-1234</strong></h3>
+              <h3>상담전화 <strong>02-6952-2952</strong></h3>
             </AsideBox>
             <BottomContents>
               <LeftWrap>

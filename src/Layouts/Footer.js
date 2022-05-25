@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import React, { useState } from "react";
 import logo from "../img/common/footLogo.svg";
 import pdf1 from '../pdf/privacy.pdf';
@@ -11,7 +11,7 @@ import closeBtn from '../img/common/closeBtnWhite.svg';
 import PdfViewer from "../components/PdfViewer";
 
 
-const Footer = () => {
+const Footer = ({overlap}) => {
   const [pdfViewer, setPdfViewer] = useState(false);
   const [pdfViewer2, setPdfViewer2] = useState(false);
   const [pdfViewer3, setPdfViewer3] = useState(false);
@@ -57,7 +57,7 @@ const Footer = () => {
   }
   return (
     <>
-    <Footers>
+    <Footers overlap={overlap}>
       <div>
         <Logo></Logo>
         <FooterMenu>
@@ -149,6 +149,11 @@ const Footers = styled.footer`
   flex-direction: column;
   align-content: space-between;
   line-height: 20px;
+
+
+  ${props => props.overlap && css`
+    display: none;
+  `}
   @media (max-width: 700px) {
     font-size: 0.625rem;
     padding: 12% 12.8% 10% 5.33%;
