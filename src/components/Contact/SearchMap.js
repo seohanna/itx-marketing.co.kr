@@ -113,7 +113,7 @@ const SearchMap = () => {
                 </tr>
                 <tr>
                   <th><input readOnly onClick={(e) => handleListClick(e)} value='인천'/></th>
-                  <td><input readOnly onClick={(e) => handleListClick(e)} value='부평시'/></td>
+                  <td><input readOnly onClick={(e) => handleListClick(e)} value='부평구'/></td>
                   <th><input readOnly onClick={(e) => handleListClick(e)} value='제주'/></th>
                   <td><input readOnly onClick={(e) => handleListClick(e)} value='제주시'/></td>
                 </tr>
