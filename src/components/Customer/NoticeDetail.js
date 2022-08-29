@@ -45,9 +45,23 @@ const Title = styled.div`
     font-size: 1rem;
     color: #444444;
   }
+
+  @media (max-width: 700px) {
+    padding: 10% 0;
+    > h2 {
+      font-size: 0.625rem;
+    }
+    > p {
+      font-size: 0.625rem;
+    }
+  }
 `;
 const Contents = styled.div`
   padding: 5% 0;
+
+  @media (max-width: 700px) {
+    padding: 10% 0;
+  }
 `;
 
 const ButtonWrap = styled.div`
@@ -62,5 +76,11 @@ const BackButton = styled.button`
   height: 30px;
   color: #FFFFFF;
   font-size: 0.8rem;
+
+  @media (max-width: 700px) {
+    width: 60px;
+    height: 25px;
+    font-size: 0.625rem;
+  }
 `;
 
