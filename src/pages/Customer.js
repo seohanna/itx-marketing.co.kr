@@ -1,31 +1,30 @@
-// import React, { useEffect, useState } from 'react';
-import React from 'react';
-import PreparePage from '../components/PreparePage';
-// import CommonBanner from '../components/CommonBanner';
+import React, { useEffect, useState } from 'react';
+// import PreparePage from '../components/PreparePage';
+import CommonBanner from '../components/CommonBanner';
 import Layout from '../Layouts/Layout';
-// import bannerImg from '../img/sub/customerBanner.png';
-// import customer from '../img/sub/customer.png';
-// import BorderTitleSection from '../components/Customer/BorderTitleSection';
-// import { useLocation } from 'react-router-dom';
-// import Notice from '../components/Customer/Notice';
-// import NoticeDetail from '../components/Customer/NoticeDetail';
-// import { getPostByNo } from '../data/Notice';
+import bannerImg from '../img/sub/customerBanner.png';
+import customer from '../img/sub/customer.png';
+import BorderTitleSection from '../components/Customer/BorderTitleSection';
+import { useLocation } from 'react-router-dom';
+import Notice from '../components/Customer/Notice';
+import NoticeDetail from '../components/Customer/NoticeDetail';
+import { getPostByNo } from '../data/Notice';
 
-const Customer = ({match}) => {
-  // const location = useLocation();
-  // const [ data, setData ] = useState({});
-  // const { id } = match.params;
+const Customer = ({ match }) => {
+  const location = useLocation();
+  const [ data, setData ] = useState({});
+  const { id } = match.params;
 
-  // console.log(id)
-  // useEffect(() => {
-  //   setData(getPostByNo(id));
-  //   window.scrollTo(0, 1000)
-  // }, [id]);
+  console.log(id)
+  useEffect(() => {
+    setData(getPostByNo(id));
+    window.scrollTo(0, 1000)
+  }, [id]);
 
   return (
-      <Layout black>
-        <PreparePage />
-        {/* <>
+      <Layout primary>
+        {/* <PreparePage /> */}
+        <>
           <CommonBanner
             img={bannerImg}
             title='ITX 공지사항'
@@ -40,7 +39,7 @@ const Customer = ({match}) => {
         </>
       {location.pathname === `/customer/${id}` ? (
         <NoticeDetail data={data} />
-      ) : <Notice />} */}
+      ) : <Notice />}
       
     </Layout>
     );

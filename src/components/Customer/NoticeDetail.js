@@ -13,9 +13,13 @@ function NoticeDetail({ data }) {
     <>
       {data && (
        <ContentsInner>
+        <Title>
+          <h2>{data.title}</h2>
+          <p>{data.date}</p>
+        </Title>
          <Contents>
-            {data.title}
-            <p>{data.id}{data.contents}</p>
+            {data.img && (<img src={data.img} alt={data.id} />)}
+            {data.contents && (<p>{data.contents}</p>)}
          </Contents>
        <ButtonWrap>
           <BackButton onClick={goBack}>뒤로가기</BackButton>
@@ -27,6 +31,21 @@ function NoticeDetail({ data }) {
 }
 export default NoticeDetail;
 
+const Title = styled.div`
+  background-color: #F8F8F8;
+  padding: 6.5% 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  > h2 {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+  }
+  > p {
+    font-size: 1rem;
+    color: #444444;
+  }
+`;
 const Contents = styled.div`
   padding: 5% 0;
 `;
@@ -34,6 +53,7 @@ const Contents = styled.div`
 const ButtonWrap = styled.div`
   width: 100%;
   display: flex;
+  padding: 5% 0;
   justify-content: flex-end;
 `;
 const BackButton = styled.button`
