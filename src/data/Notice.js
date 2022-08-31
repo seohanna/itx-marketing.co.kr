@@ -4,7 +4,7 @@ import SOURCE02 from '../img/notice/source02.png';
 export const Data = [
   {
     id: '2',
-    title: '공고문(3자배정 전환사채) 2022.08.26 (공정수정본)',
+    title: '공고문(3자배정 전환사채)',
     writer: '관리자',
     date: '2022. 08. 29',
     hits: '1,231',
@@ -13,7 +13,7 @@ export const Data = [
   },
   {
     id: '1',
-    title: '공고문(3자배정 유상증자) 2022.08.26 (공정수정본)',
+    title: '공고문(3자배정 유상증자)',
     writer: '관리자',
     date: '2022. 08. 29',
     hits: '1,231',
