@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { ThemeProvider } from "styled-components";
 import { Route } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom';
@@ -17,13 +18,19 @@ import Corporation from './pages/Corporation';
 import Inherit from './pages/Inherit';
 import Faq from "./pages/Faq";
 import HelpDesk from "./pages/HelpDesk";
+import EventBanner from "./Layouts/EventBanner";
 
 function App() {
-  
+  const [close, setClose] = useState(true);
+
+  const handleClose = () => {
+    setClose(false)
+  }
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle/>
         <BrowserRouter>
+          <EventBanner handleClose={handleClose} close={close}/>
           <ScrollToTop />
           <Route exact path="/" component={Home} />
           <Route exact path="/intro/summary" component={Summary}/>
